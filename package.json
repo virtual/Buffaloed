@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/virtual/Buffaloed/issues"
   },
-  "homepage": "https://github.com/virtual/Buffaloed#readme"
+  "homepage": "https://github.com/virtual/Buffaloed#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "^4.12.3"
+  }
 }
