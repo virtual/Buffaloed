@@ -1,38 +1,41 @@
-import React, { Component } from 'react';
-import './App.css';
-import { Button, Container, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import React, { Component } from 'react'; 
 import { withRouter } from 'react-router-dom';
+import { Container, Button, Form, Input, Message } from 'semantic-ui-react'
 
-class Signup extends Component {
+
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: ""
     };
     this.createNewUser = this.createNewUser.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
-  handleNameChange(event) {
-    let name = event.target.value;
-    console.log(name);
-    this.setState({ name: name });
+  handleFirstNameChange(event) {
+    this.setState({ firstName: event.target.value });
+  }
+  handleLastNameChange(event) {
+    this.setState({ lastName: event.target.value });
   }
 
   handleEmailChange(event) {
     this.setState({ email: event.target.value });
   }
-
+  
   handlePasswordChange(event) {
     this.setState({ password: event.target.value });
   }
 
   createNewUser() {
-    fetch('/user', {
+    fetch('/signup', {
       method: "post",
       headers: {
         'Accept': 'application/json',
@@ -40,7 +43,8 @@ class Signup extends Component {
       },
       //make sure to serialize your JSON body
       body: JSON.stringify({
-        name: this.state.name,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
         email: this.state.email,
         password: this.state.password
       })
@@ -58,23 +62,27 @@ class Signup extends Component {
       <Container>
         <h1>Signup</h1>
         <Form>
-          <FormGroup>
-            <Label for="name">name</Label>
-            <Input type="text" name="name" onChange={this.handleNameChange} placeholder="Your name here"></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="email">email</Label>
-            <Input type="email" name="email" onChange={this.handleEmailChange} placeholder="Your email here"></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="password">password</Label>
-            <Input type="password" name="password" onChange={this.handlePasswordChange} placeholder="Your password here"></Input>
-          </FormGroup>
-          <Button onClick={this.createNewUser}>Submit</Button>
+          <Form.Group widths='equal'>
+            <Form.Field>
+              <Form.Input label="First Name" type="text" name="firstName" onChange={this.handleFirstNameChange} placeholder="John"></Form.Input>
+            </Form.Field>
+            <Form.Field>
+              <Form.Input label="Last Name" type="text" name="lastName" onChange={this.handleLastNameChange} placeholder="Smith"></Form.Input>
+            </Form.Field>
+          </Form.Group>
+          <Form.Group widths='equal'>
+            <Form.Field>
+              <Form.Input label="Email" type="email" name="email" onChange={this.handleEmailChange} placeholder="Your email here"></Form.Input>
+            </Form.Field>
+            <Form.Field>
+              <Form.Input label="Password" type="password" name="password" onChange={this.handlePasswordChange} placeholder="Your password here"></Form.Input>
+            </Form.Field>
+          </Form.Group>
+          <Button primary type='submit' onClick={this.createNewUser}>Submit</Button>
         </Form>
       </Container>
     );
   }
 }
 
-export default withRouter(Signup);
+export default withRouter(SignUp);

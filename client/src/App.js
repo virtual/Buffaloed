@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './login/Login';
 import Homepage from './homepage/Homepage';
+import Navbar from './navbar/Navbar';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import SignUp from './signup/SignUp';
 
 class App extends Component {
   constructor(){
@@ -24,8 +26,10 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
+            <Navbar />
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
+            <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
          </div>
          </Router>
       </div>

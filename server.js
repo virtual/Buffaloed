@@ -40,6 +40,7 @@ app.post('/signup', function(req, res, next) {
   user.lastName = req.body.lastName;
   user.email = req.body.email;
   user.password = req.body.password;
+  console.log(user);
   user.save(function(err, newUser){
     if(err) {
       next(err);
