@@ -7,6 +7,8 @@ import Navbar from './navbar/Navbar';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import SignUp from './signup/SignUp';
 import { Container } from 'semantic-ui-react';
+import Attractions from './attractions/Attractions';
+
 
 class App extends Component {
   constructor(){
@@ -30,6 +32,7 @@ class App extends Component {
             <Navbar />
             <Container>
             <Route exact path="/" render={()=> <Homepage /> }/>
+            <Route path='/attractions' render={()=> <Attractions /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             </Container>
