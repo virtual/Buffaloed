@@ -10,8 +10,9 @@ export default class FeatureCard extends Component {
   }
   render () {
     console.log(this.props.poi);
+    var link = "attractions/" + this.props.poi.slug;
     const extra = (
-      <Button primary>Learn more</Button>
+      <a href={link}>Learn more</a>
     )
     
     return (

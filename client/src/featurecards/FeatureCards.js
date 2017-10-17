@@ -32,13 +32,8 @@ export default class FeatureCards extends Component {
   }
 
   render(){
-
-    
-
-
-
-  let poiList = [];
-  console.log(this.state.pois);
+ 
+  let poiList = []; 
   this.state.pois.forEach((poi) => {
     poiList.push(
       <FeatureCard poi={poi} />

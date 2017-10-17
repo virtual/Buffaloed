@@ -6,7 +6,34 @@ import Leaderboard from './Leaderboard';
 import FeatureCards from '../featurecards/FeatureCards';
 import QuizBox from '../quiz/Quiz';
 export default class Attractions extends Component {
-  render () {
+  constructor(){
+    super();
+    this.fetchPOIs = this.fetchPOIs.bind(this);
+    this.state = {
+      pois: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
+    }
+      }
+
+  componentDidMount(){
+    this.fetchPOIs();
+  }
+
+  fetchPOIs() {
+    var url = '/poi';
+    fetch(url).then(function (response) {
+      return response.json();
+    }).then((poiObj) => {
+      if (poiObj !== undefined) {
+        console.log(poiObj);
+        this.setState({ 
+          pois : poiObj
+        });
+      }  else {
+        console.log('undefined');
+      }
+    });
+  }
+  render () { 
     return (
       <div>
         <h1>List of Attractions..coming soon</h1>

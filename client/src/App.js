@@ -16,7 +16,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      user: {firstName: '', lastName: '', email: ''}
+      user: {firstName: '', lastName: '', email: ''},
+      poiID: { slug: '' }
     }
     this.setUser = this.setUser.bind(this);
   }
