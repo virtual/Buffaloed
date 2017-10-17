@@ -6,6 +6,9 @@ import Homepage from './homepage/Homepage';
 import Navbar from './navbar/Navbar';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import SignUp from './signup/SignUp';
+import Attractions from './attractions/Attractions';
+import SimpleExample from './attractions/Map';
+
 
 class App extends Component {
   constructor(){
@@ -28,6 +31,7 @@ class App extends Component {
           <div>
             <Navbar />
             <Route exact path="/" render={()=> <Homepage /> }/>
+            <Route path='/attractions' render={()=> <Attractions /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
          </div>
