@@ -33,6 +33,7 @@ class App extends Component {
           <div>
             <Navbar />
             <Container>
+              
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/attractions' render={()=> <Attractions /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>

@@ -1,0 +1,70 @@
+[
+  {
+      "questions": [
+          {
+              "question": "1. Question One",
+              "info": "Some information about question one.",
+              "options":
+                [
+                  "Option 1",
+                  "Option 2",
+                  "Option 3",
+                  "Option 4"
+                ],
+              "scores":
+                [
+                  400,
+                  300,
+                  100,
+                  200
+                ]
+          },
+          {
+              "question": "2. Question Two",
+              "info": "Some information about question two.",
+              "options":
+                [
+                  "Option 1",
+                  "Option 2",
+                  "Option 3",
+                  "Option 4"
+                ],
+              "scores":
+                [
+                  40,
+                  30,
+                  10,
+                  20
+                ]
+          }
+      ]
+  },
+  {
+      "results": [
+          {
+              "title": "Terrible Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 0
+          },
+          {
+              "title": "Poor Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 2
+          },
+          {
+              "title": "Good Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 4
+          },
+          {
+              "title": "Brilliant Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 6
+          }
+      ]
+  }
+]
