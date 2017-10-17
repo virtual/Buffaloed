@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Container, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
+import { Container, Button, Form, Input, Message } from 'semantic-ui-react'
 
 class Login extends Component {
   constructor(props) {
@@ -56,26 +56,37 @@ class Login extends Component {
 
   render() {
     var userMessage = this.state.message ? (
-      <Container>{this.state.message}</Container>
+      <Container>
+      <Message
+      warning
+      header='Error: '
+      list={[
+         this.state.message
+      ]}
+    />
+      </Container>
     ) : (null);
 
     return (
       <Container>
         <h1>Log in</h1>
         <Form>
-          <FormGroup>
-            <Label for="email">email</Label>
-            <Input type="email" name="email" onChange={this.handleEmailChange} placeholder="Your email here"></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="password">password</Label>
-            <Input type="password" name="password" onChange={this.handlePasswordChange} placeholder="Your password here"></Input>
-          </FormGroup>
-          <Button onClick={this.loginUser}>Log in</Button>
-        </Form>
-        {
-          userMessage
-        }
+          <Form.Group widths='equal'>
+            <Form.Field>
+ 
+            <Form.Input label="Email" type="email" name="email" onChange={this.handleEmailChange} placeholder="Your email here"></Form.Input>
+            </Form.Field>
+            
+            <Form.Field>
+             <Form.Input label="Password" type="password" name="password" onChange={this.handlePasswordChange} placeholder="Your password here"></Form.Input>
+            </Form.Field> 
+          </Form.Group>
+          <Button primary type='submit' onClick={this.loginUser}>Log&nbsp;in</Button>
+        </Form> 
+
+        
+         
+        { userMessage }
       </Container>
     );
   }

@@ -49,10 +49,45 @@ app.post('/signup', function(req, res, next) {
   })
 });
 
-
-
-
-
+app.post('/login', function (req, res, next) {
+  var email = req.body.email;
+  var password = req.body.password;
+  User.findOne({
+    email: email
+  }, function (err, user) {
+    if (err) {
+      res.json({
+        found: false,
+        message: err,
+        success: false
+      });
+    } else {
+      if (user) {
+        if (password === user.password) {
+          res.json({
+            found: true,
+            message: "Successful Login, Welcome " + user.firstName,
+            success: true,
+            firstName: user.firstName,
+            lastName: user.lastName
+          });
+        } else {
+          res.json({
+            found: true,
+            message: "Bad password",
+            success: false
+          });
+        }
+      } else {
+        res.json({
+          found: false,
+          message: "No such user",
+          success: false
+        });
+      }
+    }
+  });
+});
 
 app.listen(5000, function(){
   console.log('Buffaloed app is listening on 5000');
