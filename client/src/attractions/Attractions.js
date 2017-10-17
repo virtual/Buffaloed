@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CheckBox from './Checkbox';
 import StartButton from './Button';
 import FeatureMap from './Map';
+import Leaderboard from './Leaderboard';
 
 export default class Attractions extends Component {
   render () {
@@ -11,6 +12,7 @@ export default class Attractions extends Component {
         <CheckBox />
          <StartButton />
          <FeatureMap />
+         <Leaderboard />
       </div>
       
     );
