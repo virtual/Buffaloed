@@ -7,7 +7,9 @@ import Navbar from './navbar/Navbar';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import SignUp from './signup/SignUp';
 import { Container } from 'semantic-ui-react';
-import Attractions from './attractions/Attractions';
+import Attractions from './attractions/Attractions'; 
+import FeatureMap from './attractions/Map';
+import Leaderboard from './attractions/Leaderboard'; 
 
 
 class App extends Component {
