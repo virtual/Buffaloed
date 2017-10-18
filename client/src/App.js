@@ -10,6 +10,8 @@ import { Container } from 'semantic-ui-react';
 import Sights from './sights/Sights'; 
 import FeatureMap from './sights/Map';
 import Leaderboard from './sights/Leaderboard'; 
+import Footer from './footer/Footer';
+import ContactInfo from './contactinfo/ContactInfo';
 
 
 class App extends Component {
@@ -34,12 +36,13 @@ class App extends Component {
           <div>
             <Navbar />
             <Container>
-              
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
+            <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
             </Container>
+            <Footer />
          </div>
          </Router>
       </div>
