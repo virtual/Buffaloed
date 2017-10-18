@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Container } from 'semantic-ui-react';
 import CheckBox from './Checkbox';
 import StartButton from './Button';
 import FeatureMap from './Map';
 import Leaderboard from './Leaderboard';
 import FeatureCards from '../featurecards/FeatureCards';
 import QuizBox from '../quiz/Quiz';
+import Footer from '../footer/Footer';
 export default class Sights extends Component {
   constructor(){
     super();
@@ -39,12 +41,11 @@ export default class Sights extends Component {
     return (
       <div>
         <h1>Sights</h1>
-        <QuizBox/>
+        {/* <QuizBox/> */}
         <FeatureCards />
-        <CheckBox />
-         <StartButton />
-         <FeatureMap />
-         <Leaderboard />
+        {/*<CheckBox />
+        <StartButton />*/}
+        <FeatureMap />
       </div>
       
     );

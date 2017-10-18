@@ -18,6 +18,7 @@ export default class Navbar extends Component {
           <Icon bordered inverted color='blue' name='globe' />GetBuffaloed!</Link>
           <Link className="item" to="/about">About</Link>
           <Link className="item" to="/sights">Sights</Link>
+          <Link className="item" to="/quiz">Quiz</Link>
          
           <Menu.Menu position='right'>
             {/* show user dashboard & logout */}

@@ -13,10 +13,10 @@
       },
       {
         "question": "What is the highest peak in Yellowstone?",
-        "info": "Eagle Peak was named in 1885 by geologist Arnold Hague for its resemblance to a \"spread eagle\".",
+        "info": "Eagle Peak, towering at 11,358ft, was named in 1885 by geologist Arnold Hague for its resemblance to a \"spread eagle\".",
         "options":
           [
-            "Eagle Peak 11,358 feet","Bunsen Peak 8,564 feet","Mt. Washburn 10,223 feet","Electric Peak 10,968 feet"
+            "Eagle Peak","Bunsen Peak","Mt. Washburn","Electric Peak"
           ],
         "scores":
           [1, 0, 0, 0]

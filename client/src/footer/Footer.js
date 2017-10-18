@@ -15,6 +15,7 @@ import {
   Visibility,
 } from 'semantic-ui-react';
 
+
 //<img class="ui medium circular image" src="/images/wireframe/square-image.png">
 
 export default class Footer extends Component {
@@ -37,6 +38,7 @@ export default class Footer extends Component {
                 </Grid.Column>
                 <Grid.Column width={5}>
                   <Header inverted as='h4' content='' />
+                  <Icon color='blue' name='twitter' />
                   <List link inverted>
                     {/* <List.Item as='a'>Banana Pre-Order</List.Item>
                     <List.Item as='a'>DNA FAQ</List.Item> */}

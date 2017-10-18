@@ -12,6 +12,7 @@ import FeatureMap from './sights/Map';
 import Leaderboard from './sights/Leaderboard'; 
 import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
+import QuizBox from './quiz/Quiz';
 
 
 class App extends Component {
@@ -41,10 +42,12 @@ class App extends Component {
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
+            <Route path='/quiz' render={()=> <QuizBox /> }/>
             </Container>
             <Footer />
          </div>
          </Router>
+         
       </div>
     );
   }

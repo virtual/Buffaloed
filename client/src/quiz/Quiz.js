@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Quiz from '../../node_modules/javascript-quiz-using-json/src/js/quiz'; // entry point 
 import '../../node_modules/javascript-quiz-using-json/examples/css/default.css';
+import Leaderboard from '../sights/Leaderboard';
 
 export default class QuizBox extends Component {
   constructor() {
@@ -30,8 +31,12 @@ export default class QuizBox extends Component {
     }
   }
   render () {
-    return (      
-      <div id="myQuiz"></div> 
+    return (
+      <div id="myQuiz">
+       <Leaderboard /> 
+      </div>  
+      
+      
     );
   }
 }
