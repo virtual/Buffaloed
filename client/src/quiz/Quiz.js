@@ -31,7 +31,7 @@ export default class QuizBox extends Component {
   }
   render () {
     return (      
-      <div id="quiz">Loading...</div> 
+      <div id="myQuiz">Loading...</div> 
     );
   }
 }
