@@ -10,7 +10,7 @@ export default class FeatureCard extends Component {
   }
   render () {
     console.log(this.props.poi);
-    var link = "attractions/" + this.props.poi.slug;
+    var link = "/attractions/" + this.props.poi.slug;
     const extra = (
       <a href={link}>Learn more</a>
     )

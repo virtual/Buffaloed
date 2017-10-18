@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
-import { Table } from 'semantic-ui-react'
+import { Table, Header, Image } from 'semantic-ui-react'
 
 let tableData = [
   { name: 'John', points: 15 },
@@ -39,7 +39,7 @@ export default class Leaderboard extends Component {
     const { column, data, direction } = this.state
 
     return (
-      <Table sortable compact>
+      <Table sortable compact basic='very' celled collapsing>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell sorted={column === 'name' ? direction : null} onClick={this.handleSort('name')}>
@@ -53,7 +53,16 @@ export default class Leaderboard extends Component {
         <Table.Body>
           {_.map(data, ({ points, name }) => (
             <Table.Row key={name}>
-              <Table.Cell>{name}</Table.Cell>
+              <Table.Cell>
+              <Header as='h4' image>
+              <Image src='https://secure.gravatar.com/avatar/0fd34130695d3d69a2a05f59511a5d5d?size=1000' shape='rounded' size='mini' />
+              <Header.Content>
+                {name}
+              <Header.Subheader>Human Resources</Header.Subheader>
+            </Header.Content>
+          </Header>
+
+              </Table.Cell>
               <Table.Cell>{points}</Table.Cell>
             </Table.Row>
           ))}

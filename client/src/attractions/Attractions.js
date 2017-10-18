@@ -12,19 +12,19 @@ export default class Attractions extends Component {
     this.state = {
       pois: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
     }
-      }
+  }
 
   componentDidMount(){
     this.fetchPOIs();
   }
 
   fetchPOIs() {
-    var url = '/poi';
+    //var url = '/poi/' + this.props.slug;
+    var url = '/attractions/old-faithful2';
     fetch(url).then(function (response) {
       return response.json();
     }).then((poiObj) => {
-      if (poiObj !== undefined) {
-        console.log(poiObj);
+      if (poiObj !== undefined) { 
         this.setState({ 
           pois : poiObj
         });

@@ -75,6 +75,20 @@ app.get('/poi', function(req, res, next) {
   });
 });
 
+app.get('/attractions/:slug', (req, res, next)=>{
+  POI.find({
+    slug: req.params.slug
+  },(err, foundPOI)=>{
+    if(err){
+      next(err)
+    } else {
+      res.json({
+        POIdata: foundPOI
+      })
+    }
+  }) 
+})
+
 app.post('/signup', function(req, res, next) {
   let user = new User();
   user.firstName = req.body.firstName;
