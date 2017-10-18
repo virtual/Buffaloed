@@ -16,7 +16,7 @@ export default class ContactInfo extends Component {
           Code Wizard
         </Card.Meta>
         <Card.Meta>
-          <a>jeanine.mt@gmail.com</a>
+          <a href='mailto:jeanine.mt@gmail.com'>jeanine.mt@gmail.com</a>
         </Card.Meta>
         <Card.Description>
         <strong>Montana Code School Full Time Student - Bozeman</strong>
@@ -33,7 +33,7 @@ export default class ContactInfo extends Component {
           Where am I?
         </Card.Meta>
         <Card.Meta>
-          <a>kimmelem@hotmail.com</a>
+          <a href="mailto:kimmelem@hotmail.com">kimmelem@hotmail.com</a>
         </Card.Meta>
         <Card.Description>
         <strong>Montana Code School Full Time Student - Bozeman</strong>
@@ -50,7 +50,7 @@ export default class ContactInfo extends Component {
           Developer
         </Card.Meta>
         <Card.Meta>
-          <a>katharina.a.root@gmail.com</a>
+          <a href="mailto:katharina.a.root@gmail.com">katharina.a.root@gmail.com</a>
         </Card.Meta>
         <Card.Description>
         <strong>Montana Code School Full Time Student - Bozeman</strong>
@@ -67,7 +67,7 @@ export default class ContactInfo extends Component {
           Time Traveller 
         </Card.Meta>
         <Card.Meta>
-          <a>robjherrmann@gmail.com</a>
+          <a href="mailto:robjherrmann@gmail.com">robjherrmann@gmail.com</a>
         </Card.Meta>
         <Card.Description>
         <strong>Montana Code School Full Time Student - Bozeman</strong>

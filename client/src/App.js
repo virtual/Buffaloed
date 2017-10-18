@@ -8,11 +8,13 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import SignUp from './signup/SignUp';
 import { Container } from 'semantic-ui-react';
 import Sights from './sights/Sights'; 
+import Sight from './sights/Sight'; 
 import FeatureMap from './sights/Map';
 import Leaderboard from './sights/Leaderboard'; 
 import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
 import QuizBox from './quiz/Quiz';
+import About from './about/About';
 
 
 class App extends Component {
@@ -39,10 +41,12 @@ class App extends Component {
             <Container>
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights /> }/>
+            <Route path='/sight' render={()=> <Sight /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
             <Route path='/quiz' render={()=> <QuizBox /> }/>
+            <Route path='/about' render={()=> <About /> }/>
             </Container>
             <Footer />
          </div>
