@@ -5,8 +5,11 @@ let mongoose = require('mongoose');
 let uriUtil = require('mongodb-uri');
 let User = require('./models/User');
 let Sight = require('./models/Sight');
+let config = require('./config');
 
-let mongodbUri = 'mongodb://localhost/buffaloed';
+//let mongodbUri = 'mongodb://localhost/buffaloed';
+let mongodbUri = "mongodb://"+config.mlab.user+":"+config.mlab.password+"@ds119345.mlab.com:19345/mcs";
+
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 var options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000} },
