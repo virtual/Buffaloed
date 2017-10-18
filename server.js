@@ -4,7 +4,7 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 let uriUtil = require('mongodb-uri');
 let User = require('./models/User');
-let POI = require('./models/POI');
+let Sight = require('./models/Sight');
 
 let mongodbUri = 'mongodb://localhost/buffaloed';
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
@@ -46,44 +46,44 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   "_id": "59e63af9d8b12b135e32a522"
 // }
 
-app.post('/poi', function(req, res, next) {
-  let poi = new POI();
-  poi.name = req.body.name;
-  poi.lat = req.body.lat;
-  poi.lng = req.body.lng;
-  poi.img = req.body.img;
-  poi.desc = req.body.desc;
-  poi.slug = req.body.slug;
-  console.log(poi);
-  poi.save(function(err, newPOI){
+app.post('/sights', function(req, res, next) {
+  let sight = new Sight();
+  sight.name = req.body.name;
+  sight.lat = req.body.lat;
+  sight.lng = req.body.lng;
+  sight.img = req.body.img;
+  sight.desc = req.body.desc;
+  sight.slug = req.body.slug;
+  console.log(sight);
+  sight.save(function(err, newSight){
     if(err) {
       next(err);
     } else {
-      res.json(newPOI);
+      res.json(newSight);
     }
   })
 });
 
-app.get('/poi', function(req, res, next) {
-  POI.find(function(err, pois) {
+app.get('/sights', function(req, res, next) {
+  Sight.find(function(err, sights) {
     if(err){
       next(err)
     } else {
-      console.log(pois);
-      res.json(pois);
+      console.log(sights);
+      res.json(sights);
     }   
   });
 });
 
-app.get('/attractions/:slug', (req, res, next)=>{
-  POI.find({
+app.get('/sights/:slug', (req, res, next)=>{
+  Sight.find({
     slug: req.params.slug
-  },(err, foundPOI)=>{
+  },(err, foundSight)=>{
     if(err){
       next(err)
     } else {
       res.json({
-        POIdata: foundPOI
+        sightData: foundSight
       })
     }
   }) 

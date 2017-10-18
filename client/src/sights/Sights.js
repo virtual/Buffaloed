@@ -5,28 +5,30 @@ import FeatureMap from './Map';
 import Leaderboard from './Leaderboard';
 import FeatureCards from '../featurecards/FeatureCards';
 import QuizBox from '../quiz/Quiz';
-export default class Attractions extends Component {
+export default class Sights extends Component {
   constructor(){
     super();
-    this.fetchPOIs = this.fetchPOIs.bind(this);
+    this.fetchSights = this.fetchSights.bind(this);
     this.state = {
-      pois: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
+      sights: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
+      //sights: []
+      
     }
   }
 
   componentDidMount(){
-    this.fetchPOIs();
+    this.fetchSights();
   }
 
-  fetchPOIs() {
-    //var url = '/poi/' + this.props.slug;
-    var url = '/attractions/old-faithful2';
+  fetchSights() {
+    //var url = '/Sight/' + this.props.slug;
+    var url = '/sights/old-faithful2';
     fetch(url).then(function (response) {
       return response.json();
-    }).then((poiObj) => {
-      if (poiObj !== undefined) { 
+    }).then((sightObj) => {
+      if (sightObj !== undefined) { 
         this.setState({ 
-          pois : poiObj
+          sights : sightObj
         });
       }  else {
         console.log('undefined');
@@ -36,7 +38,7 @@ export default class Attractions extends Component {
   render () { 
     return (
       <div>
-        <h1>Attractions</h1>
+        <h1>Sights</h1>
         <QuizBox/>
         <FeatureCards />
         <CheckBox />

@@ -9,8 +9,8 @@ export default class FeatureCard extends Component {
 
   }
   render () {
-    console.log(this.props.poi);
-    var link = "/attractions/" + this.props.poi.slug;
+    console.log(this.props.sight);
+    var link = "/sights/" + this.props.sight.slug;
     const extra = (
       <a href={link}>Learn more</a>
     )
@@ -19,10 +19,10 @@ export default class FeatureCard extends Component {
       
     
       <Card
-      image={this.props.poi.img}
-      header={this.props.poi.name}
+      image={this.props.sight.img}
+      header={this.props.sight.name}
       meta='Friend'
-      description={this.props.poi.desc}
+      description={this.props.sight.desc}
       extra={extra}
       />
      

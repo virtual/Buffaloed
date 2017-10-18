@@ -7,9 +7,9 @@ import Navbar from './navbar/Navbar';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import SignUp from './signup/SignUp';
 import { Container } from 'semantic-ui-react';
-import Attractions from './attractions/Attractions'; 
-import FeatureMap from './attractions/Map';
-import Leaderboard from './attractions/Leaderboard'; 
+import Sights from './sights/Sights'; 
+import FeatureMap from './sights/Map';
+import Leaderboard from './sights/Leaderboard'; 
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
     super();
     this.state = {
       user: {firstName: '', lastName: '', email: ''},
-      poiID: { slug: '' }
+      sightID: { slug: '' }
     }
     this.setUser = this.setUser.bind(this);
   }
@@ -36,7 +36,7 @@ class App extends Component {
             <Container>
               
             <Route exact path="/" render={()=> <Homepage /> }/>
-            <Route path='/attractions' render={()=> <Attractions /> }/>
+            <Route path='/sights' render={()=> <Sights /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             </Container>

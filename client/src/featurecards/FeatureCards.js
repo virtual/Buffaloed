@@ -5,25 +5,25 @@ import { Card } from 'semantic-ui-react';
 export default class FeatureCards extends Component {
   constructor(){
     super();
-    this.fetchPOIs = this.fetchPOIs.bind(this);
+    this.fetchSights = this.fetchSights.bind(this);
     this.state = {
-      pois: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
+      sights: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
     }
       }
 
   componentDidMount(){
-    this.fetchPOIs();
+    this.fetchSights();
   }
 
-  fetchPOIs() {
-    var url = '/poi';
+  fetchSights() {
+    var url = '/sights';
     fetch(url).then(function (response) {
       return response.json();
-    }).then((poiObj) => {
-      if (poiObj !== undefined) {
-        console.log(poiObj);
+    }).then((sightObj) => {
+      if (sightObj !== undefined) {
+        console.log(sightObj);
         this.setState({ 
-          pois : poiObj
+          sights : sightObj
         });
       }  else {
         console.log('undefined');
@@ -33,15 +33,15 @@ export default class FeatureCards extends Component {
 
   render(){
  
-  let poiList = []; 
-  this.state.pois.forEach((poi) => {
-    poiList.push(
-      <FeatureCard poi={poi} />
+  let sightList = []; 
+  this.state.sights.forEach((sight) => {
+    sightList.push(
+      <FeatureCard sight={sight} />
     );
   });
   return (
       <Card.Group itemsPerRow={3}>
-        {poiList}
+        {sightList}
       </Card.Group>
     );
   }

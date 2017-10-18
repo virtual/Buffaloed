@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var POISchema = new mongoose.Schema({
+var SightSchema = new mongoose.Schema({
   name: String,
   lat: String,
   lng: String,
@@ -7,4 +7,4 @@ var POISchema = new mongoose.Schema({
   desc: String,
   slug: String
 });
-module.exports = mongoose.model('POI', POISchema);
+module.exports = mongoose.model('Sight', SightSchema);
