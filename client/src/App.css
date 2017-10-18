@@ -1,4 +1,4 @@
-body, html { 
+body, html {  
     background: 
       /* top, transparent red, faked with gradient */ 
       linear-gradient(
@@ -16,11 +16,8 @@ body, html {
       background-size: cover;
 }
 .footer {
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:60px;   /* Height of the footer */
-  background:#6cf;
+  margin-top: 100px;
+  position:relative;  
 }
 
 .contact {
@@ -31,4 +28,11 @@ body, html {
 
 .ui.stackable.menu {
   margin-bottom: 24px;
+}
+.App > div > .ui.container {
+  min-height: 100%;
+}
+
+.App > div, .App, #root {
+  min-height: 80%;
 }
