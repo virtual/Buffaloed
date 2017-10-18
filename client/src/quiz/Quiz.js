@@ -6,21 +6,32 @@ export default class QuizBox extends Component {
   constructor() {
     super();
 
-    var configurations = {
-      //id: 'quizName',                  // the element reference within the DOM
-      dataSource: './data.json',       // the json quiz data location
-      randomise: true,              // randomise the order of the questions to the user
-      //loadingGif: './img/loading.gif', // loading image between rendering
-    };
+    /* changed npm javascript-quiz-using-json 
+    	function renderTemplate(html, id) {
+      const existing = document.getElementById(id);
+      // if(existing) {
+      // 	existing.remove();
+      // }
+      const form = document.createElement('form');
+      form.setAttribute('id', id);
+      form.innerHTML = html;
+      existing.appendChild(form);
+    }
+    */
     
-    window.Quiz.init(configurations);
+  }
+  componentDidMount() {
+    if(window.Quiz) {
+      var options = {
+        id: 'quiz',
+        dataSource: './data.json'
+      };
+      window.Quiz.init(options);
+    }
   }
   render () {
     return (      
-      <div>Mew Mew
-
-        <div idName="quizName">Loading...</div>
-      </div>
+      <div id="quiz">Loading...</div> 
     );
   }
 }
