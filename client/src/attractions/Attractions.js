@@ -36,7 +36,7 @@ export default class Attractions extends Component {
   render () { 
     return (
       <div>
-        <h1>List of Attractions..coming soon</h1>
+        <h1>Attractions</h1>
         <QuizBox/>
         <FeatureCards />
         <CheckBox />
