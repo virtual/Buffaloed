@@ -13,7 +13,7 @@ export default class Navbar extends Component {
 
     return (
       <div>
-        <Menu pointing secondary>
+        <Menu icon stackable>
           <Link className="item" to="/"> 
           <Icon bordered inverted color='blue' name='globe' />GetBuffaloed!</Link>
           <Link className="item" to="/about">About</Link>
