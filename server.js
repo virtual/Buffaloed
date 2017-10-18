@@ -64,30 +64,38 @@ app.post('/sights', function(req, res, next) {
   })
 });
 
-app.get('/sights', function(req, res, next) {
-  Sight.find(function(err, sights) {
-    if(err){
-      next(err)
-    } else {
-      console.log(sights);
-      res.json(sights);
-    }   
-  });
-});
 
-app.get('/sights/:slug', (req, res, next)=>{
-  Sight.find({
-    slug: req.params.slug
-  },(err, foundSight)=>{
-    if(err){
-      next(err)
-    } else {
-      res.json({
-        sightData: foundSight
-      })
-    }
-  }) 
-})
+// app.get('/sight/:slug', (req, res, next)=>{
+//   console.log("HERE")
+  
+//   }) 
+// })
+app.post('/sightsInfo', function(req, res, next) { 
+  console.log(req.body.slug + " SLUG!!");
+  if (req.body.slug === undefined) {
+    Sight.find(function(err, sights) {
+      if(err){
+        next(err)
+      } else {
+        console.log(sights);
+        res.json(sights);
+      }   
+    });
+  } else {
+    Sight.find({
+      slug: req.body.slug
+    },(err, foundSight)=>{
+      if(err){
+        console.log(err);
+        next(err)
+      } else { 
+        res.json({
+          sightData: foundSight
+        })
+      }
+    });
+  }
+});
 
 app.post('/signup', function(req, res, next) {
   let user = new User();

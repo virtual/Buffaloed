@@ -7,21 +7,28 @@ export default class FeatureCards extends Component {
     super();
     this.fetchSights = this.fetchSights.bind(this);
     this.state = {
-      sights: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
+      sights: [] 
     }
-      }
+  }
 
   componentDidMount(){
     this.fetchSights();
   }
 
   fetchSights() {
-    var url = '/sights';
-    fetch(url).then(function (response) {
+    var url = '/sightsInfo';
+
+    fetch(url, {
+      method: "post",
+      headers:{"Content-Type":"application/json"}, 
+      body: { 
+        slug: ''
+      }
+    }).then(function (response) {
+      
       return response.json();
     }).then((sightObj) => {
-      if (sightObj !== undefined) {
-        console.log(sightObj);
+      if (sightObj !== undefined) { 
         this.setState({ 
           sights : sightObj
         });

@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import SignUp from './signup/SignUp';
 import { Container } from 'semantic-ui-react';
 import Sights from './sights/Sights'; 
+import Sight from './sights/Sight'; 
 import FeatureMap from './sights/Map';
 import Leaderboard from './sights/Leaderboard'; 
 
@@ -37,6 +38,7 @@ class App extends Component {
               
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights /> }/>
+            <Route path='/sight' render={()=> <Sight /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             </Container>

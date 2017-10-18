@@ -8,39 +8,37 @@ import QuizBox from '../quiz/Quiz';
 export default class Sights extends Component {
   constructor(){
     super();
-    this.fetchSights = this.fetchSights.bind(this);
-    this.state = {
-      sights: [{ name: "", lat: "", lng: "", img: "", desc: "", slug: ""}]
-      //sights: []
-      
-    }
+    
   }
 
   componentDidMount(){
-    this.fetchSights();
+    // this.fetchSights();
+    
   }
 
-  fetchSights() {
-    //var url = '/Sight/' + this.props.slug;
-    var url = '/sights/old-faithful2';
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then((sightObj) => {
-      if (sightObj !== undefined) { 
-        this.setState({ 
-          sights : sightObj
-        });
-      }  else {
-        console.log('undefined');
-      }
-    });
-  }
+  // fetchSights() {
+  //   //var url = '/Sight/' + this.props.slug;
+  //   var url = '/sight/old-faithful';
+  //   fetch(url).then(function (response) {
+  //     return response.json();
+  //   }).then((sightObj) => {
+  //     if (sightObj !== undefined) { 
+  //       console.log(sightObj);
+  //       this.setState({ 
+  //         sightName : sightObj.sightData["0"].name
+  //       });
+  //       console.log(this.state.sightName);
+  //     }  else {
+  //       console.log('undefined');
+  //     }
+  //   });
+  // }
   render () { 
     return (
       <div>
         <h1>Sights</h1>
         <QuizBox/>
-        <FeatureCards />
+        <FeatureCards /> 
         <CheckBox />
          <StartButton />
          <FeatureMap />
