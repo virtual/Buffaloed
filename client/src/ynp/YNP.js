@@ -24,7 +24,9 @@ export default class YNP extends React.Component {
     // logic fetching all the weather api data into a method.
     var apikey = config.key;
     var parkName = "yell";
-    var url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkName + '&fields=entranceFees&api_key=' + apikey;
+    var url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkName + 
+    '&fields=images,contacts,entranceFees,entrancePasses,operatingHours'+
+    '&api_key=' + apikey;
     console.log(url);
     fetch(url).then(function (response) {
       return response.json();
@@ -43,11 +45,19 @@ export default class YNP extends React.Component {
     this.fetchYellowstoneData();
   }
   render () {
+    let costHTML = [];
     if (this.state.initialized) {
       console.log(this.state.ynpData)
+      //console.log(this.state.ynpData.data["0"].entranceFees["0"].cost);
+      
+      this.state.ynpData.data["0"].entranceFees.forEach((e)=> {
+       console.log(e);
+       let costConverted = "$" + e.cost.toFixed(2);
+       costHTML.push(<p><strong>{e.title} - {costConverted}</strong> <br/>{e.description}</p>); 
+      });
       return (
         <div>
-         Stuff!
+         {costHTML}
         </div>
       );
     } else {
