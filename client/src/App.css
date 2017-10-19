@@ -29,10 +29,14 @@ body, html {
 .ui.stackable.menu {
   margin-bottom: 24px;
 }
+@media (min-width: 480px) {
 .App > div > .ui.container {
-  min-height: 100%;
+  padding-top:60px; 
+  padding-bottom:60px;
+  min-height:350px;
 }
-
-.App > div, .App, #root {
-  min-height: 80%;
+}
+ 
+body, html {
+  height: auto!important;
 }
