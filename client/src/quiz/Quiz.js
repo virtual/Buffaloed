@@ -3,26 +3,10 @@ import Quiz from '../../node_modules/javascript-quiz-using-json/src/js/quiz'; //
 import '../../node_modules/javascript-quiz-using-json/examples/css/default.css';
 import './Quiz.css';
 import Leaderboard from '../sights/Leaderboard';
-import {Grid, Segment} from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 
 export default class QuizBox extends Component {
-  constructor() {
-    super();
-
-    /* changed npm javascript-quiz-using-json 
-    	function renderTemplate(html, id) {
-      const existing = document.getElementById(id);
-      // if(existing) {
-      // 	existing.remove();
-      // }
-      const form = document.createElement('form');
-      form.setAttribute('id', id);
-      form.innerHTML = html;
-      existing.appendChild(form);
-    }
-    */
-    
-  }
+  
   componentDidMount() {
     if(window.Quiz) {
       var options = {
