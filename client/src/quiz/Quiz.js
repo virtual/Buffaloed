@@ -6,12 +6,23 @@ import Leaderboard from '../sights/Leaderboard';
 import { Grid } from 'semantic-ui-react';
 
 export default class QuizBox extends Component {
-  
+  constructor() {
+    super();
+    this.state= {
+      dataPath: 'data'
+    }
+  }
+  componentWillMount() {
+    if(this.props.sight) {
+      this.setState({dataPath: this.props.sight})
+    }
+  }
+
   componentDidMount() {
     if(window.Quiz) {
       var options = {
         id: 'quiz',
-        dataSource: './data.json'
+        dataSource: '/quizzes/' + this.state.dataPath + '.json'
       };
       window.Quiz.init(options);
     }

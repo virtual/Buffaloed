@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import FeatureMap from './Map';
+import QuizBox from '../quiz/Quiz';
 
 export default class Site extends Component {
   constructor(){
@@ -64,6 +65,7 @@ export default class Site extends Component {
     </Grid.Column>
     <Grid.Column computer={9} mobile={16} tablet={6}>
    <p>{allInfo.desc}</p>
+   <QuizBox sight={allInfo.slug}/>
    <FeatureMap lat={allInfo.lat} lng={allInfo.lng} />
     </Grid.Column>
     <Grid.Column computer={3} mobile={16} tablet={16}>
