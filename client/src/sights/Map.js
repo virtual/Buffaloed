@@ -1,50 +1,64 @@
 import React, {Component} from 'react'; 
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-
  
 export default class FeatureMap extends Component { 
-    state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       hasLocation: false,
+      zoomLevel: 16,
       latlng: {
         lat: 46.5,
         lng: -111,
-      },
+      }
     }
-  
-    handleClick = () => {
-      this.refs.map.leafletElement.locate()
-    }
-  
-    handleLocationFound = e => {
+  }
+
+  componentWillMount() {
+    if(this.props.lat && this.props.lng) {
       this.setState({
-        hasLocation: true,
-        latlng: e.latlng,
+        latlng: {
+          lat: this.props.lat,
+          lng: this.props.lng
+        }
       })
     }
+  }
+
+  handleClick = () => {
+    this.refs.map.leafletElement.locate()
+  }
   
-    render() {
-      const marker = this.state.hasLocation ? (
-        <Marker position={this.state.latlng}>
-          <Popup>
-            <span>You are here</span>
-          </Popup>
-        </Marker>
-      ) : null
-  
-      return (
+  render() {
+    let center = [
+      this.state.latlng.lat,
+      this.state.latlng.lng
+    ];
+    
+    const marker =  
+      <Marker map={this.refs.map} position={center}>
+        <Popup>
+          <span>You are here</span>
+        </Popup>
+      </Marker>;
+    
+    return (
+      <div>
+        {this.state.latlng.lat} + {this.state.latlng.lng}
         <Map
-          center={this.state.latlng}
+          center={center}
           length={4}
           onClick={this.handleClick}
           onLocationfound={this.handleLocationFound}
           ref="map"
-          zoom={10}>
+          zoom={this.state.zoomLevel}>
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           />
           {marker}
         </Map>
-      )
+      </div>
+     )
     }
   }

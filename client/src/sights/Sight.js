@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Grid, Image } from 'semantic-ui-react';
+import FeatureMap from './Map';
 
 export default class Site extends Component {
   constructor(){
@@ -46,13 +48,30 @@ export default class Site extends Component {
   }
   render () {
     if (this.state.initialized) { 
-      console.log(this.state);
+      console.log(this.state.sight.sightData[0]);
+      let allInfo = this.state.sight.sightData[0];
       return (
         <div> 
           <h1>
-          {this.state.sight.sightData[0].name}
+          {allInfo.name}
           </h1>
-        </div>
+ 
+        
+
+  <Grid>
+    <Grid.Column computer={4} mobile={16} tablet={10}>
+      <Image src={allInfo.img} alt={allInfo.name} />
+    </Grid.Column>
+    <Grid.Column computer={9} mobile={16} tablet={6}>
+   <p>{allInfo.desc}</p>
+   <FeatureMap lat={allInfo.lat} lng={allInfo.lng} />
+    </Grid.Column>
+    <Grid.Column computer={3} mobile={16} tablet={16}>
+      hi!
+    </Grid.Column>
+  </Grid>
+
+       </div>
       );
     } else {
       return(
