@@ -1,6 +1,5 @@
 import React, {Component} from 'react'; 
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-
  
 export default class FeatureMap extends Component { 
   constructor(props) {
@@ -25,45 +24,41 @@ export default class FeatureMap extends Component {
       })
     }
   }
-    
-  
-    handleClick = () => {
-      this.refs.map.leafletElement.locate()
-    }
-   
-  
-    render() {
-      let center = [
-        this.state.latlng.lat,
-        this.state.latlng.lng
-      ];
-      console.log(center);
-      
-      const marker =  
-        <Marker map={this.refs.map} position={center}>
-          <Popup>
-            <span>You are here</span>
-          </Popup>
-        </Marker>;
-      
-      return (
-        <div>
-          {this.state.latlng.lat} + {this.state.latlng.lng}
 
-          <Map
-            center={center}
-            length={4}
-            onClick={this.handleClick}
-            onLocationfound={this.handleLocationFound}
-            ref="map"
-            zoom={this.state.zoomLevel}>
-            <TileLayer
-              attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-              url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-            />
-            {marker}
-          </Map>
-        </div>
-      )
+  handleClick = () => {
+    this.refs.map.leafletElement.locate()
+  }
+  
+  render() {
+    let center = [
+      this.state.latlng.lat,
+      this.state.latlng.lng
+    ];
+    
+    const marker =  
+      <Marker map={this.refs.map} position={center}>
+        <Popup>
+          <span>You are here</span>
+        </Popup>
+      </Marker>;
+    
+    return (
+      <div>
+        {this.state.latlng.lat} + {this.state.latlng.lng}
+        <Map
+          center={center}
+          length={4}
+          onClick={this.handleClick}
+          onLocationfound={this.handleLocationFound}
+          ref="map"
+          zoom={this.state.zoomLevel}>
+          <TileLayer
+            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+          />
+          {marker}
+        </Map>
+      </div>
+     )
     }
   }

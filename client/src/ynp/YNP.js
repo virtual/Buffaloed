@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
 let config = require('../config');
 
-
-export default class YNP extends React.Component {
+export default class YNP extends Component {
   constructor () {
     super();
     this.state = {
@@ -62,9 +57,9 @@ export default class YNP extends React.Component {
       );
     } else {
       return (
-        <h2>
+        <p>
           Loading...
-        </h2>
+        </p>
       );
     }
   }

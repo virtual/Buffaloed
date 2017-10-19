@@ -11,7 +11,7 @@ import {
  } from 'semantic-ui-react';
 
 
-//<img class="ui medium circular image" src="/images/wireframe/square-image.png">
+//<img className="ui medium circular image" src="/images/wireframe/square-image.png">
 
 export default class Footer extends Component {
   

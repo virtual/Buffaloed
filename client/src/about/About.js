@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import {Header, Icon, Card, Container, Image, Divider, Grid } from 'semantic-ui-react';
+import {Header, Container, Image, Grid } from 'semantic-ui-react';
 import './About.css';
 import YNP from '../ynp/YNP';
-
 
 export default class About extends Component {
   render () {
     return (
       <div className='about-page'>
         <Container style={{ marginTop: '1em' }}>        
-          <Header as='h1' class='header' ><strong>Yellowstone Odyssey</strong></Header> 
+          <Header as='h1' className='header' ><strong>Yellowstone Odyssey</strong></Header> 
           <Header as='h2' dividing>Welcome to Yellowstone</Header> 
           <Grid container stackable verticalAlign='middle'>
             <Grid.Column width={8}>
@@ -21,7 +20,6 @@ export default class About extends Component {
             <Grid.Column floated='right' width={6}>
                 <Image
                   bordered
-                  rounded
                   size='large'
                   src='https://images.unsplash.com/photo-1490260400179-d656f04de422?dpr=1&auto=format&fit=crop&w=1234&q=60&cs=tinysrgb'
                 />
