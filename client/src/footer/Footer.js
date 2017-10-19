@@ -39,6 +39,7 @@ export default class Footer extends Component {
                 <Grid.Column width={5}>
                   <Header inverted as='h4' content='' />
                   <Icon color='blue' name='twitter' />
+                  <Icon color='blue' name='facebook square' />
                   <List link inverted>
                     {/* <List.Item as='a'>Banana Pre-Order</List.Item>
                     <List.Item as='a'>DNA FAQ</List.Item> */}
