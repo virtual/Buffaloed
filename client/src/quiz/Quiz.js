@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Quiz from '../../node_modules/javascript-quiz-using-json/src/js/quiz'; // entry point 
 import '../../node_modules/javascript-quiz-using-json/examples/css/default.css';
+import './Quiz.css';
 import Leaderboard from '../sights/Leaderboard';
+import {Grid, Segment} from 'semantic-ui-react';
 
 export default class QuizBox extends Component {
   constructor() {
@@ -32,11 +34,15 @@ export default class QuizBox extends Component {
   }
   render () {
     return (
-      <div id="myQuiz">
-       <Leaderboard /> 
-      </div>  
-      
-      
+      <Grid>
+        <Grid.Column computer={10} mobile={16} tablet={10}>
+            <div id="myQuiz">
+            </div>  
+        </Grid.Column> 
+        <Grid.Column computer={6} mobile={16} tablet={6}>
+            <Leaderboard />  
+        </Grid.Column> 
+      </Grid>
     );
   }
 }
