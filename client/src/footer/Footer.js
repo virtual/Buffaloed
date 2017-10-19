@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Weather from '../weather/Weather';
 import {
   Container,
   Grid,
@@ -32,6 +33,7 @@ export default class Footer extends Component {
                 <Grid.Column width={5}>
                   <Header inverted as='h4' content='' />
                   <Icon color='blue' name='twitter' />
+                  <Weather />
                   <List link inverted>
                     {/* <List.Item as='a'>Banana Pre-Order</List.Item>
                     <List.Item as='a'>DNA FAQ</List.Item> */}
