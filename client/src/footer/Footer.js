@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
-import Navbar from '../navbar/Navbar';
 import { Link } from 'react-router-dom';
 import Weather from '../weather/Weather';
 import {
-  Button,
   Container,
-  Divider,
   Grid,
   Header,
   Icon,
   Image,
   List,
-  Menu,
-  Segment,
-  Visibility,
-} from 'semantic-ui-react';
+  Segment
+ } from 'semantic-ui-react';
 
 
-//<img class="ui medium circular image" src="/images/wireframe/square-image.png">
+//<img className="ui medium circular image" src="/images/wireframe/square-image.png">
 
 export default class Footer extends Component {
-  constructor(){
-    super()
-  }
+  
   render () { 
     return (
       <div className="footer">

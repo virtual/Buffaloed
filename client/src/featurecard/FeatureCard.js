@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Icon, Button } from 'semantic-ui-react'
-
-
+import { Card } from 'semantic-ui-react'
 
 export default class FeatureCard extends Component {
   constructor(){
@@ -39,17 +37,16 @@ export default class FeatureCard extends Component {
       <a href={link}>Learn more</a>
     ) 
     return (
-      
-    
       <Card
+      fluid={true}
+      color='blue'
+      href={link} 
       image={this.props.sight.img}
       header={this.props.sight.name}
       meta='Friend'
       description={this.props.sight.desc}
       extra={extra}
       />
-     
     );
   }
 }
-

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Menu, Segment } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react'
 
 export default class Navbar extends Component {
-  state = { activeItem: 'home' }
+  state = { 
+    activeItem: 'home' 
+  } 
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 

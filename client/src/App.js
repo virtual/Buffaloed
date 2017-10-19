@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Login from './login/Login';
 import Homepage from './homepage/Homepage';
 import Navbar from './navbar/Navbar';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import SignUp from './signup/SignUp';
 import { Container } from 'semantic-ui-react';
 import Sights from './sights/Sights'; 
 import Sight from './sights/Sight'; 
-import FeatureMap from './sights/Map';
-import Leaderboard from './sights/Leaderboard'; 
 import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
 import QuizBox from './quiz/Quiz';
