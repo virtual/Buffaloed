@@ -56,8 +56,7 @@ export default class Site extends Component {
           <h1>
           {allInfo.name}
           </h1>
-
-<YNP/>
+ 
         
 
   <Grid>
