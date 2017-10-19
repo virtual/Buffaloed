@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Header, Icon, Card, Container, Image, Divider, Grid } from 'semantic-ui-react';
 import './About.css';
+import Weather from '../weather/Weather'
 
 
 export default class About extends Component {
