@@ -47,7 +47,7 @@ export default class FeatureCards extends Component {
     );
   });
   return (
-      <Card.Group itemsPerRow={3}>
+      <Card.Group stackable={true} itemsPerRow={3}>
         {sightList}
       </Card.Group>
     );

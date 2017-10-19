@@ -38,6 +38,9 @@ export default class FeatureCard extends Component {
     ) 
     return (
       <Card
+      fluid={true}
+      color='blue'
+      href={link} 
       image={this.props.sight.img}
       header={this.props.sight.name}
       meta='Friend'
