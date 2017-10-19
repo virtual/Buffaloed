@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; 
-import { withRouter } from 'react-router-dom';
-import { Container, Button, Form } from 'semantic-ui-react'
+import { withRouter, Link } from 'react-router-dom';
+import { Container, Button, Form, Grid, Header, Image, Message, Segment, Icon } from 'semantic-ui-react'
+
 
 
 class SignUp extends Component {
@@ -60,27 +61,81 @@ class SignUp extends Component {
   render() {
     return (
       <Container>
-        <h1>Signup</h1>
-        <Form>
-          <Form.Group widths='equal'>
-            <Form.Field>
-              <Form.Input label="First Name" type="text" name="firstName" onChange={this.handleFirstNameChange} placeholder="John"></Form.Input>
-            </Form.Field>
-            <Form.Field>
-              <Form.Input label="Last Name" type="text" name="lastName" onChange={this.handleLastNameChange} placeholder="Smith"></Form.Input>
-            </Form.Field>
-          </Form.Group>
-          <Form.Group widths='equal'>
-            <Form.Field>
-              <Form.Input label="Email" type="email" name="email" onChange={this.handleEmailChange} placeholder="Your email here"></Form.Input>
-            </Form.Field>
-            <Form.Field>
-              <Form.Input label="Password" type="password" name="password" onChange={this.handlePasswordChange} placeholder="Your password here"></Form.Input>
-            </Form.Field>
-          </Form.Group>
-          <Button primary type='submit' onClick={this.createNewUser}>Submit</Button>
-        </Form>
-      </Container>
+      <div className='login-form'>
+  {/*
+    Heads up! The styles below are necessary for the correct render of this example.
+    You can do same with CSS, the main idea is that all the elements up to the `Grid`
+    below must have a height of 100%.
+  */}
+  <style>{`
+    body > div,
+    body > div > div,
+    body > div > div > div.login-form {
+      height: 100%;
+    }
+  `}</style>
+  <Grid
+    textAlign='center'
+    style={{ height: '100%' }}
+    verticalAlign='middle'
+  >
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2' color='blue' textAlign='center'>
+      <Icon color='blue' name='rocket' />
+        {' '}Sign Up
+      </Header>
+      <Form size='large'>
+        <Segment stacked>
+
+          <label for="firstName" className="sr-only">First Name</label>
+          <Form.Input id='firstName' type="text" name="firstName" onChange={this.handleFirstNameChange} placeholder="John"></Form.Input>
+
+        <label for="lastName" className="sr-only">Last Name</label>
+        <Form.Input id="lastName" type="text" name="lastName" onChange={this.handleLastNameChange} placeholder="Smith"></Form.Input>
+
+        <label for="email" className="sr-only">Email</label>
+          <Form.Input type="email" id="email" name="email" onChange={this.handleEmailChange} 
+          fluid icon='user' iconPosition='left' placeholder='E-mail address'/>
+
+          <label for="password" className="sr-only">Password</label>
+          <Form.Input placeholder="Password" type="password" name="password" onChange={this.handlePasswordChange}
+          fluid icon='lock' iconPosition='left'/>
+
+          <Button primary type='submit' color='blue' fluid size='large' onClick={this.createNewUser}>Submit</Button>
+        </Segment>
+      </Form>
+
+      <Message>
+       Already have an account? <Link to="/login">Login</Link>
+      </Message>
+    </Grid.Column>
+  </Grid>
+       
+      {/* { userMessage } */}
+      </div>
+    </Container>
+      // <Container>
+      //   <h1>Signup</h1>
+      //   <Form>
+      //     <Form.Group widths='equal'>
+      //       <Form.Field>
+      //         <Form.Input label="First Name" type="text" name="firstName" onChange={this.handleFirstNameChange} placeholder="John"></Form.Input>
+      //       </Form.Field>
+      //       <Form.Field>
+      //         <Form.Input label="Last Name" type="text" name="lastName" onChange={this.handleLastNameChange} placeholder="Smith"></Form.Input>
+      //       </Form.Field>
+      //     </Form.Group>
+      //     <Form.Group widths='equal'>
+      //       <Form.Field>
+      //         <Form.Input label="Email" type="email" name="email" onChange={this.handleEmailChange} placeholder="Your email here"></Form.Input>
+      //       </Form.Field>
+      //       <Form.Field>
+      //         <Form.Input label="Password" type="password" name="password" onChange={this.handlePasswordChange} placeholder="Your password here"></Form.Input>
+      //       </Form.Field>
+      //     </Form.Group>
+      //     <Button primary type='submit' onClick={this.createNewUser}>Submit</Button>
+      //   </Form>
+      // </Container>
     );
   }
 }
