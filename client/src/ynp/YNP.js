@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
 let config = require('../config');
 
-
-export default class YNP extends React.Component {
+export default class YNP extends Component {
   constructor () {
     super();
     this.state = {
@@ -15,8 +10,7 @@ export default class YNP extends React.Component {
     };
     this.fetchYellowstoneData = this.fetchYellowstoneData.bind(this);
   }
-  fetchYellowstoneData (city) {
-    console.log(city);
+  fetchYellowstoneData () {
     this.setState({
       initialized: false
     });
@@ -28,6 +22,7 @@ export default class YNP extends React.Component {
     '&fields=images,contacts,entranceFees,entrancePasses,operatingHours'+
     '&api_key=' + apikey;
     console.log(url);
+  
     fetch(url).then(function (response) {
       return response.json();
     }).then((ynpObj) => {
@@ -62,9 +57,9 @@ export default class YNP extends React.Component {
       );
     } else {
       return (
-        <h2>
+        <p>
           Loading...
-        </h2>
+        </p>
       );
     }
   }

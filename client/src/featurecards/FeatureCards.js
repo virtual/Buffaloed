@@ -41,9 +41,9 @@ export default class FeatureCards extends Component {
   render(){
  
   let sightList = []; 
-  this.state.sights.forEach((sight) => {
+  this.state.sights.forEach((sight, i) => {
     sightList.push(
-      <FeatureCard sight={sight} />
+      <FeatureCard sight={sight} key={i} />
     );
   });
   return (
