@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Container, Button, Form, Message } from 'semantic-ui-react'
+import { Link, withRouter } from 'react-router-dom';
+import { Container, Button, Form, Grid, Header, Image, Message, Segment, Icon } from 'semantic-ui-react'
 
 class Login extends Component {
   constructor(props) {
@@ -69,24 +69,51 @@ class Login extends Component {
 
     return (
       <Container>
-        <h1>Log in</h1>
-        <Form>
-          <Form.Group widths='equal'>
-            <Form.Field>
- 
-            <Form.Input label="Email" type="email" name="email" onChange={this.handleEmailChange} placeholder="Your email here"></Form.Input>
-            </Form.Field>
-            
-            <Form.Field>
-             <Form.Input label="Password" type="password" name="password" onChange={this.handlePasswordChange} placeholder="Your password here"></Form.Input>
-            </Form.Field> 
-          </Form.Group>
-          <Button primary type='submit' onClick={this.loginUser}>Log&nbsp;in</Button>
-        </Form> 
+        <div className='login-form'>
+    {/*
+      Heads up! The styles below are necessary for the correct render of this example.
+      You can do same with CSS, the main idea is that all the elements up to the `Grid`
+      below must have a height of 100%.
+    */}
+    <style>{`
+      body > div,
+      body > div > div,
+      body > div > div > div.login-form {
+        height: 100%;
+      }
+    `}</style>
+    <Grid
+      textAlign='center'
+      style={{ height: '100%' }}
+      verticalAlign='middle'
+    >
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h2' color='blue' textAlign='center'>
+        <Icon color='blue' name='rocket' />
+          {' '}Log-in to your account
+        </Header>
+        <Form size='large'>
+          <Segment stacked>
+            <label for="email" className="sr-only">Email</label>
+          <Form.Input type="email" id="email" name="email" onChange={this.handleEmailChange} 
+          fluid icon='user' iconPosition='left' placeholder='E-mail address'
+          />
+          <label for="password" className="sr-only">Password</label>
+          <Form.Input placeholder="Password" type="password" name="password" onChange={this.handlePasswordChange}
+          fluid icon='lock' iconPosition='left'
+          />  
+          <Button type='submit' onClick={this.loginUser} color='blue' fluid size='large'>Login</Button>
+          </Segment>
+        </Form>
 
-        
+        <Message>
+          New to us? <Link to="/signup">Sign Up</Link>
+        </Message>
+      </Grid.Column>
+    </Grid>
          
         { userMessage }
+        </div>
       </Container>
     );
   }

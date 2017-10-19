@@ -17,7 +17,7 @@ export default class Navbar extends Component {
       <div>
         <Menu icon stackable>
           <Link className="item" to="/"> 
-          <Icon bordered inverted color='blue' name='globe' />GetBuffaloed!</Link>
+          <Icon color='blue' name='rocket' /> Yellowstone Odyssey</Link>
           <Link className="item" to="/about">About</Link>
           <Link className="item" to="/sights">Sights</Link>
           <Link className="item" to="/quiz">Quiz</Link>
