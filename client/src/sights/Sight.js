@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import FeatureMap from './Map';
-
+import YNP from '../ynp/YNP';
 
 export default class Site extends Component {
   constructor(){
@@ -57,6 +57,7 @@ export default class Site extends Component {
           {allInfo.name}
           </h1>
 
+<YNP/>
         
 
   <Grid>
