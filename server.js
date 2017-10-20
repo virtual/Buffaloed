@@ -6,6 +6,11 @@ let uriUtil = require('mongodb-uri');
 let User = require('./models/User');
 let Sight = require('./models/Sight');
 let config = require('./config');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let expressSession = require('express-session');
+let LocalStrategy = require("passport-local").Strategy; // constructor
+let passwordHash = require('password-hash');
 
 //let mongodbUri = 'mongodb://localhost/buffaloed';
 let mongodbUri = "mongodb://"+config.mlab.user+":"+config.mlab.password+"@ds119345.mlab.com:19345/mcs";
@@ -14,7 +19,6 @@ var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 var options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000} },
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000} }
-
 };
 
 mongoose.connect(mongooseUri, options);
@@ -34,20 +38,51 @@ app.get('/users', function(req, res, next) {
   });
 });
 
+/* passport has strategies which are functions that prove that a user trying to hit your server has permission */
 app.use(express.static("public"));
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressSession({ secret: 'mtcs07boz' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// {
-//   "__v": 0,
-//   "slug": "old-faithful",
-//   "desc": "<p>Lots of stuff here!</p>",
-//   "img": "https://images.unsplash.com/photo-1501597072456-52603534cf7b?dpr=1&auto=format&fit=crop&w=1050&h=&q=60&cs=tinysrgb&crop=",
-//   "lng": "-110.8281375999999",
-//   "lat": "44.4605",
-//   "name": "Old Faithful",
-//   "_id": "59e63af9d8b12b135e32a522"
-// }
+// store that they have logged in in a session with a cookie
+// serialize auth user which puts user into cookie for requests
+passport.serializeUser(function(user, done){
+  done(null, user._id); // mongodb user id
+});
+
+passport.deserializeUser(function(id, done){
+  User.findById(id, function(err, user){
+    if (err) {
+      console.log(err);
+    } else {
+      done(null, user);
+    }
+  })
+})
+
+// needs to be called username 
+passport.use(new LocalStrategy({username: 'email', password: 'password'}, 
+  function(email, password, done){
+    // hit the db and do some matching
+    User.findOne({
+      email: email
+    }, function (err, user) {
+      if (err) {
+        return done(err, null); // null for no user
+      } else {
+        console.log('checking hash...');
+        if (user && passwordHash.verify(password, user.password)){
+          return done(null, user);
+        } else {
+          // additional test and error handling here
+          return done("Password and username don't match", null)
+        }
+      }
+    });
+  }
+));
 
 app.post('/sights', function(req, res, next) {
   let sight = new Sight();
@@ -57,7 +92,6 @@ app.post('/sights', function(req, res, next) {
   sight.img = req.body.img;
   sight.desc = req.body.desc;
   sight.slug = req.body.slug;
-  console.log(sight);
   sight.save(function(err, newSight){
     if(err) {
       next(err);
@@ -66,25 +100,17 @@ app.post('/sights', function(req, res, next) {
     }
   })
 });
-
-
-// app.get('/sight/:slug', (req, res, next)=>{
-//   console.log("HERE")
-  
-//   }) 
-// })
+ 
 app.post('/sightsInfo', function(req, res, next) { 
-  console.log(req.body.slug + " SLUG!!");
   if (req.body.slug === undefined) {
     Sight.find(function(err, sights) {
       if(err){
         next(err)
       } else {
-        console.log(sights);
         res.json(sights);
       }   
     });
-  } else {
+  } else { 
     Sight.find({
       slug: req.body.slug
     },(err, foundSight)=>{
@@ -116,44 +142,19 @@ app.post('/signup', function(req, res, next) {
   })
 });
 
+// adds passport middleware
 app.post('/login', function (req, res, next) {
+  passport.authenticate("local", function(err, user){
+    if (err) {
+      res.json({ found: false, success: false, err: true, message: err}); // can also send res.status
+    } else if (user) {
+      res.json({found: true, success: true, firstName: user.firstName, lastName: user.lastName});
+    } else {
+      res.json({found: false, success: false, message: "Password and user do not match!"});      
+    }
+  })(req,res,next); 
   var email = req.body.email;
   var password = req.body.password;
-  User.findOne({
-    email: email
-  }, function (err, user) {
-    if (err) {
-      res.json({
-        found: false,
-        message: err,
-        success: false
-      });
-    } else {
-      if (user) {
-        if (password === user.password) {
-          res.json({
-            found: true,
-            message: "Successful Login, Welcome " + user.firstName,
-            success: true,
-            firstName: user.firstName,
-            lastName: user.lastName
-          });
-        } else {
-          res.json({
-            found: true,
-            message: "Bad password",
-            success: false
-          });
-        }
-      } else {
-        res.json({
-          found: false,
-          message: "No such user",
-          success: false
-        });
-      }
-    }
-  });
 });
 
 app.listen(5000, function(){
