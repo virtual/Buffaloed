@@ -10,9 +10,12 @@ export default class Navbar extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+  componentDidMount() {
+    this.props.getUser();
+  }
   render() {
     const { activeItem } = this.state
-
+    let first = (this.state.user) ? this.state.user.firstName : '';
     return (
       <div>
         <Menu icon stackable>
@@ -26,7 +29,7 @@ export default class Navbar extends Component {
             {/* show user dashboard & logout */}
 
             {/* if not logged in show these: */}
-            <Link className="item" to="/dashboard">Dashboard</Link>            
+            <Link className="item" to="/dashboard">{first} Dashboard</Link>            
             <Link className="item" to="/login">Login</Link>            
             <Link className="item" to="/signup">Signup</Link>            
           </Menu.Menu>

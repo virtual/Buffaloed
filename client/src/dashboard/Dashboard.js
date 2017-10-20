@@ -14,12 +14,11 @@ export default class Dashboard extends Component {
 
 
   getList() { 
-    var url = '/sights';
-    axios.get('/sights', {withCredentials: true}).then((sightObj)=> {
-
-      if (sightObj !== undefined) { 
+    axios.get('/sights').then((res)=> {
+      console.log(res);
+      if (res !== undefined) { 
         this.setState({ 
-          sights : sightObj.data
+          sights: res.data
         });
       }  else {
         console.log('undefined');

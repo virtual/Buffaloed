@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Container, Button, Form, Grid, Header, Image, Message, Segment, Icon } from 'semantic-ui-react'
+var axios = require('axios');
 
 class Login extends Component {
   constructor(props) {
@@ -26,29 +27,30 @@ class Login extends Component {
   }
 
   loginUser() {
-    fetch('/login', {
-      method: "post",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      //make sure to serialize your JSON body
-      body: JSON.stringify({
+    // fetch('/login', {
+    //   method: "post",
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   //make sure to serialize your JSON body
+    //   body: JSON.stringify({
+      axios.post('/login', {
         username: this.state.email,
         password: this.state.password
-      })
-    }).then((res) => {
-      console.log(res);
-      return res.json();
+    //   })
+    // }).then((res) => {
+    //   console.log(res);
+    //   return res.json();
     }).then((answer) => {
-      console.log(answer);
-      if (answer.success) {
-        this.props.setUser({firstName: answer.firstName, email: this.state.email});
+      console.log(answer.data);
+      if (answer.data.success) {
+        this.props.setUser({firstName: answer.data.firstName, email: this.state.email});
         this.props.history.push("/dashboard");
       } else {
-        console.log(answer.message);
+        console.log(answer.data.message);
         this.setState({
-          message: answer.message
+          message: answer.data.message
         });
       }
     });

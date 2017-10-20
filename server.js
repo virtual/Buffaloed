@@ -38,16 +38,41 @@ app.use(expressSession({ secret: 'mtcs07boz', resave: false, saveUninitialized: 
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+// needs to be called username 
+passport.use(new LocalStrategy({username: 'email', password: 'password'}, 
+function(email, password, done){
+  // hit the db and do some matching
+  User.findOne({
+    email: email
+  }, function (err, user) {
+    if (err) {
+      return done(err, null); // null for no user
+    } else {
+      console.log('checking hash...');
+      if (user && passwordHash.verify(password, user.password)){
+        console.log('verified!')
+        return done(null, user);
+      } else {
+        // additional test and error handling here
+        return done("Password and username don't match", null)
+      }
+    }
+  });
+}
+));
+
 // store that they have logged in in a session with a cookie
 // serialize auth user which puts user into cookie for requests
 passport.serializeUser(function(user, done){
-  // console.log(user._id);
-  // console.log("serialize")
+  console.log(user._id);
+  console.log("serialize")
   done(null, user._id); // mongodb user id
 });
 
 passport.deserializeUser(function(id, done){
   // console.log(id);
+  console.log('des');
   User.findById(id, function(err, user){
     if (err) {
       console.log(err);
@@ -58,31 +83,20 @@ passport.deserializeUser(function(id, done){
   })
 })
 
-// needs to be called username 
-passport.use(new LocalStrategy({username: 'email', password: 'password'}, 
-  function(email, password, done){
-    // hit the db and do some matching
-    User.findOne({
-      email: email
-    }, function (err, user) {
-      if (err) {
-        return done(err, null); // null for no user
-      } else {
-        console.log('checking hash...');
-        if (user && passwordHash.verify(password, user.password)){
-          return done(null, user);
-        } else {
-          // additional test and error handling here
-          return done("Password and username don't match", null)
-        }
-      }
-    });
-  }
-));
+
 
 
 app.get("/", function(req, res, next) {
   res.send("connected!");
+});
+
+app.get('/user', function(req, res, next) {
+  // if no req user
+  if (req.user) {
+    res.json(req.user); // when a server sets the cookies, this responds whats in the cookie
+  } else {
+    res.json({message: "not authenticated"})
+  }
 });
 
 app.get('/users', function(req, res, next) {
@@ -110,7 +124,8 @@ app.get('/dashboard', function(req, res, next) {
 app.get('/sights', function(req, res, next) {
   
   console.log("COOOKIES22!!!");
-  console.log(req.session);
+  console.log(req.user);
+
   Sight.find(function(err, sight) {
     if (err) {
       next(err)
@@ -186,6 +201,7 @@ app.post('/login', function (req, res, next) {
     } else if (user) {
       // write code to send user to dashboard - passport 
       req.logIn(user, (err)=>{
+        console.log(user);
         // gets a session working
         if (err) {
           res.json({found: false, success: false, message: err});

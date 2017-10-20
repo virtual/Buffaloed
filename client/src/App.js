@@ -13,7 +13,7 @@ import ContactInfo from './contactinfo/ContactInfo';
 import QuizBox from './quiz/Quiz';
 import About from './about/About';
 import Dashboard from './dashboard/Dashboard';
-
+const axios = require('axios');
 
 class App extends Component {
   constructor(){
@@ -23,11 +23,26 @@ class App extends Component {
       sightID: { slug: '' }
     }
     this.setUser = this.setUser.bind(this);
+    this.getUser = this.getUser.bind(this);
   }
   setUser(user){
     this.setState({
       user: user
     })
+  };
+  getUser(){
+    axios.get('/user').then((res)=> {
+      console.log(res);
+      if (res !== undefined) { 
+        this.setState({ 
+          user: res.data
+        });
+      }  else {
+        console.log('undefined');
+      }
+    }, function(err){
+      console.log(err);
+    });
   };
 
   render() {
@@ -35,7 +50,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Navbar />
+            <Navbar getUser={this.getUser} />
             <Container>
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights /> }/>
