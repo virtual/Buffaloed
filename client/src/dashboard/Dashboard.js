@@ -31,18 +31,14 @@ export default class Dashboard extends Component {
     this.getList();
   }
   render () {
-    console.log('mew')
-    console.log(this.state.sights);
     let html = [];
-    this.state.sights.forEach(function(e) {
-      html.push(<p>{e.name}</p>); 
+    this.state.sights.forEach(function(e, i) {
+      html.push(<p key={i}>{e.name}</p>); 
     }, this);
     return (
       <div>
         <h1>Dashboard</h1>
         {html} 
-        {typeof(this.state)}
-cookie parser?
       </div>
     );
   }

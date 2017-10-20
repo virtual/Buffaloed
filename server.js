@@ -33,6 +33,7 @@ db.once('open', function () {
 app.use(express.static("public"));
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(expressSession({ secret: 'mtcs07boz' }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -88,6 +89,7 @@ app.get('/users', function(req, res, next) {
 });
 
 app.get('/dashboard', function(req, res, next) {
+  console.log("COOOKIES!!!");
   console.log(cookie.session);
   if (req.user) {
     Sight.find(function(err, sight) {
