@@ -34,22 +34,25 @@ app.use(express.static("public"));
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(expressSession({ secret: 'mtcs07boz' }));
+app.use(expressSession({ secret: 'mtcs07boz', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // store that they have logged in in a session with a cookie
 // serialize auth user which puts user into cookie for requests
 passport.serializeUser(function(user, done){
+  // console.log(user._id);
+  // console.log("serialize")
   done(null, user._id); // mongodb user id
 });
 
 passport.deserializeUser(function(id, done){
+  // console.log(id);
   User.findById(id, function(err, user){
     if (err) {
       console.log(err);
     } else {
-      console.log(user);
+      // console.log(user);
       done(null, user);
     }
   })
@@ -89,8 +92,6 @@ app.get('/users', function(req, res, next) {
 });
 
 app.get('/dashboard', function(req, res, next) {
-  console.log("COOOKIES!!!");
-  console.log(cookie.session);
   if (req.user) {
     Sight.find(function(err, sight) {
       if (err) {
@@ -107,6 +108,9 @@ app.get('/dashboard', function(req, res, next) {
 });
 
 app.get('/sights', function(req, res, next) {
+  
+  console.log("COOOKIES22!!!");
+  console.log(req.session);
   Sight.find(function(err, sight) {
     if (err) {
       next(err)

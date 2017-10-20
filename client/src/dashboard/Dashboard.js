@@ -13,10 +13,10 @@ export default class Dashboard extends Component {
   }
 
 
-  getList() {
+  getList() { 
     var url = '/sights';
+    axios.get('/sights', {withCredentials: true}).then((sightObj)=> {
 
-    axios.get('/sights').then((sightObj)=> {
       if (sightObj !== undefined) { 
         this.setState({ 
           sights : sightObj.data
@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
     });
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.getList();
   }
   render () {

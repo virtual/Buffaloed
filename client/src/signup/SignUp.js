@@ -87,18 +87,18 @@ class SignUp extends Component {
       <Form size='large'>
         <Segment stacked>
 
-          <label for="firstName" className="sr-only">First Name</label>
+          <label htmlFor="firstName" className="sr-only">First Name</label>
           <Form.Input id='firstName' type="text" name="firstName" onChange={this.handleFirstNameChange} placeholder="John"></Form.Input>
 
-        <label for="lastName" className="sr-only">Last Name</label>
+        <label htmlFor="lastName" className="sr-only">Last Name</label>
         <Form.Input id="lastName" type="text" name="lastName" onChange={this.handleLastNameChange} placeholder="Smith"></Form.Input>
 
-        <label for="email" className="sr-only">Email</label>
+        <label htmlFor="email" className="sr-only">Email</label>
           <Form.Input type="email" id="email" name="email" onChange={this.handleEmailChange} 
           fluid icon='user' iconPosition='left' placeholder='E-mail address'/>
 
-          <label for="password" className="sr-only">Password</label>
-          <Form.Input placeholder="Password" type="password" name="password" onChange={this.handlePasswordChange}
+          <label htmlFor="password" className="sr-only">Password</label>
+          <Form.Input placeholder="Password" id="password" type="password" name="password" onChange={this.handlePasswordChange}
           fluid icon='lock' iconPosition='left'/>
 
           <Button primary type='submit' color='blue' fluid size='large' onClick={this.createNewUser}>Submit</Button>

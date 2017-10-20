@@ -95,12 +95,12 @@ class Login extends Component {
         <Form size='large'>
           <Segment stacked>
 
-            <label for="email" className="sr-only">Email</label>
+            <label htmlFor="email" className="sr-only">Email</label>
           <Form.Input type="email" id="email" name="email" onChange={this.handleEmailChange} 
           fluid icon='user' iconPosition='left' placeholder='E-mail address'/>
 
-          <label for="password" className="sr-only">Password</label>
-          <Form.Input placeholder="Password" type="password" name="password" onChange={this.handlePasswordChange}
+          <label htmlFor="password" className="sr-only">Password</label>
+          <Form.Input placeholder="Password" id="password" type="password" name="password" onChange={this.handlePasswordChange}
           fluid icon='lock' iconPosition='left'/>
             
           <Button type='submit' onClick={this.loginUser} color='blue' fluid size='large'>Login</Button>
