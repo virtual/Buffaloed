@@ -26,6 +26,7 @@ export default class Navbar extends Component {
             {/* show user dashboard & logout */}
 
             {/* if not logged in show these: */}
+            <Link className="item" to="/dashboard">Dashboard</Link>            
             <Link className="item" to="/login">Login</Link>            
             <Link className="item" to="/signup">Signup</Link>            
           </Menu.Menu>

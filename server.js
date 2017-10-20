@@ -11,6 +11,7 @@ let passportLocal = require('passport-local');
 let expressSession = require('express-session');
 let LocalStrategy = require("passport-local").Strategy; // constructor
 let passwordHash = require('password-hash');
+const cookieParser = require('cookie-parser');
 
 //let mongodbUri = 'mongodb://localhost/buffaloed';
 let mongodbUri = "mongodb://"+config.mlab.user+":"+config.mlab.password+"@ds119345.mlab.com:19345/mcs";
@@ -26,16 +27,6 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   console.log('database connected to Buffaloed');
-});
-
-app.get("/", function(req, res, next) {
-  res.send("connected!");
-});
-
-app.get('/users', function(req, res, next) {
-  User.find(function(req, users) {
-    res.json(users);
-  });
 });
 
 /* passport has strategies which are functions that prove that a user trying to hit your server has permission */
@@ -57,6 +48,7 @@ passport.deserializeUser(function(id, done){
     if (err) {
       console.log(err);
     } else {
+      console.log(user);
       done(null, user);
     }
   })
@@ -83,6 +75,44 @@ passport.use(new LocalStrategy({username: 'email', password: 'password'},
     });
   }
 ));
+
+
+app.get("/", function(req, res, next) {
+  res.send("connected!");
+});
+
+app.get('/users', function(req, res, next) {
+  User.find(function(req, users) {
+    res.json(users);
+  });
+});
+
+app.get('/dashboard', function(req, res, next) {
+  console.log(cookie.session);
+  if (req.user) {
+    Sight.find(function(err, sight) {
+      if (err) {
+        next(err)
+      } else {
+        res.json(sight);
+        console.log(sight);
+      }
+    })
+  } else {
+    res.json({found: false, success: false, message: "You are not authenticated!"});      
+    
+  }
+});
+
+app.get('/sights', function(req, res, next) {
+  Sight.find(function(err, sight) {
+    if (err) {
+      next(err)
+    } else {
+      res.json(sight); 
+    }
+  })
+});
 
 app.post('/sights', function(req, res, next) {
   let sight = new Sight();
@@ -148,7 +178,15 @@ app.post('/login', function (req, res, next) {
     if (err) {
       res.json({ found: false, success: false, err: true, message: err}); // can also send res.status
     } else if (user) {
-      res.json({found: true, success: true, firstName: user.firstName, lastName: user.lastName});
+      // write code to send user to dashboard - passport 
+      req.logIn(user, (err)=>{
+        // gets a session working
+        if (err) {
+          res.json({found: false, success: false, message: err});
+        } else {
+          res.json({found: true, success: true, firstName: user.firstName, lastName: user.lastName});
+        }
+      })
     } else {
       res.json({found: false, success: false, message: "Password and user do not match!"});      
     }

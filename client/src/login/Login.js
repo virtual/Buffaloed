@@ -44,7 +44,7 @@ class Login extends Component {
       console.log(answer);
       if (answer.success) {
         this.props.setUser({firstName: answer.firstName, email: this.state.email});
-        this.props.history.push("/");
+        this.props.history.push("/dashboard");
       } else {
         console.log(answer.message);
         this.setState({

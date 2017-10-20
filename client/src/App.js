@@ -12,6 +12,7 @@ import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
 import QuizBox from './quiz/Quiz';
 import About from './about/About';
+import Dashboard from './dashboard/Dashboard';
 
 
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
             <Route path='/sight' render={()=> <Sight /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
+            <Route path="/dashboard" render={()=> <Dashboard setUser={this.setUser}  /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
             <Route path='/quiz' render={()=> <QuizBox /> }/>
             <Route path='/about' render={()=> <About /> }/>
