@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 let config = require('../config');
+const axios = require('axios');
 
 export default class YNP extends Component {
   constructor () {
@@ -14,6 +15,8 @@ export default class YNP extends Component {
     this.setState({
       initialized: false
     });
+
+    
     // wrap your
     // logic fetching all the weather api data into a method.
     var apikey = config.key;
@@ -21,28 +24,45 @@ export default class YNP extends Component {
     var url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkName + 
     '&fields=images,contacts,entranceFees,entrancePasses,operatingHours'+
     '&api_key=' + apikey;
-    console.log(url);
-  
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then((ynpObj) => {
-      if (ynpObj !== undefined) {
+    // console.log(url);
+
+    axios.get(
+      url, {"Access-Control-Allow-Origin": "*"},
+    ).then( function(res) {
+      console.log(res.status);
+      if (res) { 
         this.setState({
           initialized: true,
-          ynpData: ynpObj
+          ynpData: res 
         });
       } else {
         this.fetchYellowstoneData();
       }
     });
   }
+
+  
+  //   fetch(url).then(function (response) {
+  //     return response.json();
+  //   }).then((ynpObj) => {
+  //     if (ynpObj !== undefined) {
+  //       this.setState({
+  //         initialized: true,
+  //         ynpData: ynpObj
+  //       });
+  //     } else {
+  //       this.fetchYellowstoneData();
+  //     }
+  //   });
+  // }
   componentDidMount () {
     this.fetchYellowstoneData();
   }
   render () {
     let costHTML = [];
-    if (this.state.initialized) {
+      console.log('this.state.ynpData')
       console.log(this.state.ynpData)
+    if (this.state.initialized) {
       //console.log(this.state.ynpData.data["0"].entranceFees["0"].cost);
       
       this.state.ynpData.data["0"].entranceFees.forEach((e)=> {
