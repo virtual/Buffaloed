@@ -6,13 +6,35 @@ export default class FeatureCards extends Component {
   constructor(){
     super();
     this.fetchSights = this.fetchSights.bind(this);
+    this.randomizeSights = this.randomizeSights.bind(this);
     this.state = {
-      sights: [] 
+      sights: [],
+      order: 'normal',
+      limit: 100
     }
   }
 
   componentDidMount(){
     this.fetchSights();
+    
+    if (this.props.order) {
+      this.setState({
+        order: this.props.order
+      })
+    }
+    if (this.props.limit) {
+      this.setState({
+        limit: this.props.limit
+      })
+    }
+  }
+
+  randomizeSights(obj) {
+    if (this.state.order === 'random') {
+      return obj.sort(function (a, b) {return Math.random() - 0.5;});
+    } else {
+      return obj;
+    }
   }
 
   fetchSights() {
@@ -30,7 +52,7 @@ export default class FeatureCards extends Component {
     }).then((sightObj) => {
       if (sightObj !== undefined) { 
         this.setState({ 
-          sights : sightObj
+          sights: this.randomizeSights(sightObj).splice(0, this.state.limit)
         });
       }  else {
         console.log('undefined');

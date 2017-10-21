@@ -6,7 +6,7 @@ export default class Homepage extends Component {
   render () {
     return (
       <div> 
-        <FeatureCards /> 
+        <FeatureCards order="random" limit="3" /> 
         <Header as='h2' icon textAlign='center'>
         <Icon name='trophy' />
         remote: Resolving deltas
