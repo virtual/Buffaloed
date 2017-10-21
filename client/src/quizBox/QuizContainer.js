@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Quiz.css';
 
 export default class QuizContainer extends Component {
   constructor() {
@@ -14,7 +15,9 @@ export default class QuizContainer extends Component {
   }
 
   componentWillMount(){
-    this.getQuizData('/quizzes/'+ this.props.sight + '.json').then(
+    var url = '/quizzes/'+ this.props.sight + '.json';
+    console.log(url);
+    this.getQuizData(url).then(
       (data)=>{
         this.setState({
           data: JSON.parse(data)
@@ -47,20 +50,29 @@ export default class QuizContainer extends Component {
 		});
   }
   displayQuiz(data) { 
-      console.log(data);
-    data.forEach(function(element) {
-      console.log("elements");
-      console.log(element);
+    let htmlQuizQ = [];
+    console.log(data[0]);
+    data[0].questions.forEach(function(element, index) {
+      // costHTML.push(<p><strong>{e.title} - {costConverted}</strong> <br/>{e.description}</p>); 
+      htmlQuizQ.push(<p>{element.question}</p>); 
+      element.options.forEach(function(e, i) {
+        htmlQuizQ.push(<label><input name={index} type="radio" /> {e}</label>);
+      });
+      htmlQuizQ.push(<hr/>);
     });
+    return htmlQuizQ;
   }
   render () {
     if (this.state.data !== null) {
       //console.log(this.state.data);
-      this.displayQuiz(this.state.data);
+      let html = this.displayQuiz(this.state.data);
+      
 
     return (
-      <div>
-        dd
+      <div className="myQuiz" id="quizForm">
+        <div>
+        {html}
+        </div>
       </div>
     );
   } else {
