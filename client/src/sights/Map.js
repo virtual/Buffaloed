@@ -44,7 +44,6 @@ export default class FeatureMap extends Component {
     
     return (
       <div>
-        {this.state.latlng.lat} + {this.state.latlng.lng}
         <Map
           center={center}
           length={4}

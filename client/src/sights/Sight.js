@@ -63,13 +63,14 @@ export default class Site extends Component {
     <Grid.Column computer={4} mobile={16} tablet={10}>
       <Image src={allInfo.img} alt={allInfo.name} />
     </Grid.Column>
-    <Grid.Column computer={9} mobile={16} tablet={6}>
-   <p>{allInfo.desc}</p>
-   <QuizBox sight={allInfo.slug}/>
+    <Grid.Column computer={6} mobile={16} tablet={6}>
+    <p>{allInfo.desc}</p>
+     </Grid.Column>
+      <Grid.Column computer={6} mobile={16} tablet={16}>
    <FeatureMap lat={allInfo.lat} lng={allInfo.lng} />
     </Grid.Column>
-    <Grid.Column computer={3} mobile={16} tablet={16}>
-      hi!
+    <Grid.Column computer={16} mobile={16} tablet={16}>
+   <QuizBox sight={allInfo.slug}/>
     </Grid.Column>
   </Grid>
 
