@@ -38,7 +38,7 @@ export default class FeatureMap extends Component {
     const marker =  
       <Marker map={this.refs.map} position={center}>
         <Popup>
-          <span>You are here</span>
+          <span>{this.props.sightName}</span>
         </Popup>
       </Marker>;
     

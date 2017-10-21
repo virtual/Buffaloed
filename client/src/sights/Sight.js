@@ -67,7 +67,7 @@ export default class Site extends Component {
     <p>{allInfo.desc}</p>
      </Grid.Column>
       <Grid.Column computer={6} mobile={16} tablet={16}>
-   <FeatureMap lat={allInfo.lat} lng={allInfo.lng} />
+   <FeatureMap sightName={allInfo.name} lat={allInfo.lat} lng={allInfo.lng} />
     </Grid.Column>
     <Grid.Column computer={16} mobile={16} tablet={16}>
    <QuizBox sight={allInfo.slug}/>
