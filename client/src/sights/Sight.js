@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import FeatureMap from './Map';
-import QuizBox from '../quiz/Quiz';
+import QuizBox from '../quizBox/QuizContainer';
 
 export default class Site extends Component {
   constructor(){
