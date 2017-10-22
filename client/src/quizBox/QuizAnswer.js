@@ -4,16 +4,23 @@ import {Button} from 'semantic-ui-react';
 export default class QuizAnswer extends Component {
   constructor() {
     super();
+
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
     console.log("running!");
     let myObj = this.props.getScores(); 
     console.log(myObj);
+    document.getElementById("quiz-answer-block").style.display = 'block';
+    
+  }
+  componentDidMount() {
+    document.getElementById("quiz-answer-block").style.display = 'none';
   }
   render () {
     let htmlQuizQ = [];
     let thisAnswer = '';
+    ;
     this.props.data.forEach(function(element, index) {
        
       thisAnswer = element.question;
@@ -33,14 +40,17 @@ export default class QuizAnswer extends Component {
       });
 
     });
+    
   
     return (
-      <div className="quiz-answer-block">
-        <Button onClick={this.handleClick}> Submit </Button>
-        <h3>Answers</h3>
-        <ul>
-          {htmlQuizQ}
-        </ul>
+      <div>
+        <Button onClick={this.handleClick}> Show Answers </Button>
+        <div id="quiz-answer-block" className="quiz-answer-block">
+          <h3>Answers</h3>
+          <ul>
+            {htmlQuizQ}
+          </ul>
+        </div>
       </div>
     );
   }

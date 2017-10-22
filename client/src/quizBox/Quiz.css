@@ -17,7 +17,7 @@
   padding:16px 8px;
   text-align:center;  
 }
-#quizForm3 div input[type=radio] {
+#quizForm div input[type=radio] {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -47,5 +47,9 @@ cursor: pointer;}
 }
 #quizForm hr { clear:both; margin: 15px 0;}
 .quiz-answer-block li { padding-bottom: 1.5rem;}
+
 .quiz-answer-block .answerQ { font-size: 1.2rem; line-height: 1.5rem;}
 .quiz-answer-block blockquote { border-left: 5px solid #ccc; padding-left:10px; margin-left:5px; text-indent: 0; font-size: 1.1em; line-height: 1.4em; font-style: italic;}
+.quiz-answer-block { padding:15px;} 
+#quizForm div .answered .boo { background:#f00;}
+#quizForm div .answered .woo { background: green;} 

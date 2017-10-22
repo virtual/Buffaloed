@@ -4,7 +4,8 @@ export default class QuizOption extends Component {
   constructor() {
     super();
     this.state = {
-      value: 0 
+      value: 0,
+      answeredClass: ''
     }
     this.handleSelect = this.handleSelect.bind(this)
   }
@@ -24,13 +25,23 @@ export default class QuizOption extends Component {
       }.bind(event)();
   
       this.props.setScores( stateObject );    
-   
+      this.props.changeToAnswered();
 
+      if (event.target.value === "1") {
+        console.log('righto!');
+        this.setState({
+          answeredClass: 'woo'
+        });
+      } else {
+        this.setState({
+          answeredClass: 'boo'
+        });
+      }
   }
   render () {
     let setName = "question" + this.props.index;
     return (
-      <label><input onChange={this.handleSelect} name={setName} value={this.props.val} type="radio" /> {this.props.e}</label> 
+      <label className={this.state.answeredClass}><input onChange={this.handleSelect} name={setName} value={this.props.val} type="radio" /> {this.props.e}</label> 
     );
   }
 }

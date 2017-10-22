@@ -6,8 +6,15 @@ export default class QuizQuestion extends Component {
     super();
     this.state = {
       questionsLoaded: false,
-      htmlQuizQ: []
+      htmlQuizQ: [],
+      answered: false
     }
+    this.changeToAnswered = this.changeToAnswered.bind(this);
+  }
+  changeToAnswered() {
+    this.setState({
+      answered: true
+    })
   }
   render () {
 
@@ -34,16 +41,17 @@ export default class QuizQuestion extends Component {
       shuffle(monElemente.options, monElemente.scores);
 
       monElemente.options.forEach((e, i)=> {
-        this.state.htmlQuizQ.push(<QuizOption setScores={this.props.setScores} e={e} val={monElemente.scores[i]} index={this.props.index} />);
+        this.state.htmlQuizQ.push(<QuizOption changeToAnswered={this.changeToAnswered} setScores={this.props.setScores} e={e} val={monElemente.scores[i]} index={this.props.index} />);
       });
 
       this.setState( {
         questionsLoaded: true
       })
     }
-
+    let classAnswered = (this.state.answered) ? ' answered ' : ' not-answered ';
+    let containerClass = classAnswered+"container-question" + this.props.index;
     return (
-      <div>
+      <div className={containerClass}>
         <p>{this.props.element.question}</p>
         {this.state.htmlQuizQ} 
       </div>
