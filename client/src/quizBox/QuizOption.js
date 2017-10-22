@@ -12,7 +12,11 @@ export default class QuizOption extends Component {
     // let label = "q"+this.props.index;
     // this.props.setScores({label: event.target.value});
     // this.props.setScores( "q"+this.props.index, event.target.value)
-
+    
+    var radioName = event.target.name; //Get radio name
+    document.getElementsByName(radioName).forEach((radio)=>{
+      radio.setAttribute("disabled", "disabled");
+    });
        var stateObject = function() {
         let returnObj = {};
         returnObj[this.target.name] = this.target.value;
