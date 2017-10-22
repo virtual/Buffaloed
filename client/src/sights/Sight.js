@@ -51,6 +51,7 @@ export default class Site extends Component {
     if (this.state.initialized) { 
       console.log(this.state.sight.sightData[0]);
       let allInfo = this.state.sight.sightData[0];
+      let img = '/img/sights/orig/' + allInfo.img;
       return (
         <div> 
           <h1>
@@ -61,7 +62,7 @@ export default class Site extends Component {
 
   <Grid>
     <Grid.Column computer={4} mobile={16} tablet={6}>
-      <Image src={allInfo.img} alt={allInfo.name} />
+      <Image src={img} alt={allInfo.name} />
     </Grid.Column>
     <Grid.Column computer={6} mobile={16} tablet={10}>
     <p>{allInfo.desc}</p>

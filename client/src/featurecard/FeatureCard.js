@@ -33,6 +33,11 @@ export default class FeatureCard extends Component {
   }
   render () {
     var link = "/sight/" + this.props.sight.slug;
+    var img = '/img/sights/' + this.props.sight.img;
+    let meta = '';
+    if (this.props.sight.type) {
+      meta = this.props.sight.type
+    }
     const extra = (
       <a href={link}>Learn more</a>
     ) 
@@ -41,9 +46,9 @@ export default class FeatureCard extends Component {
       fluid={true}
       color='blue'
       href={link} 
-      image={this.props.sight.img}
+      image={img}
       header={this.props.sight.name}
-      meta='Friend'
+      meta={meta}
       description={this.props.sight.desc}
       extra={extra}
       />
