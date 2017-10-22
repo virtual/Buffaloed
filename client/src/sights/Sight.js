@@ -72,6 +72,7 @@ export default class Site extends Component {
     </Grid.Column>
     <Grid.Column computer={16} mobile={16} tablet={16}>
    <QuizBox sight={allInfo.slug}/>
+
     </Grid.Column>
   </Grid>
 

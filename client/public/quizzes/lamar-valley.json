@@ -6,7 +6,7 @@
     "info": "",
     "options":
       [
-        "Moose","Bison","Elk","Mule deer"
+        "** Moose","Bison","Elk","Mule deer"
       ],
     "scores":
       [1, 0, 0, 0]
@@ -16,7 +16,7 @@
     "info": "As of December 2016, there were at least 108 wolves in the park. Eleven packs were noted.",
     "options":
       [
-        "1995","2005","1980","1968"
+        "** 1995","2005","1980","1968"
       ],
     "scores":
       [1, 0, 0, 0]
@@ -26,7 +26,7 @@
     "info": "",
     "options":
       [
-        "500","100","1000","2000"
+        "** 500","100","1000","2000"
       ],
     "scores":
       [1, 0, 0, 0]
@@ -36,7 +36,7 @@
     "info": "",
     "options":
       [
-        "459°F, 237°C","280°F, 137°C","616°F, 324°C","346°F, 174°C"
+        "** 459°F, 237°C","280°F, 137°C","616°F, 324°C","346°F, 174°C"
       ],
     "scores":
       [1, 0, 0, 0]
@@ -45,7 +45,7 @@
     {
         "results": [
             {
-                "title": "Terrible Score",
+                "title": "Te** ible Score",
                 "description": "Details",
                 "image": "./img/the-end.jpg",
                 "minScore": 0

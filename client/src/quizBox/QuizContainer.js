@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import QuizQuestion from './QuizQuestion'
+import QuizAnswer from './QuizAnswer'
 import './Quiz.css';
 
 export default class QuizContainer extends Component {
@@ -9,11 +10,32 @@ export default class QuizContainer extends Component {
       config: {
         dataSource: '/quizzes/data.json'
       },
+      userScores: {},
       data: null
     };
     this.getQuizData = this.getQuizData.bind(this);
     this.displayQuiz = this.displayQuiz.bind(this);
+    this.setScores = this.setScores.bind(this)
+    this.getScores = this.getScores.bind(this)
   }
+
+  getScores(){
+    return this.state.userScores;
+  }
+  setScores(option) {
+    console.log("setscore");
+    // console.log(option);
+    this.setState({
+      userScores: {
+        option
+      }
+    })
+   
+
+    console.log(this.state);
+
+  }
+ 
 
   componentWillMount(){
     var url = '/quizzes/'+ this.props.sight + '.json';
@@ -53,8 +75,8 @@ export default class QuizContainer extends Component {
   displayQuiz(data) { 
     let htmlQuizQ = [];
     console.log(data[0]);
-    data[0].questions.forEach(function(element, index) {
-      htmlQuizQ.push(<QuizQuestion element={element} index={index} />); 
+    data[0].questions.forEach((element, index)=> {
+      htmlQuizQ.push(<QuizQuestion setScores={this.setScores} element={element} index={index} />); 
     });
     return htmlQuizQ;
   }
@@ -66,6 +88,7 @@ export default class QuizContainer extends Component {
         <div className="myQuiz" id="quizForm">
           <div>
           {html}
+          <QuizAnswer getScores={this.getScores}  data={this.state.data[0].questions}/>
           </div>
         </div>
       );
