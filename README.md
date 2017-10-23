@@ -15,4 +15,17 @@
 
 ## User stories
 
-- coming soon!
+- know if area is open so you can be prepared!
+- enrichen your knowledge so that you  can share facts
+- use quiz to know more about the area
+- show a leaderboard so that you can compete
+- sign up/login so that you can track points 
+- park schedule
+
+## Features 
+
+- when wrong answer is selected, correct answer is highlighted
+- share your scores with twitter
+- user profile when logged in
+
+

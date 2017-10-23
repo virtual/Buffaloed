@@ -28,16 +28,21 @@ export default class Dashboard extends Component {
 
   componentDidMount(){
     this.getList();
+    this.props.getUser();
+    console.log("MEW!");
+    console.log(this.props.user);
+
   }
   render () {
-    let html = [];
-    this.state.sights.forEach(function(e, i) {
-      html.push(<p key={i}>{e.name}</p>); 
-    }, this);
+    let user = this.props.user; 
     return (
       <div>
+
         <h1>Dashboard</h1>
-        {html} 
+        <h2>Welcome, {user.firstName} {user.lastName} </h2>
+        <p><strong>Settings: </strong><br/>
+        Email! {user.email}
+        </p>
       </div>
     );
   }

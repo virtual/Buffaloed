@@ -27,25 +27,18 @@ class Login extends Component {
   }
 
   loginUser() {
-    // fetch('/login', {
-    //   method: "post",
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   //make sure to serialize your JSON body
-    //   body: JSON.stringify({
       axios.post('/login', {
         username: this.state.email,
         password: this.state.password
-    //   })
-    // }).then((res) => {
-    //   console.log(res);
-    //   return res.json();
     }).then((answer) => {
       console.log(answer.data);
       if (answer.data.success) {
-        this.props.setUser({firstName: answer.data.firstName, email: this.state.email});
+        this.props.setUser({
+          firstName: answer.data.firstName, 
+          lastName: answer.data.lastName,
+          email: this.state.email,
+          id: answer.data.id
+        });
         this.props.history.push("/dashboard");
       } else {
         console.log(answer.data.message);
