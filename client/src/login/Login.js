@@ -37,7 +37,8 @@ class Login extends Component {
           firstName: answer.data.firstName, 
           lastName: answer.data.lastName,
           email: this.state.email,
-          id: answer.data.id
+          id: answer.data.id,
+          img: answer.data.img
         });
         this.props.history.push("/dashboard");
       } else {

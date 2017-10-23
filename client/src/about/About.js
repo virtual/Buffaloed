@@ -23,6 +23,7 @@ export default class About extends Component {
                   size='large'
                   src='https://images.unsplash.com/photo-1490260400179-d656f04de422?dpr=1&auto=format&fit=crop&w=1234&q=60&cs=tinysrgb'
                 />
+                <a href='http://www.freepik.com/free-vector/set-of-cards-with-flat-wild-animals_1218846.htm'>Designed by Freepik</a>
             </Grid.Column>          
           </Grid>
         </ Container>

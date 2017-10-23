@@ -41,34 +41,6 @@
     "scores":
       [1, 0, 0, 0]
   }
-]},
-    {
-        "results": [
-            {
-                "title": "Te** ible Score",
-                "description": "Details",
-                "image": "./img/the-end.jpg",
-                "minScore": 0
-            },
-            {
-                "title": "Poor Score",
-                "description": "Details",
-                "image": "./img/the-end.jpg",
-                "minScore": 2
-            },
-            {
-                "title": "Good Score",
-                "description": "Details",
-                "image": "./img/the-end.jpg",
-                "minScore": 4
-            },
-            {
-                "title": "Brilliant Score",
-                "description": "Details",
-                "image": "./img/the-end.jpg",
-                "minScore": 6
-            }
-        ]
-    }
+]}
   ]
   

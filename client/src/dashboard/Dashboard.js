@@ -35,13 +35,18 @@ export default class Dashboard extends Component {
   }
   render () {
     let user = this.props.user; 
+    let imgLink = "/img/avatars/default.png";
+    if (user.img) {
+    imgLink = "/img/avatars/" + user.img;
+    }
     return (
       <div>
 
         <h1>Dashboard</h1>
         <h2>Welcome, {user.firstName} {user.lastName} </h2>
+          <img src={imgLink} />
         <p><strong>Settings: </strong><br/>
-        Email! {user.email}
+        Email! {user.email} 
         </p>
       </div>
     );
