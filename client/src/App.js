@@ -49,9 +49,9 @@ class App extends Component {
 
   componentDidMount() {
     axios.post('/score', {
-      email: 'rachoo3.com',
+      slug: 'lamar-valley',
       leaderboard: {
-        slug: 'lamar-valley',
+        email: 'rachoo3.com',
         score: 3
       }
     }) 

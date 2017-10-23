@@ -199,14 +199,14 @@ app.post('/signup', function(req, res, next) {
 
 app.post('/score', function(req, res, next) {
    let quiz = new Quiz();
-//   quiz.leaderboard = req.body.leaderboard;
-    let array = [{
+   quiz.leaderBoard = [];
+    let array = {
       score:req.body.leaderboard.score,
-      slug:req.body.leaderboard.slug
-    }];
+      email:req.body.leaderboard.email
+    };
     //quiz.leaderBoard = array;
-    quiz.email = req.body.email;
-    quiz.push(array)
+    quiz.slug = req.body.slug;
+    quiz.leaderBoard.push(array)
     console.log(quiz)
     quiz.save( 
   //Quiz.findOneAndUpdate({email: req.body.email},
