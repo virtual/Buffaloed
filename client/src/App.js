@@ -47,6 +47,16 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    axios.post('/score', {
+      email: 'rachoo3.com',
+      leaderboard: {
+        slug: 'lamar-valley',
+        score: 3
+      }
+    }) 
+  }
+
   render() {
     return (
       <div className="App">

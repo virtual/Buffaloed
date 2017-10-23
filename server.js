@@ -5,6 +5,7 @@ let mongoose = require('mongoose');
 let uriUtil = require('mongodb-uri');
 let User = require('./models/User');
 let Sight = require('./models/Sight');
+let Quiz = require('./models/Quiz');
 let config = require('./config');
 let passport = require('passport');
 let passportLocal = require('passport-local');
@@ -192,6 +193,31 @@ app.post('/signup', function(req, res, next) {
       next(err);
     } else {
       res.json(newUser);
+    }
+  })
+});
+
+app.post('/score', function(req, res, next) {
+   let quiz = new Quiz();
+//   quiz.leaderboard = req.body.leaderboard;
+    let array = [{
+      score:req.body.leaderboard.score,
+      slug:req.body.leaderboard.slug
+    }];
+    //quiz.leaderBoard = array;
+    quiz.email = req.body.email;
+    quiz.push(array)
+    console.log(quiz)
+    quiz.save( 
+  //Quiz.findOneAndUpdate({email: req.body.email},
+    //{$push: {slug: req.body.leaderboard.slug, score: req.body.leaderboard.score }},
+    //{upsert:true, new:true},
+    function(err, newQuiz){
+    if(err) {
+      next(err);
+    } else {
+
+      res.json(newQuiz);
     }
   })
 });

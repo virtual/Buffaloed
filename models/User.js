@@ -11,7 +11,8 @@ var UserSchema = new mongoose.Schema({
     set: function(password){
       return passwordHash.generate(password);
     }
-  }
+  }, 
+  completedQuizzes:[{ quiz: { type: mongoose.Schema.Types.ObjectId, ref: 'Quiz' }, score: Number}]
 });
 
 
