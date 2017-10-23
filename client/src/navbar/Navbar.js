@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { Icon } from 'semantic-ui-react'
+import { Icon, Image } from 'semantic-ui-react'
 
 export default class Navbar extends Component {
   state = { 
@@ -18,9 +18,10 @@ export default class Navbar extends Component {
     let first = (this.state.user) ? this.state.user.firstName : '';
     return (
       <div>
-        <Menu icon stackable>
+        <Menu icon stackable> 
           <Link className="item" to="/"> 
-          <Icon color='blue' name='rocket' /> Yellowstone Odyssey</Link>
+        <Image src='/img/logowhite.png' size='small'/>        
+          </Link>
           <Link className="item" to="/about">About</Link>
           <Link className="item" to="/sights">Sights</Link>
           <Link className="item" to="/quiz">Quiz</Link>
