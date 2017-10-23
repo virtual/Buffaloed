@@ -51,6 +51,8 @@ export default class FeatureCards extends Component {
       }  else {
         console.log('undefined');
       }
+    }).catch(function(err) {
+      console.log(err);
     });
   }
 
