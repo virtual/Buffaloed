@@ -222,6 +222,21 @@ app.post('/score', function(req, res, next) {
   })
 });
 
+// app.get('/score/:slug', function(req, res, next) {
+//   if (req.params.slug) {
+//     Quiz.find({slug: req.params.slug},
+//       function(err, scores) {
+//       if (err) {
+//         next(err)
+//       } else {
+//         res.json(scores);
+//         console.log(score);
+//       }
+//     })
+//   } 
+// });
+
+
 // adds passport middleware
 app.post('/login', function (req, res, next) {
   passport.authenticate("local", function(err, user){

@@ -10,7 +10,7 @@ export default class QuizContainer extends Component {
       config: {
         dataSource: '/quizzes/data.json'
       },
-      userScores: {},
+      userScores: [],
       data: null
     };
     this.getQuizData = this.getQuizData.bind(this);
@@ -25,14 +25,11 @@ export default class QuizContainer extends Component {
   setScores(option) {
     console.log("setscore");
     // console.log(option);
-    this.setState({
-      userScores: {
-        option
-      }
-    })
-   
+    this.setState({userScores: this.state.userScores.concat([option])});
+    
+   console.log(this.state.userScores);
 
-    console.log(this.state);
+    // console.log(this.state);
 
   }
  
