@@ -3,7 +3,7 @@ import { Grid, Image } from 'semantic-ui-react';
 import FeatureMap from './Map';
 import QuizBox from '../quizBox/QuizContainer';
 
-export default class Site extends Component {
+export default class Sight extends Component {
   constructor(){
     super();
     this.fetchSight = this.fetchSight.bind(this);

@@ -42,20 +42,7 @@ export default class FeatureCards extends Component {
     var url = '/sightsInfo';
 
     axios.post(url, {
-      username: this.state.email,
-      password: this.state.password
   }).then((sightObj) => {
-
-    // fetch(url, {
-    //   method: "post",
-    //   headers:{"Content-Type":"application/json"}, 
-    //   body: { 
-    //     slug: ''
-    //   }
-    // }).then(function (response) {
-      
-    //   return response.json();
-    // }).then((sightObj) => {
       if (sightObj.data !== undefined) { 
         console.log(sightObj.data);
         this.setState({ 
