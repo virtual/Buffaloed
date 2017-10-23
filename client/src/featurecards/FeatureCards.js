@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FeatureCard from '../featurecard/FeatureCard';
 import { Card } from 'semantic-ui-react';
+let axios = require('axios');
 
 export default class FeatureCards extends Component {
   constructor(){
@@ -40,19 +41,25 @@ export default class FeatureCards extends Component {
   fetchSights() {
     var url = '/sightsInfo';
 
-    fetch(url, {
-      method: "post",
-      headers:{"Content-Type":"application/json"}, 
-      body: { 
-        slug: ''
-      }
-    }).then(function (response) {
+    axios.post(url, {
+      username: this.state.email,
+      password: this.state.password
+  }).then((sightObj) => {
+
+    // fetch(url, {
+    //   method: "post",
+    //   headers:{"Content-Type":"application/json"}, 
+    //   body: { 
+    //     slug: ''
+    //   }
+    // }).then(function (response) {
       
-      return response.json();
-    }).then((sightObj) => {
-      if (sightObj !== undefined) { 
+    //   return response.json();
+    // }).then((sightObj) => {
+      if (sightObj.data !== undefined) { 
+        console.log(sightObj.data);
         this.setState({ 
-          sights: this.randomizeSights(sightObj).splice(0, this.state.limit)
+          sights: this.randomizeSights(sightObj.data).splice(0, this.state.limit)
         });
       }  else {
         console.log('undefined');

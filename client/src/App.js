@@ -34,6 +34,8 @@ class App extends Component {
     axios.get('/user').then((res)=> {
       console.log(res);
       if (res !== undefined) { 
+        console.log('update state');
+        console.log(res.data);
         this.setState({ 
           user: res.data
         });
@@ -57,7 +59,7 @@ class App extends Component {
             <Route path='/sight' render={()=> <Sight /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
-            <Route path="/dashboard" render={()=> <Dashboard setUser={this.setUser}  /> }/>
+            <Route path="/dashboard" render={()=> <Dashboard user={this.state.user} getUser={this.getUser} setUser={this.setUser}  /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
             <Route path='/quiz' render={()=> <QuizBox /> }/>
             <Route path='/about' render={()=> <About /> }/>

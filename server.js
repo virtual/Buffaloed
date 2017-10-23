@@ -93,6 +93,9 @@ app.get("/", function(req, res, next) {
 app.get('/user', function(req, res, next) {
   // if no req user
   if (req.user) {
+    User.findById(req.user._id, (err, user)=>{
+      res.json(user);
+    });
     res.json(req.user); // when a server sets the cookies, this responds whats in the cookie
   } else {
     res.json({message: "not authenticated"})
@@ -206,7 +209,7 @@ app.post('/login', function (req, res, next) {
         if (err) {
           res.json({found: false, success: false, message: err});
         } else {
-          res.json({found: true, success: true, firstName: user.firstName, lastName: user.lastName});
+          res.json({found: true, success: true, id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName});
         }
       })
     } else {
