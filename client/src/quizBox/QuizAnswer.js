@@ -41,12 +41,25 @@ export default class QuizAnswer extends Component {
 
     });
     
+    let currentScores = 0;
+    let numAnswered = this.props.getScores().length;
+    let percentCorrect = 0;
+    if(numAnswered > 0) {
+      currentScores = this.props.getScores().reduce((a, b)=>{
+      return a + b;
+      }, 0);
+      percentCorrect = (100 * currentScores / numAnswered).toFixed(2); 
+    }
+    
+    console.log('scores');
+    console.log(currentScores);
   
     return (
       <div>
         <Button onClick={this.handleClick}> Show Answers </Button>
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
+          <p>You scored {percentCorrect}%, {currentScores} out of {numAnswered} correct</p>
           <ul>
             {htmlQuizQ}
           </ul>
