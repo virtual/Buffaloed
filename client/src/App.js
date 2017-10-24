@@ -47,15 +47,6 @@ class App extends Component {
     });
   };
 
-  // componentDidMount() {
-    // axios.post('/score', {
-    //   slug: 'lamar-valley',
-    //   leaderboard: {
-    //     email: 'woo.com',
-    //     score: 2
-    //   }
-    // }) 
-  // }
 
   render() {
     return (
