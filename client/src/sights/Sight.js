@@ -12,7 +12,7 @@ export default class Sight extends Component {
       sight: [],
       scores: {}
     }
-    this.slug;
+    this.slug = undefined;
     this.fetchSight = this.fetchSight.bind(this);
     this.fetchScores = this.fetchScores.bind(this);
     // this.setScores = this.setScores.bind(this);
