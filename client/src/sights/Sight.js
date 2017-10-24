@@ -6,17 +6,25 @@ import QuizBox from '../quizBox/QuizContainer';
 export default class Sight extends Component {
   constructor(){
     super();
-    this.fetchSight = this.fetchSight.bind(this);
     this.state = {
       initialized: false,
-      sight: [] 
+      initializedScores: false,
+      sight: [],
+      scores: {}
     }
-
+    this.slug;
+    this.fetchSight = this.fetchSight.bind(this);
+    this.fetchScores = this.fetchScores.bind(this);
+    // this.setScores = this.setScores.bind(this);
+    this.getSlug = this.getSlug.bind(this);
   }
-  componentWillMount() {
+  componentDidMount() {
+    this.getSlug();
     this.fetchSight();
+    this.fetchScores();
   }
-  fetchSight() {
+
+  getSlug() {
     let sluggyPath = window.location.pathname;
     let sluggyReg = /(sight\/)([\w\-]+)/; 
 
@@ -25,13 +33,16 @@ export default class Sight extends Component {
     }
 
     var found = sluggyPath.match(sluggyReg)[2];
+    this.slug = found; // dont use state cuz it won't set
+  }
+
+  fetchSight() {
     var url = '/sightsInfo';
-  
     fetch(url, {
       method: "post",
       headers:{"Content-Type":"application/json"}, 
       body: JSON.stringify({ 
-        slug: found
+        slug: this.slug
       })
     }).then(function (response) {
       
@@ -47,9 +58,59 @@ export default class Sight extends Component {
       }
     });
   }
+  // setScores() {
+  //   var url = '/score';
+  //   fetch(url, {
+  //     method: "post",
+  //     headers:{"Content-Type":"application/json"}, 
+  //     body: JSON.stringify({ 
+  //       slug: this.slug
+  //     })
+  //   }).then(function (response) {
+      
+  //     return response.json();
+  //   }).then((sightObj) => { 
+  //     if (sightObj !== undefined) { 
+  //       this.setState({ 
+  //         initialized: true,
+  //         sight: sightObj
+  //       });
+  //     }  else {
+  //       console.log('undefined');
+  //     }
+  //   });
+  // }
+
+  fetchScores() {
+    var url = '/scoreInfo';
+    fetch(url, {
+      method: "post",
+      headers:{"Content-Type":"application/json"}, 
+      body: JSON.stringify({ 
+        slug: this.slug
+      })
+    }).then(function (response) {
+      
+      return response.json();
+    }).then((scoresObj) => { 
+      if (scoresObj !== undefined) { 
+        this.setState({ 
+          initializedScores: true,
+          scores: scoresObj
+        });
+        console.log(this.state)
+      }  else {
+        console.log('undefined');
+      }
+    });
+  }
   render () {
     if (this.state.initialized) { 
       console.log(this.state.sight.sightData[0]);
+
+      if (this.state.initializedScores) { 
+        console.log(this.state.scoresObj);
+      }
       let allInfo = this.state.sight.sightData[0];
       let img = '/img/sights/orig/' + allInfo.img;
       return (
