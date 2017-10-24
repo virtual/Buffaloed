@@ -157,7 +157,9 @@ app.post('/sights/:id', function(req, res, next) {
 });
  
 app.post('/sightsInfo', function(req, res, next) { 
-  if (req.body.slug === undefined) {
+  console.log(req.body.slug);
+    if (req.body.slug === undefined) {
+    // if (req.body.slug.keys(obj).length === 0){
     Sight.find(function(err, sights) {
       if(err){
         next(err)
@@ -222,19 +224,19 @@ app.post('/score', function(req, res, next) {
   })
 });
 
-// app.get('/score/:slug', function(req, res, next) {
-//   if (req.params.slug) {
-//     Quiz.find({slug: req.params.slug},
-//       function(err, scores) {
-//       if (err) {
-//         next(err)
-//       } else {
-//         res.json(scores);
-//         console.log(score);
-//       }
-//     })
-//   } 
-// });
+app.post('/scoreInfo', function(req, res, next) {
+  if (req.body.slug) {
+    Quiz.find({slug: req.body.slug},
+      function(err, scores) {
+      if (err) {
+        next(err)
+      } else {
+        res.json(scores);
+        console.log(scores);
+      }
+    }) 
+  } 
+});
 
 
 // adds passport middleware
