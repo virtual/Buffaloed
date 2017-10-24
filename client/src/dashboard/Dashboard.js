@@ -47,7 +47,7 @@ export default class Dashboard extends Component {
         <h2>Welcome, {user.firstName} {user.lastName} </h2>
           <img src={imgLink} />
         <p><strong>Settings: </strong><br/>
-        Email! {user.email} 
+        Email: {user.email}  
         </p>
       </div>
     );

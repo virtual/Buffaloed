@@ -11,7 +11,8 @@ export default class Sight extends Component {
       initialized: false,
       initializedScores: false,
       sight: [],
-      scores: {}
+      scores: {},
+      user: {}
     }
     this.slug = undefined;
     this.fetchSight = this.fetchSight.bind(this);
@@ -23,6 +24,11 @@ export default class Sight extends Component {
     this.getSlug();
     this.fetchSight();
     this.fetchScores();
+    this.setState({user: this.props.getUser});
+    this.props.getUser();
+    console.log("MEW2222!");
+    console.log(this.props.user);
+
   }
 
   getSlug() {
@@ -100,7 +106,7 @@ export default class Sight extends Component {
       return (
         <div> 
           <h1>
-          {allInfo.name}
+          {allInfo.name}-{this.state.user.email}
           </h1>
  
         

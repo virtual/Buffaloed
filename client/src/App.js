@@ -56,9 +56,9 @@ class App extends Component {
             <Navbar getUser={this.getUser} />
             <Container>
             <Route exact path="/" render={()=> <Homepage /> }/>
-            <Route path='/sights' render={()=> <Sights /> }/>
-            <Route path='/sight' render={()=> <Sight /> }/>
-            <Route path="/login" render={()=> <Login setUser={this.setUser}  /> }/>
+            <Route path='/sights' render={()=> <Sights getUser={this.getUser} /> }/>
+            <Route path='/sight' render={()=> <Sight getUser={this.getUser} /> }/>
+            <Route path="/login" render={()=> <Login setUser={this.setUser} getUser={this.getUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             <Route path="/dashboard" render={()=> <Dashboard user={this.state.user} getUser={this.getUser} setUser={this.setUser}  /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>

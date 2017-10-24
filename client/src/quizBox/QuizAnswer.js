@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button} from 'semantic-ui-react';
+import {Button, Icon} from 'semantic-ui-react';
 
 export default class QuizAnswer extends Component {
   constructor() {
@@ -102,6 +102,14 @@ export default class QuizAnswer extends Component {
             {htmlQuizQ}
           </ul>
           <a target="_blank" href={this.shareTweet(tweetText)}>Share on Twitter!</a>
+          <div className='social-button'>
+          <Button color='facebook'>
+            <Icon name='facebook' /> Facebook
+              </Button>
+              <Button color='twitter' link={this.shareTweet(tweetText)}>
+            <Icon name='twitter' /> Twitter
+          </Button>
+          </div>
         </div>
       </div>
     );
