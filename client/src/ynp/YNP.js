@@ -24,20 +24,26 @@ export default class YNP extends Component {
     var url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkName + 
     '&fields=images,contacts,entranceFees,entrancePasses,operatingHours'+
     '&api_key=' + apikey;
+    var manualJSON = '/json/ynp.json';
     // console.log(url);
 
     axios.get(
-      url, {"Access-Control-Allow-Origin": "*"},
-    ).then( function(res) {
+      // url, {"Access-Control-Allow-Origin": "*"},
+      manualJSON
+    ).then( (res)=> {
       console.log(res.status);
       if (res) { 
+        // debugger;
         this.setState({
           initialized: true,
-          ynpData: res 
+          ynpData: res.data
         });
       } else {
+        // debugger;
         this.fetchYellowstoneData();
       }
+    }, function(e){
+      console.log(e)
     });
   }
 
