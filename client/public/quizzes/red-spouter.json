@@ -1,0 +1,222 @@
+[
+  {
+      "questions": [
+        {
+    "question": "How many square miles does the park encompass?",
+    "info": "1240 square miles burned in the fires of 1988-- which is just over 1/3 of the park.",
+    "options":
+      [
+        "3,472 miles","5,275 miles","1,067 miles","8,108 miles"
+      ],
+    "scores":
+      [1, 0, 0, 0]
+},{
+  "question": "The 45th parallel is a geographic marker that passes through Yellowstone.  What position on the globe does it denote?",
+  "info": "Lake trout are extremely invasive and detrimental towards native fish populations. Lake trout can eat up to 41 cutthroat trout per year.",
+  "options":
+    [
+      "It's half way between the North Pole and the Equator.","It is the drainage divide where the water on each side drains into a different ocean.","It is 45 degrees from the prime meridian.","The Earth is flat."
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "Which of one of these is not a thermal feature?",
+  "info": "A geyser basin is a geographic area that has a cluster of hydrothermal features that include geysers, mudpots, hot springs and fumaroles.",
+  "options":
+    [
+      "cascade","fumarole","geyser","mudpot"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "What percentage of the park is in Montana?",
+  "info": "96% is in Wyoming, 3% in Montana and 1% in Idaho.",
+  "options":
+    [
+      "3%","22%","12%","63%"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "The Yellowstone River is the longest undammed river in the lower 48 states. Its length, in miles, is: ",
+  "info": "",
+  "options":
+    [
+      "671 miles","278 miles","490 miles","1083 miles"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "The three tributaries of the Missouri River begin within, or just west of the Park.  Which of these rivers do not go on to form the Missouri:  ",
+  "info": "",
+  "options":
+    [
+      "Lamar","Gallatin","Jefferson","Madison"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "Which animal has special joints that allow them to swing their legs over snow instead of having to push through it? ",
+  "info": "",
+  "options":
+    [
+      "Moose","Bison","Elk","Mule deer"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "What year were wolves reintroduced in Yellowstone National Park?",
+  "info": "As of December 2016, there were at least 108 wolves in the park. Eleven packs were noted.",
+  "options":
+    [
+      "1995","2005","1980","1968"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "Yellowstone is home to more than half of the world's active geysers, which number approximately: ",
+  "info": "",
+  "options":
+    [
+      "500","100","1000","2000"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "What is the highest temperature to be recorded in a Yellowstone hydrothermal area? ",
+  "info": "",
+  "options":
+    [
+      "459°F, 237°C","280°F, 137°C","616°F, 324°C","346°F, 174°C"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "Upon the creation of Yellowstone National Park, in 1872, which of these states were established?",
+  "info": "",
+  "options":
+    [
+      "none of the above","Montana","Idaho","Montana & Wyoming"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "Yellowstone is home to more than half of the world's active geysers, which number approximately: ",
+  "info": "",
+  "options":
+    [
+      "500","100","1000","2000"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "Upon the creation of Yellowstone National Park, in 1872, which of these states were established?",
+  "info": "",
+  "options":
+    [
+      "none of the above","Montana","Idaho","Montana & Wyoming"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "What is North America's largest land animal?",
+  "info": "Bison are North America's largest land animals. Mature bulls weigh up to 2000 pounds. Bison can run at speeds approaching 35mph!",
+  "options":
+    [
+      "Bison","Grizzly bear","Polar bear","Elk"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "Which of these is not a microorganism that contributes to the variety of colors seen in Yellowstone's hydrothermal features?",
+  "info": "",
+  "options":
+    [
+      "Fungi","Bacteria","Archaea","Viruses"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "In 2016 which baby animal did tourists put in their car because, \"It looked cold\"?",
+  "info": "",
+  "options":
+    [
+      "Bison","Deer","Wolf","Mountain Lion"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+{
+  "question": "About how many grizzly bears currently live in the Greater Yellowstone ecosystem?",
+  "info": "Grizzly bears may weigh up to 800lbs and consume up to 90lbs of food per day in the fall months.",
+  "options":
+    [
+      "700","1000","75","2500"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+},
+
+              {
+              "question": "2. Question Two",
+              "info": "Some information about question two.",
+              "options":
+                [
+                  "Option 1",
+                  "Option 2",
+                  "Option 3",
+                  "Option 4"
+                ],
+              "scores":
+                [
+                  40,
+                  30,
+                  10,
+                  20
+                ]
+          }
+      ]
+  },
+  {
+      "results": [
+          {
+              "title": "Terrible Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 0
+          },
+          {
+              "title": "Poor Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 2
+          },
+          {
+              "title": "Good Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 4
+          },
+          {
+              "title": "Brilliant Score",
+              "description": "Details",
+              "image": "./img/the-end.jpg",
+              "minScore": 6
+          }
+      ]
+  }
+]

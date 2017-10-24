@@ -21,7 +21,7 @@ export default class Weather extends React.Component {
     this.fetchWeatherData = this.fetchWeatherData.bind(this);
   }
   fetchWeatherData (city) {
-    console.log(city + "this is the city");
+    // console.log(city + "this is the city");
     this.setState({
       initialized: false
     });
@@ -30,7 +30,7 @@ export default class Weather extends React.Component {
     //var weatherApiKey = config.weatherKey;
     var weatherApiKey = config.weatherkey;
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=Gardiner&units=imperial&appid=' + weatherApiKey;
-    console.log(url + "this is the url");
+    // console.log(url + "this is the url");
     fetch(url).then(function (response) {
       return response.json();
     }).then((weatherObj) => {
@@ -49,7 +49,7 @@ export default class Weather extends React.Component {
   }
   render () {
     if (this.state.initialized) {
-      console.log(this.state.weatherData)
+      // console.log(this.state.weatherData)
       return (
         <div>
           Current Weather:

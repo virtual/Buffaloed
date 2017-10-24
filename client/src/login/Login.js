@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Container, Button, Form, Grid, Header, Image, Message, Segment, Icon } from 'semantic-ui-react'
+var axios = require('axios');
 
 class Login extends Component {
   constructor(props) {
@@ -26,29 +27,24 @@ class Login extends Component {
   }
 
   loginUser() {
-    fetch('/login', {
-      method: "post",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      //make sure to serialize your JSON body
-      body: JSON.stringify({
-        email: this.state.email,
+      axios.post('/login', {
+        username: this.state.email,
         password: this.state.password
-      })
-    }).then((res) => {
-      console.log(res);
-      return res.json();
     }).then((answer) => {
-      console.log(answer);
-      if (answer.success) {
-        this.props.setUser({firstName: answer.firstName, email: this.state.email});
-        this.props.history.push("/");
+      console.log(answer.data);
+      if (answer.data.success) {
+        this.props.setUser({
+          firstName: answer.data.firstName, 
+          lastName: answer.data.lastName,
+          email: this.state.email,
+          id: answer.data.id,
+          img: answer.data.img
+        });
+        this.props.history.push("/dashboard");
       } else {
-        console.log(answer.message);
+        console.log(answer.data.message);
         this.setState({
-          message: answer.message
+          message: answer.data.message
         });
       }
     });
@@ -94,14 +90,15 @@ class Login extends Component {
         </Header>
         <Form size='large'>
           <Segment stacked>
-            <label for="email" className="sr-only">Email</label>
+
+            <label htmlFor="email" className="sr-only">Email</label>
           <Form.Input type="email" id="email" name="email" onChange={this.handleEmailChange} 
-          fluid icon='user' iconPosition='left' placeholder='E-mail address'
-          />
-          <label for="password" className="sr-only">Password</label>
-          <Form.Input placeholder="Password" type="password" name="password" onChange={this.handlePasswordChange}
-          fluid icon='lock' iconPosition='left'
-          />  
+          fluid icon='user' iconPosition='left' placeholder='E-mail address'/>
+
+          <label htmlFor="password" className="sr-only">Password</label>
+          <Form.Input placeholder="Password" id="password" type="password" name="password" onChange={this.handlePasswordChange}
+          fluid icon='lock' iconPosition='left'/>
+            
           <Button type='submit' onClick={this.loginUser} color='blue' fluid size='large'>Login</Button>
           </Segment>
         </Form>

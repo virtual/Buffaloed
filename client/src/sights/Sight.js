@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import FeatureMap from './Map';
+import QuizBox from '../quizBox/QuizContainer';
 
-export default class Site extends Component {
+export default class Sight extends Component {
   constructor(){
     super();
     this.fetchSight = this.fetchSight.bind(this);
@@ -50,6 +51,7 @@ export default class Site extends Component {
     if (this.state.initialized) { 
       console.log(this.state.sight.sightData[0]);
       let allInfo = this.state.sight.sightData[0];
+      let img = '/img/sights/orig/' + allInfo.img;
       return (
         <div> 
           <h1>
@@ -59,15 +61,18 @@ export default class Site extends Component {
         
 
   <Grid>
-    <Grid.Column computer={4} mobile={16} tablet={10}>
-      <Image src={allInfo.img} alt={allInfo.name} />
+    <Grid.Column computer={4} mobile={16} tablet={6}>
+      <Image src={img} alt={allInfo.name} />
     </Grid.Column>
-    <Grid.Column computer={9} mobile={16} tablet={6}>
-   <p>{allInfo.desc}</p>
-   <FeatureMap lat={allInfo.lat} lng={allInfo.lng} />
+    <Grid.Column computer={6} mobile={16} tablet={10}>
+    <p>{allInfo.desc}</p>
+     </Grid.Column>
+      <Grid.Column computer={6} mobile={16} tablet={16}>
+   <FeatureMap sightName={allInfo.name} lat={allInfo.lat} lng={allInfo.lng} />
     </Grid.Column>
-    <Grid.Column computer={3} mobile={16} tablet={16}>
-      hi!
+    <Grid.Column computer={16} mobile={16} tablet={16}>
+   <QuizBox sight={allInfo.slug}/>
+
     </Grid.Column>
   </Grid>
 

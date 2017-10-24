@@ -1,5 +1,5 @@
  
-#quizForm > div:first-child { background:#00f; display: none;}
+#quizForm3 > div:first-child { background:#00f; display: none;}
 
 #quizForm div label {
   background-image: linear-gradient(to top,#969696,#727272);
