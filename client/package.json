@@ -5,6 +5,7 @@
   "dependencies": {
     "javascript-quiz-using-json": "^0.5.1-alpha",
     "leaflet": "^1.2.0",
+    "password-hash": "^1.2.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-leaflet": "^1.7.1",
