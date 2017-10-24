@@ -10,7 +10,7 @@ import Sights from './sights/Sights';
 import Sight from './sights/Sight'; 
 import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
-import QuizBox from './quiz/Quiz';
+// import QuizBox from './quiz/Quiz';
 import About from './about/About';
 import Dashboard from './dashboard/Dashboard';
 const axios = require('axios');
@@ -71,7 +71,6 @@ class App extends Component {
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             <Route path="/dashboard" render={()=> <Dashboard user={this.state.user} getUser={this.getUser} setUser={this.setUser}  /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
-            <Route path='/quiz' render={()=> <QuizBox /> }/>
             <Route path='/about' render={()=> <About /> }/>
             </Container>
             <Footer />
