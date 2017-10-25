@@ -5,7 +5,6 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
-    "javascript-quiz-using-json": "git+https://github.com/virtual/javascript-quiz-using-json.git",
     "leaflet": "^1.2.0",
     "password-hash": "^1.2.2",
     "react": "^16.0.0",
