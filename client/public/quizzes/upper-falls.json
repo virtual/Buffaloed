@@ -24,17 +24,17 @@
   "info": "",
   "options":
   [ 
-    "**melting ice dams caused catastrophic flooding","the rim of the Caldera collapsed","the Canyon lies on a fault line","the continental plates shifted during earthquakes"
+    "melting ice dams that caused catastrophic flooding","the rim of the Caldera collapsing","**river erosion combined with rock weakened by hydrothermal gases","the continental plates shifting during earthquakes"
   ],
   "scores":
   [1, 0, 0, 0]
   },
   {
-  "question": "",
+  "question": "Which bird species ",
   "info": "",
   "options":
   [
-  "**the oxidation state of the iron in the mud","various populations of microbes","decaying plant matter in the mud","the gases venting from below"
+  "**osprey","various populations of microbes","decaying plant matter in the mud","the gases venting from below"
 ],
 "scores":
 [1, 0, 0, 0]
