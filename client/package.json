@@ -10,10 +10,13 @@
     "password-hash": "^1.2.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-facebook": "^4.0.16",
     "react-images-upload": "^1.1.1",
     "react-leaflet": "^1.7.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
+    "react-share-icons": "^1.1.2",
+    "react-social": "^1.10.0",
     "reactstrap": "^4.8.0",
     "semantic-ui-react": "^0.75.1"
   },
