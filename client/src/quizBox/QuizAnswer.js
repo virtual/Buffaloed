@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button} from 'semantic-ui-react';
+import {Button, Icon} from 'semantic-ui-react';
 
 export default class QuizAnswer extends Component {
   constructor() {
@@ -17,6 +17,7 @@ export default class QuizAnswer extends Component {
     this.printTotalScore = this.printTotalScore.bind(this);
     this.updateAllScores = this.updateAllScores.bind(this);
     this.saveScoresToDB = this.saveScoresToDB.bind(this);
+    this.shareTweet = this.shareTweet.bind(this);
 
   }
   saveScoresToDB() {
@@ -32,6 +33,11 @@ export default class QuizAnswer extends Component {
       this.props.saveScores(myScore);    
     }
   }
+  shareTweet(linktext){
+    var tweet = "https://twitter.com/intent/tweet?hashtags=yellowstoneodyssey&text=" + linktext+ "&url=https://montanacodeschool.com";
+    return tweet
+  }
+
   handleClick() {
     document.getElementById("quiz-answer-block").style.display = 'block';
     this.updateAllScores();
@@ -69,6 +75,7 @@ export default class QuizAnswer extends Component {
     let htmlQuizQ = [];
     let thisAnswer = '';
     this.saveScoresToDB();
+    let tweetText = encodeURI('I scored ' + this.state.percentCorrect + '%');
 
     // build answer for each question
     this.props.data.forEach(function(element, index) {   
@@ -94,6 +101,15 @@ export default class QuizAnswer extends Component {
           <ul>
             {htmlQuizQ}
           </ul>
+          <a target="_blank" href={this.shareTweet(tweetText)}>Share on Twitter!</a>
+          <div className='social-button'>
+          <Button color='facebook'>
+            <Icon name='facebook' /> Facebook
+              </Button>
+              <Button color='twitter' link={this.shareTweet(tweetText)}>
+            <Icon name='twitter' /> Twitter
+          </Button>
+          </div>
         </div>
       </div>
     );
