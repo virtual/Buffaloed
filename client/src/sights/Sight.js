@@ -26,7 +26,6 @@ export default class Sight extends Component {
     this.fetchScores();
     this.setState({user: this.props.getUser});
     this.props.getUser();
-    console.log("MEW2222!");
     console.log(this.props.user);
 
   }
