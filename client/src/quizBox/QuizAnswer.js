@@ -6,13 +6,12 @@ export default class QuizAnswer extends Component {
   constructor() {
     super();
 
-    let disabled = false;
-
-
+    
     this.state = {
       numAnswered: undefined,
       currentScores: undefined,
-      percentCorrect: undefined
+      percentCorrect: undefined,
+      completedQuiz: false
   
     }
 
@@ -25,7 +24,6 @@ export default class QuizAnswer extends Component {
 
   }
   saveScoresToDB() {
-    console.log(this.state)
     if (this.state.currentScores > 0){
       let myScore = {
         slug: this.props.sight,
@@ -43,30 +41,21 @@ export default class QuizAnswer extends Component {
   }
 
   handleClick() {
-    console.log("running!");
-    //this.disabled = true;
-    let myObj = this.props.getScores(); 
-    console.log(myObj);
-    console.log(myObj.length);
-    if(myObj.length < 4) {
-      //this.props.handleOpen();
-      alert("You haven't answered all the questions yet");
-    } else {
-      document.getElementById("quiz-answer-block").style.display = 'block';
-    }
-    
     this.updateAllScores();
   }
+
   componentDidMount() {
     document.getElementById("quiz-answer-block").style.display = 'none';
   }
   updateAllScores() {
-    console.log('update scoresssss!');
     let numAnswered = this.props.getLocalScores().length;
     let currentScores = this.returnTotalScore(numAnswered);
-    console.log(currentScores)
+    var completed = false;
+    if (numAnswered === this.props.qty) {
+      completed = true
+    } 
     let percentCorrect = this.printTotalScore(currentScores, numAnswered);
-    this.setState({numAnswered: numAnswered, currentScores: currentScores, percentCorrect: percentCorrect})
+    this.setState({numAnswered: numAnswered, currentScores: currentScores, percentCorrect: percentCorrect, completedQuiz: completed})
   }
   //this returns the number correctly answered
   returnTotalScore(numAnswered){
@@ -109,11 +98,10 @@ export default class QuizAnswer extends Component {
       
     return (
       <div>
-        <ModalBox handleClick={this.handleClick} />
-        {/* <Button disabled={this.disabled} onClick={this.handleClick}> Show Answers </Button> */}
+        <ModalBox  completedQuiz={this.state.completedQuiz} handleClick={this.handleClick} />
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
-          <p>{(JSON.parse(sessionStorage.getItem('user'))).firstName}, You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
+          <p>{(JSON.parse(sessionStorage.getItem('user'))).firstName}, You scored {this.state.completedQuiz} {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
           <ul>
             {htmlQuizQ}
           </ul>
