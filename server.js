@@ -203,86 +203,79 @@ app.post('/signup', function(req, res, next) {
 app.post('/score', function(req, res, next) {
 
   Quiz.find({slug: req.body.slug}, (err, foundQuiz)=>{
+    let obj = {
+      score:req.body.leaderboard.score,
+      email:req.body.leaderboard.email
+    };
     if(err){
       console.log(err);
       next(err)
     } else { 
       if (foundQuiz.length > 0) {
         // Quiz with slug exists
-        console.log(foundQuiz[0]);
-        console.log("found a quiz for " + req.body.slug)
-
-        // foundQuiz = { "slug": "morning-glory",
-        // "leaderBoard": [
-        //     {
-        //         "score": 1,
-        //         "email": "em@em.com",
-        //         "_id": {
-        //             "$oid": "59f0f2fbfc35835bd2b9f358"
-        //         }
-        //     }
-        // ]}
+        console.log("found a quiz for " + req.body.slug) 
 
         // Check if current user's email is in the sight's quiz list
-          // check if the score is more than what they got before & update
-          foundQuiz[0].leaderBoard.forEach((e, i) =>{
-            console.log('e')
-            console.log(e)
-            if(e.email === req.body.leaderboard.email) {
-              console.log('found ' + req.body.leaderboard.email)
-            } else {       
+        // check if the score is more than what they got before & update
+        foundQuiz[0].leaderBoard.forEach((e, i) =>{
+          console.log('e')
+          console.log(e)
+          if(e.email === req.body.leaderboard.email) {
+            // √ user is in list
+            // check if score is higher and update if so
+            console.log('found ' + req.body.leaderboard.email + " with score: " + e.score)
+            console.log(req.body.leaderboard.score);
 
-              // User is not in list, 
-              // add email and score to existing leaderboard object
-              console.log('not found ' + req.body.leaderboard.email);
-              
-              let obj = {
-                score:req.body.leaderboard.score,
-                email:req.body.leaderboard.email
-              };
-               
-              foundQuiz[0].leaderBoard.push(obj);
+            if(parseInt(e.score) < parseInt(req.body.leaderboard.score)) {
+              // √ update score
+              foundQuiz[0].leaderBoard[i].score = parseInt(req.body.leaderboard.score);
+              console.log('update score');
               foundQuiz[0].save( 
-              function(err, newQuiz){
-                if(err) {
+                function(err, newQuiz){
+                  if(err) {
                   next(err);
                 } else {
                   res.json(newQuiz);
                 }
               });
+            } else {
+              // √ no change
+              console.log('no update needed');
             }
-          });
+          } else {       
+            // √ User is not in list, 
+            // add email and score to existing leaderboard object
+            console.log('not found ' + req.body.leaderboard.email);
+            foundQuiz[0].leaderBoard.push(obj);
+            foundQuiz[0].save( 
+            function(err, newQuiz){
+              if(err) {
+                next(err);
+              } else {
+                res.json(newQuiz);
+              }
+            });
+          }
+        });
  
       } else {
+        // Add new quiz to db for slug/sight
         console.log("couldn't find a quiz for " + req.body.slug)
-     
         let quiz = new Quiz();
         quiz.leaderBoard = [];
-         let obj = {
-           score:req.body.leaderboard.score,
-           email:req.body.leaderboard.email
-         };
-         //quiz.leaderBoard = array;
-         quiz.slug = req.body.slug;
-         quiz.leaderBoard.push(obj)
-         //console.log(quiz)
-         quiz.save( 
-       //Quiz.findOneAndUpdate({email: req.body.email},
-         //{$push: {slug: req.body.leaderboard.slug, score: req.body.leaderboard.score }},
-         //{upsert:true, new:true},
-         function(err, newQuiz){
-         if(err) {
-           next(err);
-         } else {
-     
-           res.json(newQuiz);
-         }
+        quiz.slug = req.body.slug;
+        quiz.leaderBoard.push(obj) 
+        quiz.save(
+          function(err, newQuiz){
+          if(err) {
+            next(err);
+          } else {
+            res.json(newQuiz);
+          }
        })
       }
     }
   }).limit(1);
-
-   
 });
 
 app.post('/scoreInfo', function(req, res, next) {
