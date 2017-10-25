@@ -96,25 +96,26 @@ export default class QuizAnswer extends Component {
         }
       });
     });
-      
+    var session = {
+      name: ''
+    };
+     if (sessionStorage.getItem('user'))  {
+      session.name = (JSON.parse(sessionStorage.getItem('user'))).firstName;
+     }
     return (
       <div>
         <ModalBox  completedQuiz={this.state.completedQuiz} handleClick={this.handleClick} />
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
-          <p>{(JSON.parse(sessionStorage.getItem('user'))).firstName}, You scored {this.state.completedQuiz} {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
+          <p>{session.name} You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
           <ul>
             {htmlQuizQ}
           </ul>
-          <a target="_blank" href={this.shareTweet(tweetText)}>Share on Twitter!</a>
           <div className='social-button'>
-          <Button color='facebook'>
-            
-            <Icon name='facebook' /> Facebook <FacebookShare />
-              </Button>
-              <Button color='twitter' link={this.shareTweet(tweetText)}>
-            <Icon name='twitter' /> Twitter
-          </Button>
+            <FacebookShare />
+            <Button color='twitter' link={this.shareTweet(tweetText)}>
+              <Icon name='twitter' />Share on Twitter
+            </Button>
           </div>
         </div>
       </div>
