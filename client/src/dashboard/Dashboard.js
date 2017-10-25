@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ImgUploader from '../imageuploader/ImageUploader'
 let axios = require('axios');
 
 
@@ -10,6 +11,9 @@ export default class Dashboard extends Component {
       sights: []
     }
     this.getList = this.getList.bind(this);
+    console.log(JSON.parse(sessionStorage.getItem('user')));     
+    
+    
   }
 
 
@@ -41,12 +45,12 @@ export default class Dashboard extends Component {
     }
     return (
       <div>
-
+        <ImgUploader />
         <h1>Dashboard</h1>
         <h2>Welcome, {user.firstName} {user.lastName} </h2>
           <img src={imgLink} />
         <p><strong>Settings: </strong><br/>
-        Email! {user.email} 
+        Email: {user.email}  
         </p>
       </div>
     );

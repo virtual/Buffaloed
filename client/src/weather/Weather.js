@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../footer/Footer'
-import WeatherWidget from '../weatherwidget/WeatherWidget';
+import WeatherWidget from '../weatherwidget/WeatherWidget'; 
 
 import {
   BrowserRouter as Router,

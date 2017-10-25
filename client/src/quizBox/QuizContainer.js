@@ -15,14 +15,14 @@ export default class QuizContainer extends Component {
     };
     this.getQuizData = this.getQuizData.bind(this);
     this.displayQuiz = this.displayQuiz.bind(this);
-    this.setScores = this.setScores.bind(this)
-    this.getScores = this.getScores.bind(this)
+    this.setLocalScores = this.setLocalScores.bind(this)
+    this.getLocalScores = this.getLocalScores.bind(this)
   }
 
-  getScores(){
+  getLocalScores(){
     return this.state.userScores;
   }
-  setScores(option) {
+  setLocalScores(option) {
     console.log("setscore");
     // console.log(option);
     this.setState({userScores: this.state.userScores.concat([option])});
@@ -73,7 +73,7 @@ export default class QuizContainer extends Component {
     let htmlQuizQ = [];
     console.log(data[0]);
     data[0].questions.forEach((element, index)=> {
-      htmlQuizQ.push(<QuizQuestion setScores={this.setScores} element={element} index={index} />); 
+      htmlQuizQ.push(<QuizQuestion setLocalScores={this.setLocalScores} element={element} index={index} />); 
     });
     return htmlQuizQ;
   }
@@ -85,7 +85,7 @@ export default class QuizContainer extends Component {
         <div className="myQuiz" id="quizForm">
           <div>
           {html}
-          <QuizAnswer getScores={this.getScores}  data={this.state.data[0].questions}/>
+          <QuizAnswer getLocalScores={this.getLocalScores} sight={this.props.sight} saveScores={this.props.saveScores} data={this.state.data[0].questions}/>
           </div>
         </div>
       );

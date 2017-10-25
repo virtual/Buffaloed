@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import FeatureMap from './Map';
-import QuizBox from '../quizBox/QuizContainer';
+import QuizContainer from '../quizBox/QuizContainer';
+const axios = require('axios');
 
 export default class Sight extends Component {
   constructor(){
     super();
-    this.fetchSight = this.fetchSight.bind(this);
     this.state = {
       initialized: false,
-      sight: [] 
+      initializedScores: false,
+      sight: [],
+      scores: {},
+      user: {}
     }
+    this.slug = undefined;
+    this.fetchSight = this.fetchSight.bind(this);
+    this.fetchScores = this.fetchScores.bind(this);
+    this.saveScores = this.saveScores.bind(this);
+    this.getSlug = this.getSlug.bind(this);
+  }
+  componentDidMount() {
+    this.getSlug();
+    this.fetchSight();
+    this.fetchScores();
+    this.setState({user: this.props.getUser});
+    this.props.getUser();
+    console.log("MEW2222!");
+    console.log(this.props.user);
 
   }
-  componentWillMount() {
-    this.fetchSight();
-  }
-  fetchSight() {
+
+  getSlug() {
     let sluggyPath = window.location.pathname;
     let sluggyReg = /(sight\/)([\w\-]+)/; 
 
@@ -25,13 +40,16 @@ export default class Sight extends Component {
     }
 
     var found = sluggyPath.match(sluggyReg)[2];
+    this.slug = found; // dont use state cuz it won't set
+  }
+
+  fetchSight() {
     var url = '/sightsInfo';
-  
     fetch(url, {
       method: "post",
       headers:{"Content-Type":"application/json"}, 
       body: JSON.stringify({ 
-        slug: found
+        slug: this.slug
       })
     }).then(function (response) {
       
@@ -47,15 +65,48 @@ export default class Sight extends Component {
       }
     });
   }
+
+  saveScores(myScoreObj) {
+    console.log("saving score!");
+    axios.post('/score', myScoreObj) 
+  }
+
+  fetchScores() {
+    var url = '/scoreInfo';
+    fetch(url, {
+      method: "post",
+      headers:{"Content-Type":"application/json"}, 
+      body: JSON.stringify({ 
+        slug: this.slug
+      })
+    }).then(function (response) {
+      
+      return response.json();
+    }).then((scoresObj) => { 
+      if (scoresObj !== undefined) { 
+        this.setState({ 
+          initializedScores: true,
+          scores: scoresObj
+        });
+        console.log(this.state)
+      }  else {
+        console.log('undefined');
+      }
+    });
+  }
   render () {
     if (this.state.initialized) { 
       console.log(this.state.sight.sightData[0]);
+
+      if (this.state.initializedScores) { 
+        console.log(this.state.scoresObj);
+      }
       let allInfo = this.state.sight.sightData[0];
       let img = '/img/sights/orig/' + allInfo.img;
       return (
         <div> 
           <h1>
-          {allInfo.name}
+          {allInfo.name}-{this.state.user.email}
           </h1>
  
         
@@ -71,8 +122,7 @@ export default class Sight extends Component {
    <FeatureMap sightName={allInfo.name} lat={allInfo.lat} lng={allInfo.lng} />
     </Grid.Column>
     <Grid.Column computer={16} mobile={16} tablet={16}>
-   <QuizBox sight={allInfo.slug}/>
-
+   <QuizContainer sight={allInfo.slug} saveScores={this.saveScores}/>
     </Grid.Column>
   </Grid>
 

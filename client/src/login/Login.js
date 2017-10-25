@@ -16,6 +16,8 @@ class Login extends Component {
     this.loginUser = this.loginUser.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    console.log(sessionStorage.getItem('user'));     
+    
   }
 
   handleEmailChange(event) {
@@ -40,6 +42,15 @@ class Login extends Component {
           id: answer.data.id,
           img: answer.data.img
         });
+        var user = {'firstName': answer.data.firstName};
+        sessionStorage.setItem('user', JSON.stringify(user));
+        //var obj = JSON.parse(sessionStorage.user);
+
+        //sessionStorage.setItem('bar', 'hello')
+        //console.log(sessionStorage.getItem('bar')); 
+
+        //sessionStorage.setItem('user', {firstName: answer.data.firstName});
+        console.log(JSON.parse(sessionStorage.getItem('user')));     
         this.props.history.push("/dashboard");
       } else {
         console.log(answer.data.message);

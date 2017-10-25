@@ -50,9 +50,9 @@ function(email, password, done){
     if (err) {
       return done(err, null); // null for no user
     } else {
-      console.log('checking hash...');
+      //console.log('checking hash...');
       if (user && passwordHash.verify(password, user.password)){
-        console.log('verified!')
+        //console.log('verified!')
         return done(null, user);
       } else {
         // additional test and error handling here
@@ -66,14 +66,14 @@ function(email, password, done){
 // store that they have logged in in a session with a cookie
 // serialize auth user which puts user into cookie for requests
 passport.serializeUser(function(user, done){
-  console.log(user._id);
-  console.log("serialize")
+  //console.log(user._id);
+  //console.log("serialize")
   done(null, user._id); // mongodb user id
 });
 
 passport.deserializeUser(function(id, done){
   // console.log(id);
-  console.log('des');
+  //console.log('des');
   User.findById(id, function(err, user){
     if (err) {
       console.log(err);
@@ -116,7 +116,7 @@ app.get('/dashboard', function(req, res, next) {
         next(err)
       } else {
         res.json(sight);
-        console.log(sight);
+        //console.log(sight);
       }
     })
   } else {
@@ -127,8 +127,8 @@ app.get('/dashboard', function(req, res, next) {
 
 app.get('/sights', function(req, res, next) {
   
-  console.log("COOOKIES22!!!");
-  console.log(req.user);
+  //console.log("COOOKIES22!!!");
+  //console.log(req.user);
 
   Sight.find(function(err, sight) {
     if (err) {
@@ -157,7 +157,9 @@ app.post('/sights/:id', function(req, res, next) {
 });
  
 app.post('/sightsInfo', function(req, res, next) { 
-  if (req.body.slug === undefined) {
+  //console.log(req.body.slug);
+    if (req.body.slug === undefined) {
+    // if (req.body.slug.keys(obj).length === 0){
     Sight.find(function(err, sights) {
       if(err){
         next(err)
@@ -187,7 +189,7 @@ app.post('/signup', function(req, res, next) {
   user.lastName = req.body.lastName;
   user.email = req.body.email;
   user.password = req.body.password;
-  console.log(user);
+  //console.log(user);
   user.save(function(err, newUser){
     if(err) {
       next(err);
@@ -207,7 +209,7 @@ app.post('/score', function(req, res, next) {
     //quiz.leaderBoard = array;
     quiz.slug = req.body.slug;
     quiz.leaderBoard.push(array)
-    console.log(quiz)
+    //console.log(quiz)
     quiz.save( 
   //Quiz.findOneAndUpdate({email: req.body.email},
     //{$push: {slug: req.body.leaderboard.slug, score: req.body.leaderboard.score }},
@@ -222,19 +224,19 @@ app.post('/score', function(req, res, next) {
   })
 });
 
-// app.get('/score/:slug', function(req, res, next) {
-//   if (req.params.slug) {
-//     Quiz.find({slug: req.params.slug},
-//       function(err, scores) {
-//       if (err) {
-//         next(err)
-//       } else {
-//         res.json(scores);
-//         console.log(score);
-//       }
-//     })
-//   } 
-// });
+app.post('/scoreInfo', function(req, res, next) {
+  if (req.body.slug) {
+    Quiz.find({slug: req.body.slug},
+      function(err, scores) {
+      if (err) {
+        next(err)
+      } else {
+        res.json(scores);
+        //console.log(scores);
+      }
+    }) 
+  } 
+});
 
 
 // adds passport middleware
@@ -245,7 +247,7 @@ app.post('/login', function (req, res, next) {
     } else if (user) {
       // write code to send user to dashboard - passport 
       req.logIn(user, (err)=>{
-        console.log(user);
+        //console.log(user);
         // gets a session working
         if (err) {
           res.json({found: false, success: false, message: err});

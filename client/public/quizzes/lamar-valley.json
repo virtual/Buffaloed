@@ -1,46 +1,35 @@
-[
-  {
-      "questions": [
-        {
-    "question": "Which animal has special joints that allow them to swing their legs over snow instead of having to push through it? ",
-    "info": "",
-    "options":
-      [
-        "** Moose","Bison","Elk","Mule deer"
+[{
+  "questions": [{
+      "question": "Lamar Valley is known as the #1 spot for viewing which animal? ",
+      "info": "",
+      "options": [
+        "** Wolves", "Bison", "Elk", "Mule deer"
       ],
-    "scores":
-      [1, 0, 0, 0]
-  },
-  {
-    "question": "What year were wolves reintroduced in Yellowstone National Park?",
-    "info": "As of December 2016, there were at least 108 wolves in the park. Eleven packs were noted.",
-    "options":
-      [
-        "** 1995","2005","1980","1968"
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "In 1885, Geologist Arnold Hague named the river after a man employed in which field?",
+      "info": "The river was named for L.Q.C. (Lucius Quinctius Cincinnatus) Lamar, then Secretary of the Interior (March 1885 – January 1888)",
+      "options": [
+        "** Politics", "Cartography", "Agriculture", "Mining"
       ],
-    "scores":
-      [1, 0, 0, 0]
-  },
-  {
-    "question": "Yellowstone is home to more than half of the world's active geysers, which number approximately: ",
-    "info": "",
-    "options":
-      [
-        "** 500","100","1000","2000"
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "In 2013, the National Park Service required mandatory killing of which fish caught when in the Lamar River drainage?",
+      "info": "The mandatory killing of rainbow and brook trout caught in the Lamar River drainage is intended to protect native cutthroat trout.",
+      "options": [
+        "** Rainbow and Brook Trout", "Brown Trout", "Artice Grayling and Whitefish Trout", "Green Drake"
       ],
-    "scores":
-      [1, 0, 0, 0]
-  },
-  {
-    "question": "What is the highest temperature to be recorded in a Yellowstone hydrothermal area? ",
-    "info": "",
-    "options":
-      [
-        "** 459°F, 237°C","280°F, 137°C","616°F, 324°C","346°F, 174°C"
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "How long is the road between Tower Junction and the Northeast Entrance?",
+      "info": "The road along the Lamar Valley is the only road open year-long.",
+      "options": [
+        "** 29 miles", "11 miles", "43 miles", "5 miles"
       ],
-    "scores":
-      [1, 0, 0, 0]
-  }
-]}
+      "scores": [1, 0, 0, 0]
+    }
   ]
-  
+}]

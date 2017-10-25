@@ -20,7 +20,7 @@ export default class QuizOption extends Component {
     });
        
   
-      this.props.setScores( parseInt(event.target.value) );    
+      this.props.setLocalScores( parseInt(event.target.value) );    
       this.props.changeToAnswered();
 
       if (event.target.value === "1") {
