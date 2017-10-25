@@ -91,13 +91,18 @@ export default class QuizAnswer extends Component {
         }
       });
     });
-      
+    var session = {
+      name: ''
+    };
+     if (sessionStorage.getItem('user'))  {
+      session.name = (JSON.parse(sessionStorage.getItem('user'))).firstName;
+     }
     return (
       <div>
         <Button onClick={this.handleClick}> Show Answers </Button>
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
-          <p>{(JSON.parse(sessionStorage.getItem('user'))).firstName}, You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
+          <p>{session.name} You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
           <ul>
             {htmlQuizQ}
           </ul>
