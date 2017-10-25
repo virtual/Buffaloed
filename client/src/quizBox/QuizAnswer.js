@@ -29,7 +29,7 @@ export default class QuizAnswer extends Component {
       let myScore = {
         slug: this.props.sight,
         leaderboard: {
-          email: 'hello',
+          email: JSON.parse(sessionStorage.getItem('user')).email,
           score: parseInt(this.state.currentScores)
         }
       };
