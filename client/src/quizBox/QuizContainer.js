@@ -84,7 +84,7 @@ export default class QuizContainer extends Component {
       );
     } else {
       return (
-        <div>Loading!!</div>
+        <div></div>
       )
     }
   }

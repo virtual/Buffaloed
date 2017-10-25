@@ -6,7 +6,6 @@ import FacebookShare from '../facebookshare/FacebookShare'
 export default class QuizAnswer extends Component {
   constructor() {
     super();
-
     
     this.state = {
       numAnswered: undefined,
