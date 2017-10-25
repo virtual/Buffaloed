@@ -47,3 +47,11 @@ cursor: pointer;}
   content: "\232A";
   font-size: .9rem;
 }
+
+.social-button button {
+  font-size: 16px;
+  width: 150px;
+  display: block;
+  float: left;
+  border-radius: 12px;
+}
