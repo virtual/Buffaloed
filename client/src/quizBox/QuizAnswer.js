@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import ModalBox from './QuizModal';
 import {Button, Icon} from 'semantic-ui-react';
+import FacebookShare from '../facebookshare/FacebookShare'
 
 export default class QuizAnswer extends Component {
   constructor() {
     super();
 
+    
     this.state = {
       numAnswered: undefined,
       currentScores: undefined,
-      percentCorrect: undefined
+      percentCorrect: undefined,
+      completedQuiz: false
   
     }
 
@@ -21,7 +25,6 @@ export default class QuizAnswer extends Component {
 
   }
   saveScoresToDB() {
-    console.log(this.state)
     if (this.state.currentScores > 0){
       let myScore = {
         slug: this.props.sight,
@@ -39,19 +42,21 @@ export default class QuizAnswer extends Component {
   }
 
   handleClick() {
-    document.getElementById("quiz-answer-block").style.display = 'block';
     this.updateAllScores();
   }
+
   componentDidMount() {
     document.getElementById("quiz-answer-block").style.display = 'none';
   }
   updateAllScores() {
-    console.log('update scoresssss!');
     let numAnswered = this.props.getLocalScores().length;
     let currentScores = this.returnTotalScore(numAnswered);
-    console.log(currentScores)
+    var completed = false;
+    if (numAnswered === this.props.qty) {
+      completed = true
+    } 
     let percentCorrect = this.printTotalScore(currentScores, numAnswered);
-    this.setState({numAnswered: numAnswered, currentScores: currentScores, percentCorrect: percentCorrect})
+    this.setState({numAnswered: numAnswered, currentScores: currentScores, percentCorrect: percentCorrect, completedQuiz: completed})
   }
   //this returns the number correctly answered
   returnTotalScore(numAnswered){
@@ -99,7 +104,7 @@ export default class QuizAnswer extends Component {
      }
     return (
       <div>
-        <Button onClick={this.handleClick}> Show Answers </Button>
+        <ModalBox  completedQuiz={this.state.completedQuiz} handleClick={this.handleClick} />
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
           <p>{session.name} You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
@@ -109,7 +114,8 @@ export default class QuizAnswer extends Component {
           <a target="_blank" href={this.shareTweet(tweetText)}>Share on Twitter!</a>
           <div className='social-button'>
           <Button color='facebook'>
-            <Icon name='facebook' /> Facebook
+            
+            <Icon name='facebook' /> Facebook <FacebookShare />
               </Button>
               <Button color='twitter' link={this.shareTweet(tweetText)}>
             <Icon name='twitter' /> Twitter
