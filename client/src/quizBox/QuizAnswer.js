@@ -111,15 +111,11 @@ export default class QuizAnswer extends Component {
           <ul>
             {htmlQuizQ}
           </ul>
-          <a target="_blank" href={this.shareTweet(tweetText)}>Share on Facebook and Twitter!</a>
           <div className='social-button'>
-          <Button color='facebook'>
-
-            <Icon name='facebook' /> Share on Facebook <FacebookShare />
-              </Button>
-              <Button color='twitter' link={this.shareTweet(tweetText)}>
-            <Icon name='twitter' />Share on Twitter
-          </Button>
+            <FacebookShare />
+            <Button color='twitter' link={this.shareTweet(tweetText)}>
+              <Icon name='twitter' />Share on Twitter
+            </Button>
           </div>
         </div>
       </div>
