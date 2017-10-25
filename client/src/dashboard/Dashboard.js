@@ -11,6 +11,9 @@ export default class Dashboard extends Component {
       sights: []
     }
     this.getList = this.getList.bind(this);
+    console.log(JSON.parse(sessionStorage.getItem('user')));     
+    
+    
   }
 
 
