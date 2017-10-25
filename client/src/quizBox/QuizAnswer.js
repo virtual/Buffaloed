@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Icon} from 'semantic-ui-react';
+import FacebookShare from '../facebookshare/FacebookShare'
 
 export default class QuizAnswer extends Component {
   constructor() {
@@ -104,7 +105,8 @@ export default class QuizAnswer extends Component {
           <a target="_blank" href={this.shareTweet(tweetText)}>Share on Twitter!</a>
           <div className='social-button'>
           <Button color='facebook'>
-            <Icon name='facebook' /> Facebook
+            
+            <Icon name='facebook' /> Facebook <FacebookShare />
               </Button>
               <Button color='twitter' link={this.shareTweet(tweetText)}>
             <Icon name='twitter' /> Twitter
