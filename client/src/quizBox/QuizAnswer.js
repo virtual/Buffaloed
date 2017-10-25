@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import ModalBox from './QuizModal';
 import {Button, Icon} from 'semantic-ui-react';
 
 export default class QuizAnswer extends Component {
   constructor() {
     super();
+
+    let disabled = false;
+
 
     this.state = {
       numAnswered: undefined,
@@ -39,7 +43,18 @@ export default class QuizAnswer extends Component {
   }
 
   handleClick() {
-    document.getElementById("quiz-answer-block").style.display = 'block';
+    console.log("running!");
+    //this.disabled = true;
+    let myObj = this.props.getScores(); 
+    console.log(myObj);
+    console.log(myObj.length);
+    if(myObj.length < 4) {
+      //this.props.handleOpen();
+      alert("You haven't answered all the questions yet");
+    } else {
+      document.getElementById("quiz-answer-block").style.display = 'block';
+    }
+    
     this.updateAllScores();
   }
   componentDidMount() {
@@ -94,7 +109,8 @@ export default class QuizAnswer extends Component {
       
     return (
       <div>
-        <Button onClick={this.handleClick}> Show Answers </Button>
+        <ModalBox handleClick={this.handleClick} />
+        {/* <Button disabled={this.disabled} onClick={this.handleClick}> Show Answers </Button> */}
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
           <p>{(JSON.parse(sessionStorage.getItem('user'))).firstName}, You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
