@@ -9,9 +9,23 @@ export default class Leaderboard  extends Component {
     //Object.keys(obj).length === 0
     if(Object.keys(this.props.scores).length > 0) {
       console.log('Leaderboard');
-      console.log(this.props.scores);
+      //console.log(this.props.scores);
       let leaderboard = this.props.scores[0].leaderBoard;
-      console.log(leaderboard);
+
+      leaderboard.sort((a, b)=>{
+            return a.score < b.score;
+        })    
+        console.log(leaderboard);
+        leaderboard = leaderboard.slice(0, 5).sort(function (x, y) {
+          var n = x.score < y.score;
+          if (n !== 0) {
+              return n;
+          }
+      
+          return x.email > y.email;
+      });;
+
+
       let ldrhtml = [];
       if(leaderboard.length > 0) {
         leaderboard.forEach((e)=> {
