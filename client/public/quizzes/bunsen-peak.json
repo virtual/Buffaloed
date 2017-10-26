@@ -1,46 +1,15 @@
-[
-  {
-      "questions": [
-        {
-          "question": "Which president established Yellowstone National Park?",
-          "info": "Yellowstone National Park was signed into law by Ulysses S. Grant on March 1, 1872.",
-          "options":
-            [
-              "Ulysses S. Grant","Andrew Jackson","Teddy Roosevelt","Franklin Delano Roosevelt"
-            ],
-          "scores":
-            [1, 0, 0, 0]
-      },
-      {
-        "question": "What is the highest peak in Yellowstone?",
-        "info": "Eagle Peak, towering at 11,358ft, was named in 1885 by geologist Arnold Hague for its resemblance to a \"spread eagle\".",
-        "options":
-          [
-            "Eagle Peak","Bunsen Peak","Mt. Washburn","Electric Peak"
-          ],
-        "scores":
-          [1, 0, 0, 0]
-    },
-    {
-      "question": "Which fish species is not native to Yellowstone?",
-      "info": "Lake trout are extremely invasive and detrimental towards native fish populations. Lake trout can eat up to 41 cutthroat trout per year.",
-      "options":
-        [
-          "Lake Trout","Arctic grayling","Mountain Whitefish","Yellowstone cutthroat trout"
-        ],
-      "scores":
-        [1, 0, 0, 0]
-  },
-  {
+[{
+  "questions": [{
     "question": "How many square miles does the park encompass?",
     "info": "1240 square miles burned in the fires of 1988-- which is just over 1/3 of the park.",
     "options":
       [
-        "3,472 miles","5275 miles","1067 miles","8108 miles"
+        "3,472 miles","5,275 miles","1,067 miles","8,108 miles"
       ],
     "scores":
       [1, 0, 0, 0]
-},{
+},
+{
   "question": "The 45th parallel is a geographic marker that passes through Yellowstone.  What position on the globe does it denote?",
   "info": "Lake trout are extremely invasive and detrimental towards native fish populations. Lake trout can eat up to 41 cutthroat trout per year.",
   "options":
@@ -199,54 +168,6 @@
     ],
   "scores":
     [1, 0, 0, 0]
-},
-
-              {
-              "question": "2. Question Two",
-              "info": "Some information about question two.",
-              "options":
-                [
-                  "Option 1",
-                  "Option 2",
-                  "Option 3",
-                  "Option 4"
-                ],
-              "scores":
-                [
-                  40,
-                  30,
-                  10,
-                  20
-                ]
-          }
-      ]
-  },
-  {
-      "results": [
-          {
-              "title": "Terrible Score",
-              "description": "Details",
-              "image": "./img/the-end.jpg",
-              "minScore": 0
-          },
-          {
-              "title": "Poor Score",
-              "description": "Details",
-              "image": "./img/the-end.jpg",
-              "minScore": 2
-          },
-          {
-              "title": "Good Score",
-              "description": "Details",
-              "image": "./img/the-end.jpg",
-              "minScore": 4
-          },
-          {
-              "title": "Brilliant Score",
-              "description": "Details",
-              "image": "./img/the-end.jpg",
-              "minScore": 6
-          }
-      ]
+}]
   }
 ]

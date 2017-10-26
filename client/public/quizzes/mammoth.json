@@ -1,4 +1,5 @@
-  {
+[{
+  "questions": [{
     "question": "Mammoth hotsprings unique travertine terraces are formed of what type of sedimentary rock? Hint: These terraces resemble a cave inside out. ",
     "info": "",
     "options":
@@ -7,5 +8,5 @@
       ],
     "scores":
       [1, 0, 0, 0]
-  },
-  
+  }]
+}]
