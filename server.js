@@ -99,7 +99,7 @@ app.get('/user', function(req, res, next) {
     });
     //res.json(req.user); // when a server sets the cookies, this responds whats in the cookie
   } else {
-    res.json({message: "not authenticated"})
+    res.json({redirect: "/login", message: "not authenticated"})
   }
 });
 
@@ -108,22 +108,7 @@ app.get('/users', function(req, res, next) {
     res.json(users);
   });
 });
-
-app.get('/dashboard', function(req, res, next) {
-  if (req.user) {
-    Sight.find(function(err, sight) {
-      if (err) {
-        next(err)
-      } else {
-        res.json(sight);
-        //console.log(sight);
-      }
-    })
-  } else {
-    res.json({found: false, success: false, message: "You are not authenticated!"});      
-    
-  }
-});
+ 
 
 app.get('/sights', function(req, res, next) {
   

@@ -15,7 +15,19 @@ export default class Navbar extends Component {
   }
   render() {
     const { activeItem } = this.state
-    let first = (this.state.user) ? this.state.user.firstName : '';
+    let first = (this.props.user.firstName) ? this.props.user.firstName : '';
+
+    let entryLinks = [];
+    if (this.props.user.firstName) {
+      console.log("this user");
+      console.log(this.props.user.firstName)
+      entryLinks.push(<Link className="item" to="/dashboard"><Image avatar size="mini" src="/img/avatars/deer.png"/> {first}</Link>);
+      entryLinks.push(<Link className="item" to="/logout">Logout</Link>);
+    } else {
+      entryLinks.push(<Link className="item" to="/login">Login</Link>);
+      entryLinks.push(<Link className="item" to="/signup">Signup</Link>);
+    }
+
     return (
       <div>
         <Menu icon stackable> 
@@ -26,12 +38,11 @@ export default class Navbar extends Component {
           <Link className="item" to="/sights">Sights</Link>
          
           <Menu.Menu position='right'>
+            
             {/* show user dashboard & logout */}
-
+            {entryLinks}
             {/* if not logged in show these: */}
-            <Link className="item" to="/dashboard">{first} Dashboard</Link>            
-            <Link className="item" to="/login">Login</Link>            
-            <Link className="item" to="/signup">Signup</Link>            
+                     
           </Menu.Menu>
         </Menu>
       </div>

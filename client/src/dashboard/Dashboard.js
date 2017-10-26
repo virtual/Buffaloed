@@ -7,34 +7,19 @@ export default class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
-      initialized: false,
-      sights: []
+      initialized: false 
     }
-    this.getList = this.getList.bind(this);
     console.log(JSON.parse(sessionStorage.getItem('user')));     
-    
-    
-  }
-
-
-  getList() { 
-    axios.get('/sights').then((res)=> {
-      console.log(res);
-      if (res !== undefined) { 
-        this.setState({ 
-          sights: res.data
-        });
-      }  else {
-        console.log('undefined');
-      }
-    });
   }
 
   componentDidMount(){
-    this.getList();
-    this.props.getUser();
-    console.log("MEW!");
+    this.props.getUser(); 
     console.log(this.props.user);
+
+    // rudimentary redirect, needs to be updated to be seamless
+    if (!(JSON.parse(sessionStorage.getItem('user')))) {
+      window.location.href = "/login";
+    }
 
   }
   render () {
