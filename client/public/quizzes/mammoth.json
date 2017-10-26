@@ -1,25 +1,3 @@
-
-{
-  "question": "Mammoth hotsprings unique travertine terraces are formed of what type of sedimentary rock? Hint: These terraces resemble a cave inside out. ",
-  "info": "",
-  "options":
-    [
-      "Limestone","Shale","Sandstone","Mudstone"
-    ],
-  "scores":
-    [1, 0, 0, 0]
-},
-{
-  "question": "Scientists estimate, that at any given time, what percent of water is underground at Mammoth hotsprings? ",
-  "info": "",
-  "options":
-    [
-      "90","50","10","25"
-    ],
-  "scores":
-    [1, 0, 0, 0]
-},
-
 [{
   "questions": [{
       "question": "Mammoth hotsprings unique travertine terraces are formed of what type of sedimentary rock? Hint: These terraces resemble a cave inside out. ",
@@ -31,6 +9,16 @@
       "scores": [1, 0, 0, 0]
     },
     {
+      "question": "Scientists estimate, that at any given time, what percent of water is underground at Mammoth hotsprings? ",
+      "info": "",
+      "options":
+        [
+          "90","50","10","25"
+        ],
+      "scores":
+        [1, 0, 0, 0]
+    },
+    {
       "question": "The 45th parallel is a geographic marker that passes through Yellowstone and is marked on the road between the North Entrance and Mammoth.  What position on the globe does it denote?",
       "info": "",
       "options":
@@ -39,15 +27,7 @@
         ],
       "scores":
         [1, 0, 0, 0]
-    },
-    {
-      "question": "Elk herds gather in the Mammoth Hot Springs area for the mating season in  ",
-      "info": "",
-      "options": [
-        "** Rainbow and Brook Trout", "Brown Trout", "Artice Grayling and Whitefish Trout", "Green Drake"
-      ],
-      "scores": [1, 0, 0, 0]
-    },
+    }, 
     {
       "question": "Visitors to the north entrance to Yellowstone pass through the Roosevelt Arch on their way to Mammoth Hot Springs.  The arch was named for President Theodore Roosevelt because he: ",
       "info": "",
@@ -57,9 +37,4 @@
       "scores": [1, 0, 0, 0]
     }
   ]
-}]
-
-    "scores":
-      [1, 0, 0, 0]
-  }]
-}]
+}]  
