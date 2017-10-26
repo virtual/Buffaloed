@@ -15,7 +15,6 @@ export default class YNP extends Component {
     this.setState({
       initialized: false
     });
-
     
     // wrap your
     // logic fetching all the weather api data into a method.
@@ -33,13 +32,11 @@ export default class YNP extends Component {
     ).then( (res)=> {
       console.log(res.status);
       if (res) { 
-        // debugger;
         this.setState({
           initialized: true,
           ynpData: res.data
         });
       } else {
-        // debugger;
         this.fetchYellowstoneData();
       }
     }, function(e){
@@ -47,20 +44,6 @@ export default class YNP extends Component {
     });
   }
 
-  
-  //   fetch(url).then(function (response) {
-  //     return response.json();
-  //   }).then((ynpObj) => {
-  //     if (ynpObj !== undefined) {
-  //       this.setState({
-  //         initialized: true,
-  //         ynpData: ynpObj
-  //       });
-  //     } else {
-  //       this.fetchYellowstoneData();
-  //     }
-  //   });
-  // }
   componentDidMount () {
     this.fetchYellowstoneData();
   }

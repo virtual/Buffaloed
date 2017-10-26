@@ -283,6 +283,19 @@ app.post('/scoreInfo', function(req, res, next) {
   } 
 });
 
+app.post('/scoreInfoByEmail', function(req, res, next) {
+  if (req.body.email) {
+    User.findOne({email: {$regex: new RegExp(req.body.email, "ig") }},
+      function(err, user) {
+      if (err) {
+        next(err)
+      } else {
+        res.json(user); 
+      }
+    }) 
+  } 
+});
+
 
 // adds passport middleware
 app.post('/login', function (req, res, next) {
@@ -310,6 +323,17 @@ app.post('/login', function (req, res, next) {
   })(req,res,next); 
   var email = req.body.email;
   var password = req.body.password;
+});
+
+app.get('/logout', function(req, res){
+  if (req.user) {
+    req.logout();
+    res.json('user logged out')
+    req.session.destroy();
+    
+  } else {
+    res.json('no user logged in')
+  }
 });
 
 app.listen(5000, function(){
