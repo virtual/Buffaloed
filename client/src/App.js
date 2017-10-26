@@ -27,7 +27,6 @@ class App extends Component {
     this.getUser = this.getUser.bind(this);
   }
   setUser(user){
-    debugger;
     this.setState({
       user: user
     })
