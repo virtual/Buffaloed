@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './login/Login';
+import Logout from './login/Logout';
 import Homepage from './homepage/Homepage';
 import Navbar from './navbar/Navbar';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
@@ -53,12 +54,13 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Navbar getUser={this.getUser} />
+            <Navbar getUser={this.getUser} user={this.state.user} />
             <Container>
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights getUser={this.getUser} /> }/>
             <Route path='/sight' render={()=> <Sight getUser={this.getUser} /> }/>
             <Route path="/login" render={()=> <Login setUser={this.setUser} getUser={this.getUser}  /> }/>
+            <Route path="/logout" render={()=> <Logout user={this.state.user} setUser={this.setUser} getUser={this.getUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             <Route path="/dashboard" render={()=> <Dashboard user={this.state.user} getUser={this.getUser} setUser={this.setUser}  /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>

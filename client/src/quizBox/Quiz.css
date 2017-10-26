@@ -73,7 +73,7 @@ cursor: pointer;}
   background: rgb(56, 98, 153)
 }
 #quizForm button:after {
-  content: "\232A";
+  content: " \232A";
   font-size: .9rem;
 }
 #quizForm hr { clear:both; margin: 15px 0;}
@@ -102,8 +102,7 @@ cursor: pointer;}
   text-align: center;
   width: 200px;
   display: block;
-  float: left;
-  border-radius: 12px;
+  float: left; 
 }
 
 #quizForm .social-button button.twitter {background-color: #55acee}

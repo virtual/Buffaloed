@@ -18,13 +18,16 @@
   "scores":
     [1, 0, 0, 0]
 },
-{
-  "question": "Scientists estimate, that at any given time, what percent of water is underground at Mammoth hotsprings? ",
-  "info": "",
-  "options":
-    [
-      "90","50","10","25"
-    ],
-  "scores":
-    [1, 0, 0, 0]
-},
+
+[{
+  "questions": [{
+    "question": "Mammoth hotsprings unique travertine terraces are formed of what type of sedimentary rock? Hint: These terraces resemble a cave inside out. ",
+    "info": "",
+    "options":
+      [
+        "Limestone","Shale","Sandstone","Mudstone"
+      ],
+    "scores":
+      [1, 0, 0, 0]
+  }]
+}]

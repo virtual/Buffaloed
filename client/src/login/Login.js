@@ -35,15 +35,18 @@ class Login extends Component {
     }).then((answer) => {
       console.log(answer.data);
       if (answer.data.success) {
-        this.props.setUser({
+        let loggedUser={
           firstName: answer.data.firstName, 
           lastName: answer.data.lastName,
           email: this.state.email,
           id: answer.data.id,
           img: answer.data.img
-        });
-        var user = {'firstName': answer.data.firstName};
-        sessionStorage.setItem('user', JSON.stringify(user));
+        }
+        this.props.setUser(
+          loggedUser
+        );
+        //var user = {'firstName': answer.data.firstName};
+        sessionStorage.setItem('user', JSON.stringify(loggedUser));
         //var obj = JSON.parse(sessionStorage.user);
 
         //sessionStorage.setItem('bar', 'hello')

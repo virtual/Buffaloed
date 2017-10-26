@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import FeatureMap from './Map';
 import QuizContainer from '../quizBox/QuizContainer';
+import Leaderboard from '../leaderboard/Leaderboard';
 const axios = require('axios');
 
 export default class Sight extends Component {
@@ -116,6 +117,7 @@ export default class Sight extends Component {
     </Grid.Column>
     <Grid.Column computer={6} mobile={16} tablet={10}>
     <p>{allInfo.desc}</p>
+    <Leaderboard scores={this.state.scores}/>
      </Grid.Column>
       <Grid.Column computer={6} mobile={16} tablet={16}>
    <FeatureMap sightName={allInfo.name} lat={allInfo.lat} lng={allInfo.lng} />

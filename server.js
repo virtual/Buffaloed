@@ -99,7 +99,7 @@ app.get('/user', function(req, res, next) {
     });
     //res.json(req.user); // when a server sets the cookies, this responds whats in the cookie
   } else {
-    res.json({message: "not authenticated"})
+    res.json({redirect: "/login", message: "not authenticated"})
   }
 });
 
@@ -108,22 +108,7 @@ app.get('/users', function(req, res, next) {
     res.json(users);
   });
 });
-
-app.get('/dashboard', function(req, res, next) {
-  if (req.user) {
-    Sight.find(function(err, sight) {
-      if (err) {
-        next(err)
-      } else {
-        res.json(sight);
-        //console.log(sight);
-      }
-    })
-  } else {
-    res.json({found: false, success: false, message: "You are not authenticated!"});      
-    
-  }
-});
+ 
 
 app.get('/sights', function(req, res, next) {
   
@@ -199,29 +184,89 @@ app.post('/signup', function(req, res, next) {
   })
 });
 
+// Saves score to db
 app.post('/score', function(req, res, next) {
-   let quiz = new Quiz();
-   quiz.leaderBoard = [];
-    let array = {
+
+  Quiz.find({slug: req.body.slug}, (err, foundQuiz)=>{
+    let obj = {
       score:req.body.leaderboard.score,
       email:req.body.leaderboard.email
     };
-    //quiz.leaderBoard = array;
-    quiz.slug = req.body.slug;
-    quiz.leaderBoard.push(array)
-    //console.log(quiz)
-    quiz.save( 
-  //Quiz.findOneAndUpdate({email: req.body.email},
-    //{$push: {slug: req.body.leaderboard.slug, score: req.body.leaderboard.score }},
-    //{upsert:true, new:true},
-    function(err, newQuiz){
-    if(err) {
-      next(err);
-    } else {
+    if(err){
+      console.log(err);
+      next(err)
+    } else { 
+      if (foundQuiz.length > 0) {
+        // Quiz with slug exists
+        console.log("found a quiz for " + req.body.slug);
+        let foundUser = false;
 
-      res.json(newQuiz);
+        // Check if current user's email is in the sight's quiz list
+        // check if the score is more than what they got before & update
+        foundQuiz[0].leaderBoard.forEach((e, i) =>{
+          console.log('e')
+          console.log(e)
+          if(e.email === req.body.leaderboard.email) {
+            // √ user is in list
+            // check if score is higher and update if so
+            foundUser = true;
+            console.log('found ' + req.body.leaderboard.email + " with score: " + e.score)
+            console.log(req.body.leaderboard.score);
+
+            if(parseInt(e.score) < parseInt(req.body.leaderboard.score)) {
+              // √ update score
+              foundQuiz[0].leaderBoard[i].score = parseInt(req.body.leaderboard.score);
+              console.log('update score');
+              foundQuiz[0].save( 
+                function(err, newQuiz){
+                  if(err) {
+                  next(err);
+                } else {
+                  res.json(newQuiz);
+                }
+              });
+            } else {
+              // √ no change
+              console.log('no update needed');
+            }
+          } 
+          
+        });
+        // end foreach
+
+        if (!(foundUser)) {  
+          // √ User is not in list, 
+          // add email and score to existing leaderboard object
+          console.log('not found ' + req.body.leaderboard.email);
+          foundQuiz[0].leaderBoard.push(obj);
+          foundQuiz[0].save( 
+          function(err, newQuiz){
+            if(err) {
+              next(err);
+            } else {
+              res.json(newQuiz);
+            }
+          });
+        }
+ 
+      } else {
+        // Add new quiz to db for slug/sight
+        console.log("couldn't find a quiz for " + req.body.slug)
+        let quiz = new Quiz();
+        quiz.leaderBoard = [];
+        quiz.slug = req.body.slug;
+        quiz.leaderBoard.push(obj) 
+        quiz.save(
+          function(err, newQuiz){
+          if(err) {
+            next(err);
+          } else {
+            res.json(newQuiz);
+          }
+       })
+      }
     }
-  })
+  }).limit(1);
 });
 
 app.post('/scoreInfo', function(req, res, next) {
