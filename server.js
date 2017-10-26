@@ -198,7 +198,8 @@ app.post('/score', function(req, res, next) {
     } else { 
       if (foundQuiz.length > 0) {
         // Quiz with slug exists
-        console.log("found a quiz for " + req.body.slug) 
+        console.log("found a quiz for " + req.body.slug);
+        let foundUser = false;
 
         // Check if current user's email is in the sight's quiz list
         // check if the score is more than what they got before & update
@@ -208,6 +209,7 @@ app.post('/score', function(req, res, next) {
           if(e.email === req.body.leaderboard.email) {
             // √ user is in list
             // check if score is higher and update if so
+            foundUser = true;
             console.log('found ' + req.body.leaderboard.email + " with score: " + e.score)
             console.log(req.body.leaderboard.score);
 
@@ -227,21 +229,25 @@ app.post('/score', function(req, res, next) {
               // √ no change
               console.log('no update needed');
             }
-          } else {       
-            // √ User is not in list, 
-            // add email and score to existing leaderboard object
-            console.log('not found ' + req.body.leaderboard.email);
-            foundQuiz[0].leaderBoard.push(obj);
-            foundQuiz[0].save( 
-            function(err, newQuiz){
-              if(err) {
-                next(err);
-              } else {
-                res.json(newQuiz);
-              }
-            });
-          }
+          } 
+          
         });
+        // end foreach
+
+        if (!(foundUser)) {  
+          // √ User is not in list, 
+          // add email and score to existing leaderboard object
+          console.log('not found ' + req.body.leaderboard.email);
+          foundQuiz[0].leaderBoard.push(obj);
+          foundQuiz[0].save( 
+          function(err, newQuiz){
+            if(err) {
+              next(err);
+            } else {
+              res.json(newQuiz);
+            }
+          });
+        }
  
       } else {
         // Add new quiz to db for slug/sight

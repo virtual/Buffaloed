@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ModalBox from './QuizModal';
 import {Button, Icon} from 'semantic-ui-react';
 import FacebookShare from '../facebookshare/FacebookShare'
+import { Link } from 'react-router-dom';
 
 export default class QuizAnswer extends Component {
   constructor() {
@@ -109,6 +110,10 @@ export default class QuizAnswer extends Component {
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
           <p>{session.name} You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
+          <a onClick={() => {window.location.reload()}} >Try Again</a>
+          {/* <a onClick={() => {
+                        browserHistory.replace('/sight/lamar-valley')
+                    }}>Mew!!</a> */}
           <ul>
             {htmlQuizQ}
           </ul>
