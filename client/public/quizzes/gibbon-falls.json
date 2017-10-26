@@ -1,33 +1,31 @@
 [{
   "questions": [{
-      "question": "Lamar Valley is known as the #1 spot for viewing which animal? ",
+      "question": "Approximately how far do the Gibbon Falls drop?",
       "info": "",
       "options": [
-        "** Wolves", "Bison", "Elk", "Mule deer"
+        "** 85 feet", "150 feet", "25 feet", "40 feet"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "In 1885, Geologist Arnold Hague named the river after a man employed in which field?",
-      "info": "The river was named for L.Q.C. (Lucius Quinctius Cincinnatus) Lamar, then Secretary of the Interior (March 1885 – January 1888)",
+      "question": "The Gibbon Falls block upstream migrations of spawning trout from which river?",
       "options": [
-        "** Politics", "Cartography", "Agriculture", "Mining"
+        "**  Madison River", "Yellowstone River", "Firehole River", "Lamar River"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "In 2013, the National Park Service required mandatory killing of which fish caught when in the Lamar River drainage?",
-      "info": "The mandatory killing of rainbow and brook trout caught in the Lamar River drainage is intended to protect native cutthroat trout.",
+      "question": "Which alternate name did several early park maps use for Gibbon Falls?",
       "options": [
-        "** Rainbow and Brook Trout", "Brown Trout", "Artice Grayling and Whitefish Trout", "Green Drake"
+        "** First Cañon Falls", "Primero Falls", "First Azul Falls", "Otoño Falls"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "How long is the road between Tower Junction and the Northeast Entrance?",
-      "info": "The road along the Lamar Valley is the only road open year-long.",
+      "question": "Gibbon River starts from which lake?",
+      "info": "Grebe Lake comprises the headwaters of the Gibbon River and is noted for its population of Arctic Grayling.",
       "options": [
-        "** 29 miles", "11 miles", "43 miles", "5 miles"
+        "** Grebe Lake", "Yellowstone Lake", "Shoshone Lake", "Trout Lake"
       ],
       "scores": [1, 0, 0, 0]
     }

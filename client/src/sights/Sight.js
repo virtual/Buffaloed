@@ -106,7 +106,7 @@ export default class Sight extends Component {
       return (
         <div> 
           <h1>
-          {allInfo.name}-{this.state.user.email}
+          {allInfo.name}
           </h1>
  
         

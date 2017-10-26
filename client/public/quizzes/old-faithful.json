@@ -9,30 +9,30 @@
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "Which one of these is not a thermal feature?",
-      "info": "A geyser basin is a geographic area that has a cluster of hydrothermal features that include geysers, mudpots, hot springs and fumaroles.",
+      "question": "When was the Old Faithful Inn built?",
+      "info": "The Old Faithful Inn is one of the last log hotels present in the United States and is seven stories high.",
       "options":
         [
-          "** Cascade","Fumarole","Geyser","Mudpot"
+          "** 1904","1909","1888","1921"
         ],
       "scores":
         [1, 0, 0, 0]
     },
     {
-      "question": "Yellowstone is home to more than half of the world's active geysers, which number approximately: ",
+      "question": "On average, how long does it take for Old Faithful to reach maxium height once it starts erupting? ",
       "info": "",
       "options":
         [
-          "** 500","100","1000","2000"
+          "** 15 seconds","5 seconds","30 seconds","1 minute"
         ],
       "scores":
         [1, 0, 0, 0]
     },
     {
-      "question": "How many thermal features are estimated to be in Yellowstone?",
-      "info": "The geothermal areas of Yellowstone include several geyser basins in Yellowstone National Park as well as other geothermal features such as hot springs, mud pots, and fumaroles. The number of thermal features in Yellowstone is estimated at 10,000.",
+      "question": "In 2013, Our Amazing Planet reported that Old Faithful's plumbing is most similar to which instrument?",
+      "info": "This research helped discredit the thinking that geysers are fed from long, narrow tubes.",
       "options": [
-        "** 10,000", "1,000", "500", "250"
+        "** Bagpipe", "Flute", "Tuba", "Oboe"
       ],
       "scores": [1, 0, 0, 0]
     }
