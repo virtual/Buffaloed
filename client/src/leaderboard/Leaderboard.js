@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Leaders from "./Leaders";
-import { Table, Header, Image } from 'semantic-ui-react'
+import { Table, Header, Image } from 'semantic-ui-react';
 
 export default class Leaderboard  extends Component {
-  
+  constructor() {
+    super();
+  }
+
+
   render () {
     //need to check whether the quiz has never been taken
     //Object.keys(obj).length === 0

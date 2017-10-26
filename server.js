@@ -283,6 +283,19 @@ app.post('/scoreInfo', function(req, res, next) {
   } 
 });
 
+app.post('/scoreInfoByEmail', function(req, res, next) {
+  if (req.body.email) {
+    User.findOne({email: req.body.email},
+      function(err, user) {
+      if (err) {
+        next(err)
+      } else {
+        res.json(user); 
+      }
+    }) 
+  } 
+});
+
 
 // adds passport middleware
 app.post('/login', function (req, res, next) {
