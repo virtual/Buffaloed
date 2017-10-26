@@ -56,7 +56,6 @@ export default class QuizAnswer extends Component {
       completed = true
     } 
     let percentCorrect = this.printTotalScore(currentScores, numAnswered);
-    debugger;
     this.setState({numAnswered: numAnswered, currentScores: currentScores, percentCorrect: percentCorrect, completedQuiz: completed})
   }
   //this returns the number correctly answered
@@ -78,7 +77,7 @@ export default class QuizAnswer extends Component {
   }
 
   render () {
-    debugger;
+
     let htmlQuizQ = [];
     let thisAnswer = '';
     if (JSON.parse(sessionStorage.getItem('user'))) {
@@ -112,13 +111,16 @@ export default class QuizAnswer extends Component {
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
           <p>{session.name} You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
-          <a onClick={() => {window.location.reload()}} >Try Again</a>
+          <p className='tryAgain-container'>
+          <a className="ui tryAgain button" onClick={() => {window.location.reload()}} >Try Again</a>
+          </p>
           {/* <a onClick={() => {
                         browserHistory.replace('/sight/lamar-valley')
                     }}>Mew!!</a> */}
           <ul>
             {htmlQuizQ}
           </ul>
+        
           <div className='social-button'> 
             <FacebookShare />
             <a className="ui twitter button" href={this.shareTweet(tweetText)} target="_blank" color='twitter' > 

@@ -109,3 +109,31 @@ cursor: pointer;}
 #quizForm .social-button button:after {
   content: " ";
 }
+
+#quizForm a.tryAgain {
+  background-color: #55acee;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  width: 120px;
+  display: block;
+  float: left; 
+  
+}
+
+a.ui.tryAgain.button {
+  clear: both;
+}
+
+p.tryAgain-container {
+  clear: both;
+  display: block;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.myQuiz ul {
+  clear: both;
+  display: block;
+}
