@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import { FacebookButton, FacebookCount } from "react-social";
-import FacebookProvider, { Share,ShareButton } from 'react-facebook';
-import {Button, Icon} from 'semantic-ui-react';
+import FacebookProvider, { ShareButton } from 'react-facebook';
+// import Icon, {Telegram} from 'react-share-icons';
+// import Facebook from 'react-share-icons/lib/Facebook'
+
+// const {
+//   FacebookShareButton,
+//   TwitterShareButton,
+// } = ShareButtons;
 
 export default class FacebookShare  extends Component {
-  render () { 
+  render () {
+    // let url = "http://www.facebook.com"
     return (
       <FacebookProvider appId="1916295301955813">
-        <Share href="https://www.montanacodeschool.com" title="Yellowstone Odyssey" >
-          <button type="button"><Icon name='facebook' /> Share on Facebook</button> 
-        </Share>
-      </FacebookProvider>  
+      <ShareButton href="https://www.facebook.com" />
+      </FacebookProvider>
+
+      // <FacebookButton url={url}  >
+      // <FacebookCount url={url} />
+      // {" Share " + url}
+      // </FacebookButton>
+      
     );
   }
 }
