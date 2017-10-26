@@ -78,7 +78,9 @@ export default class QuizAnswer extends Component {
   render () {
     let htmlQuizQ = [];
     let thisAnswer = '';
-    this.saveScoresToDB();
+    if (JSON.parse(sessionStorage.getItem('user'))) {
+      this.saveScoresToDB();
+    }
     let tweetText = encodeURI('I scored ' + this.state.percentCorrect + '%');
 
     // build answer for each question
@@ -102,7 +104,7 @@ export default class QuizAnswer extends Component {
       session.name = (JSON.parse(sessionStorage.getItem('user'))).firstName;
      }
     return (
-      <div>
+      <div> 
         <ModalBox  completedQuiz={this.state.completedQuiz} handleClick={this.handleClick} />
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
@@ -110,11 +112,11 @@ export default class QuizAnswer extends Component {
           <ul>
             {htmlQuizQ}
           </ul>
-          <div className='social-button'>
+          <div className='social-button'> 
             <FacebookShare />
-            <Button color='twitter' link={this.shareTweet(tweetText)}>
+            <a class="ui twitter button" href={this.shareTweet(tweetText)} target="_blank" color='twitter' > 
               <Icon name='twitter' />Share on Twitter
-            </Button>
+            </a> 
           </div>
         </div>
       </div>

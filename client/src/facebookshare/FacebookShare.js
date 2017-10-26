@@ -8,7 +8,8 @@ export default class FacebookShare  extends Component {
     return (
       <FacebookProvider appId="1916295301955813">
         <Share href="https://www.montanacodeschool.com" title="Yellowstone Odyssey" >
-          <button type="button"><Icon name='facebook' /> Share on Facebook</button> 
+          <a class="ui facebook button" target="_blank" color='twitter' 
+          ><Icon name='facebook' /> Share on Facebook</a> 
         </Share>
       </FacebookProvider>  
     );
