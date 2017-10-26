@@ -24,15 +24,21 @@ export default class Footer extends Component {
             <Grid divided inverted stackable>
               <Grid.Row>
                 <Grid.Column width={5}>
-                  <Header inverted as='h4' content='About' />
+                  <Header inverted as='h4'>
+                    <Link className="item" to="/">Yellowstone Odyssey</Link>
+                    </Header>
                   <List link inverted>
                     {/* <List.Item as='a'>Sitemap</List.Item> */}
-                    <Link className="item" to="/contactinfo">Contact Us</Link>             
-                    <Link className="item" to="/about">About Yellowstone</Link>             
+                     
+                    <Link className="item" to="/about">About Yellowstone</Link>
+                    <Link className="item" to="/sights">Check out some sights!</Link> 
+                    <a className="item" target="_blank" href="//www.nps.gov/yell/index.htm">YNP official website</a> 
+                    <Link className="item" to="/contactinfo">Contact Us</Link>
+                    <Link className="item" to="/logout">Logout</Link>             
                   </List>
                 </Grid.Column>
                 <Grid.Column width={5}>
-                  <Header inverted as='h4' content='' />
+                  <Header inverted as='h4' content='Current Weather' />
                   <Weather />
                   <List link inverted>
                     {/* <List.Item as='a'>Banana Pre-Order</List.Item>

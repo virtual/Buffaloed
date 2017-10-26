@@ -56,7 +56,6 @@ export default class QuizAnswer extends Component {
       completed = true
     } 
     let percentCorrect = this.printTotalScore(currentScores, numAnswered);
-    debugger;
     this.setState({numAnswered: numAnswered, currentScores: currentScores, percentCorrect: percentCorrect, completedQuiz: completed})
   }
   //this returns the number correctly answered
@@ -78,7 +77,6 @@ export default class QuizAnswer extends Component {
   }
 
   render () {
-    debugger;
     let htmlQuizQ = [];
     let thisAnswer = '';
     if (JSON.parse(sessionStorage.getItem('user'))) {

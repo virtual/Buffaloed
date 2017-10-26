@@ -49,14 +49,14 @@ export default class Weather extends React.Component {
   }
   render () {
     if (this.state.initialized) {
+      let tempF = Math.round(this.state.weatherData.main.temp);
       // console.log(this.state.weatherData)
       return (
         <div>
-          Current Weather:
           <p>{this.state.weatherData.weather[0].description}</p>
           {/* <p>{this.state.weatherData.weather[0].icon}</p> */}
           <WeatherWidget weatherData={this.state.weatherData}/>
-          <p>{this.state.weatherData.main.temp}°F</p>    
+          <p>{tempF}°F</p>    
           
         </div>
       );
