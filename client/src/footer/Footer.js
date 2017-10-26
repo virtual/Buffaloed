@@ -28,11 +28,11 @@ export default class Footer extends Component {
                   <List link inverted>
                     {/* <List.Item as='a'>Sitemap</List.Item> */}
                     <Link className="item" to="/contactinfo">Contact Us</Link>             
+                    <Link className="item" to="/about">About Yellowstone</Link>             
                   </List>
                 </Grid.Column>
                 <Grid.Column width={5}>
                   <Header inverted as='h4' content='' />
-                  <Icon color='blue' name='twitter' />
                   <Weather />
                   <List link inverted>
                     {/* <List.Item as='a'>Banana Pre-Order</List.Item>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FacebookButton, FacebookCount } from "react-social";
-import FacebookProvider, { ShareButton } from 'react-facebook';
+import FacebookProvider, { ShareButton, Share } from 'react-facebook';
+import { Icon } from 'semantic-ui-react'
+
 // import Icon, {Telegram} from 'react-share-icons';
 // import Facebook from 'react-share-icons/lib/Facebook'
 
