@@ -1,33 +1,33 @@
 [{
   "questions": [{
-      "question": "Lamar Valley is known as the #1 spot for viewing which animal? ",
+      "question": "Lower Yellowstone Falls are how high? Hint: Twice as high as Niagra Falls.",
       "info": "",
       "options": [
-        "** Wolves", "Bison", "Elk", "Mule deer"
+        "308ft", "780ft", "149ft", "547ft"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "In 1885, Geologist Arnold Hague named the river after a man employed in which field?",
-      "info": "The river was named for L.Q.C. (Lucius Quinctius Cincinnatus) Lamar, then Secretary of the Interior (March 1885 – January 1888)",
+      "question": "Upper Yellowstone falls is larger than Lower Yellowstone falls",
+      "info": "",
       "options": [
-        "** Politics", "Cartography", "Agriculture", "Mining"
+        "False", "True"
       ],
-      "scores": [1, 0, 0, 0]
+      "scores": [1, 0]
     },
     {
-      "question": "In 2013, the National Park Service required mandatory killing of which fish caught when in the Lamar River drainage?",
+      "question": "The Lower Yellowstone falls plunges 308ft into the Grand Canyon of Yellowstone which is estimated to be how many feet deep?",
       "info": "The mandatory killing of rainbow and brook trout caught in the Lamar River drainage is intended to protect native cutthroat trout.",
       "options": [
-        "** Rainbow and Brook Trout", "Brown Trout", "Artice Grayling and Whitefish Trout", "Green Drake"
+        "1000", "250", "700", "2500"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "How long is the road between Tower Junction and the Northeast Entrance?",
+      "question": "In what year did mountain man Jim Bridger first see the Lower Yellowstone Falls?",
       "info": "The road along the Lamar Valley is the only road open year-long.",
       "options": [
-        "** 29 miles", "11 miles", "43 miles", "5 miles"
+        "1851", "1815", "1912", "1884"
       ],
       "scores": [1, 0, 0, 0]
     }
