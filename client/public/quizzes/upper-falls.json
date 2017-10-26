@@ -19,15 +19,15 @@
       "question": "The Grand Canyon of the Yellowstone is 4,000 feet wide and 1,200 feet deep in places.  It is thought that the canyon was initially formed by: ",
       "info": "",
       "options": [
-        "melting ice dams that caused catastrophic flooding", "the rim of the Caldera collapsing", "**river erosion combined with rock weakened by hydrothermal gases", "the continental plates shifting during earthquakes"
+        "catastrophic flooding", "the Caldera collapsing", "**river erosion", "continental plates shifting"
       ],
       "scores": [0, 0, 1, 0]
     },
     {
-      "question": "Which bird species ",
-      "info": "",
+      "question": "Which bird species builds their impressively large stick nests near the Yellostone river? ",
+      "info": "Osprey nests are often about five feet in diameter. They almost exclusively eat live fish and at maximum, can dive about 3 feet into the water, so they favor shallow fishing grounds.",
       "options": [
-        "**osprey", "various populations of microbes", "decaying plant matter in the mud", "the gases venting from below"
+        "**osprey", "peregrine falcon", "trumpeter swan", "common loon"
       ],
       "scores": [1, 0, 0, 0]
     }
