@@ -1,41 +1,59 @@
 import React, { Component } from 'react';
 let axios = require('axios');
 
-
 export default class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
-      initialized: false 
+      initialized: false,
+      user: {}
     }
-    console.log(JSON.parse(sessionStorage.getItem('user')));     
+    //console.log(JSON.parse(sessionStorage.getItem('user')));     
   }
 
-  componentDidMount(){
-    //this.props.getUser(); 
-    console.log(this.props.user);
-
-    // rudimentary redirect, needs to be updated to be seamless
-    // if (!(JSON.parse(sessionStorage.getItem('user')))) {
-      // window.location.href = "/login";
-    // } 
-
+  componentWillMount() {
+    this.props.getUser().then((data)=>{
+      console.log(data);
+      if (data.email) { // if data returns user object instead of error
+        this.setState({
+          user: data,
+          initialized: true
+        })
+      console.log("logged in!");
+      
+      } else {
+        console.log("not logged")
+         
+          window.location.href = "/login"; 
+      }
+    }, (err)=>{
+      //do stuff with err
+      console.log(err);
+    }) 
   }
+  
   render () {
-    let user = this.props.user; 
     let imgLink = "/img/avatars/default.png";
-    if (user.img) {
-    imgLink = "/img/avatars/" + user.img;
+    if (this.state.user.img) {
+    imgLink = "/img/avatars/" + this.state.user.img;
     }
-    return (
-      <div>
-        <h1>Dashboard</h1>
-        <h2>Welcome, {user.firstName} {user.lastName} </h2>
-          <img src={imgLink} />
-        <p><strong>Settings: </strong><br/>
-        Email: {user.email}  
-        </p>
-      </div>
-    );
+     
+    if (this.state.initialized) {
+      return (
+        <div>
+          <h1>Dashboard</h1>
+          <h2>Welcome, {this.state.user.firstName} {this.state.user.lastName} </h2>
+            <img src={imgLink} />
+          <p><strong>Settings: </strong><br/>
+          Email: {this.state.user.email}  
+          </p>
+        </div>
+      );
+    } else {
+      return (
+        <div><p>Not logged in!</p>
+          </div>
+      )
+    }
   }
 }

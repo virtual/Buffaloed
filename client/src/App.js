@@ -32,19 +32,25 @@ class App extends Component {
     })
   };
   getUser(){
-    axios.get('/user').then((res)=> {
-      console.log(res);
-      if (res !== undefined) { 
-        console.log('update state');
-        console.log(res.data);
-        this.setState({ 
-          user: res.data
-        });
-      }  else {
-        console.log('undefined');
-      }
-    }, function(err){
-      console.log(err);
+    return new Promise((resolve, reject)=> {
+      axios.get('/user').then((res)=> {
+        console.log(res);
+        if (res !== undefined) { 
+          console.log('update state');
+          console.log(res.data);
+          resolve(res.data);
+
+          this.setState({ 
+            user: res.data
+          });
+        }  else {
+          reject("undefined");
+          // console.log('undefined');
+        }
+      }, function(err){
+        reject(err);
+        // console.log(err);
+      });
     });
   };
 
