@@ -16,10 +16,10 @@
       "scores": [1, 0]
     },
     {
-      "question": "The Lower Yellowstone falls plunges 308ft into the Grand Canyon of Yellowstone which is estimated to be how many feet deep?",
-      "info": "The mandatory killing of rainbow and brook trout caught in the Lamar River drainage is intended to protect native cutthroat trout.",
+      "question": "What geological process created the Grand Canyon of Yellowstone?",
+      "info": "",
       "options": [
-        "1000", "250", "700", "2500"
+        "Erosion", "Glaciation", "Earthquakes", "Sedimentation"
       ],
       "scores": [1, 0, 0, 0]
     },
@@ -27,7 +27,7 @@
       "question": "In what year did mountain man Jim Bridger first see the Lower Yellowstone Falls?",
       "info": "The road along the Lamar Valley is the only road open year-long.",
       "options": [
-        "1851", "1815", "1912", "1884"
+        "1846", "1815", "1912", "1884"
       ],
       "scores": [1, 0, 0, 0]
     }
