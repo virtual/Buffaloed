@@ -31,12 +31,10 @@ export default class Leaders extends Component {
   }
 
   render () {
-    console.log("USER!")
-    console.log(this.state.user);
     let img = "/img/avatars/default.png";
-     if(this.state.user) {
-       img = "/img/avatars/" + this.state.user.img
-     }
+    if(this.state.user) {
+      img = "/img/avatars/" + this.state.user.img
+    }
     return (
       
     <Table.Row key={this.props.email}>
