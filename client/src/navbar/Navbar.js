@@ -16,12 +16,13 @@ export default class Navbar extends Component {
   render() {
     const { activeItem } = this.state
     let first = (this.props.user.firstName) ? this.props.user.firstName : '';
-
+    let img = (this.props.user.img) ? '/img/avatars/' + this.props.user.img : '/img/avatars/deer.png'; 
     let entryLinks = [];
+    
     if (this.props.user.firstName) {
       console.log("this user");
-      console.log(this.props.user.firstName)
-      entryLinks.push(<Link className="item" to="/dashboard"><Image avatar size="mini" src="/img/avatars/deer.png"/> {first}</Link>);
+      console.log(this.props.user)
+      entryLinks.push(<Link className="item" to="/dashboard"><Image avatar size="mini" src={img}/> {first}</Link>);
       entryLinks.push(<Link className="item" to="/logout">Logout</Link>);
     } else {
       entryLinks.push(<Link className="item" to="/login">Login</Link>);
