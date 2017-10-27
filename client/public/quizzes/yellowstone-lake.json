@@ -13,7 +13,7 @@
       "question": "Yellowstone Lake is the largest high elevation lake in North America.  High elevation lakes are at or above this elevation (in feet above sea level): ",
       "info": "Yellowstone Lake is 7,733 feet above sea level.",
       "options": [
-        "**7,000", "3,500", "1,000", "12,000"
+        "7,000", "3,500", "1,000", "12,000"
       ],
       "scores": [1, 0, 0, 0]
     },
@@ -21,12 +21,12 @@
       "question": "Yellowstone Lake often freezes over in late December and usually doesn't thaw until May or June.  Its average water temperature is just 41°F (5°C).  How long can a human survive in water at that temperature (in minutes)?",
       "info": "",
       "options": [
-        "**20-30", "5-10", "1-3", "50-60"
+        "20-30", "5-10", "1-3", "50-60"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "Archeologists have found evidence of a lakeside camp that suggest families stayed there while hunting bear, deer and bighorn sheep this many years ago:  ",
+      "question": "Archeologists have found evidence of a lakeside camp that suggest ancient families stayed there while hunting bear, deer and bighorn sheep this many years ago:  ",
       "info": "",
       "options": [
         "9,350", "100,000", "225", "3,520"
