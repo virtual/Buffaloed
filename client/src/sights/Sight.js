@@ -67,7 +67,6 @@ export default class Sight extends Component {
   }
 
   saveScores(myScoreObj) {
-    console.log("saving score!");
     axios.post('/score', myScoreObj) 
   }
 

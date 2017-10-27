@@ -124,22 +124,22 @@ app.get('/sights', function(req, res, next) {
   })
 });
 
-app.post('/sights/:id', function(req, res, next) {
-  let sight = new Sight();
-  sight.name = req.body.name;
-  sight.lat = req.body.lat;
-  sight.lng = req.body.lng;
-  sight.img = req.body.img;
-  sight.desc = req.body.desc;
-  sight.slug = req.body.slug;
-  sight.save(function(err, newSight){
-    if(err) {
-      next(err);
-    } else {
-      res.json(newSight);
-    }
-  })
-});
+// app.post('/sights/:id', function(req, res, next) {
+//   let sight = new Sight();
+//   sight.name = req.body.name;
+//   sight.lat = req.body.lat;
+//   sight.lng = req.body.lng;
+//   sight.img = req.body.img;
+//   sight.desc = req.body.desc;
+//   sight.slug = req.body.slug;
+//   sight.save(function(err, newSight){
+//     if(err) {
+//       next(err);
+//     } else {
+//       res.json(newSight);
+//     }
+//   })
+// });
  
 app.post('/sightsInfo', function(req, res, next) { 
   //console.log(req.body.slug);
@@ -166,6 +166,16 @@ app.post('/sightsInfo', function(req, res, next) {
       }
     });
   }
+});
+
+// saves sight on update
+app.post('/saveSight', function(req, res, next) {
+  Sight.findOneAndUpdate({slug: req.body.slug}, {$set:req.body}, {new: true}, function(err, doc){
+    if(err){
+        console.log("Something wrong when updating data!");
+    }
+    console.log(doc);
+  });
 });
 
 app.post('/signup', function(req, res, next) {

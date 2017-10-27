@@ -9,6 +9,8 @@ import SignUp from './signup/SignUp';
 import { Container } from 'semantic-ui-react';
 import Sights from './sights/Sights'; 
 import Sight from './sights/Sight'; 
+import Admin from './dashboard/Admin'; 
+import Edit from './dashboard/Edit';
 import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
 // import QuizBox from './quiz/Quiz';
@@ -69,6 +71,8 @@ class App extends Component {
             <Route path="/logout" render={()=> <Logout user={this.state.user} setUser={this.setUser} getUser={this.getUser}  /> }/>
             <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
             <Route path="/dashboard" render={()=> <Dashboard user={this.state.user} getUser={this.getUser} setUser={this.setUser}  /> }/>
+            <Route path="/admin" render={()=> <Admin  getUser={this.getUser} /> }/>
+            <Route path="/edit" render={()=> <Edit  getUser={this.getUser} /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
             <Route path='/about' render={()=> <About /> }/>
             </Container>
