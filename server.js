@@ -170,6 +170,7 @@ app.post('/sightsInfo', function(req, res, next) {
 
 // saves sight on update
 app.post('/saveSight', function(req, res, next) {
+  // console.log(req.body);
   Sight.findOneAndUpdate({slug: req.body.slug}, {$set:req.body}, {new: true}, function(err, doc){
     if(err){
         console.log("Something wrong when updating data!");

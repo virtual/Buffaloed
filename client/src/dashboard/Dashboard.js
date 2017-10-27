@@ -37,7 +37,13 @@ export default class Dashboard extends Component {
     if (this.state.user.img) {
     imgLink = "/img/avatars/" + this.state.user.img;
     }
-     
+    let adminBtn = ""
+    if (this.state.initialized) {
+      if (this.state.user.role === 'admin'){
+        adminBtn = <a className="button primary ui " href="/admin">Edit Sights</a>
+        console.log('admin')
+      }
+    }
     if (this.state.initialized) {
       return (
         <div>
@@ -47,6 +53,7 @@ export default class Dashboard extends Component {
           <p><strong>Settings: </strong><br/>
           Email: {this.state.user.email}  
           </p>
+          {adminBtn}
         </div>
       );
     } else {

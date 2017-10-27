@@ -8,6 +8,7 @@ export default class EditForm extends Component {
   super();
     this.state = {
       name: "",
+      type: '',
       initialized: false
     }
     this.handleChange = this.handleChange.bind(this);
@@ -67,7 +68,7 @@ export default class EditForm extends Component {
             <Form.Field control={Input} name='name' value={this.state.name} label='Sight name' placeholder='Sight name'  onChange={this.handleChange}  /> 
           </Form.Group>
 
-          <Form.Field control={TextArea} name='desc' value={this.state.desc} label='Description' placeholder='Tell us more about you...' onChange={this.handleChange} /> 
+          <Form.Field control={TextArea} name='desc' value={this.state.desc} label='Description' placeholder='Information for the sight' onChange={this.handleChange} /> 
 
           <Form.Group widths='equal'>
             <Form.Field control={Input} name='lat' value={this.state.lat} label='Latitude' placeholder='Latitude' onChange={this.handleChange} />

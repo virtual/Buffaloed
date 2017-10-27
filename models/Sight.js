@@ -5,6 +5,7 @@ var SightSchema = new mongoose.Schema({
   lng: String,
   img: String,
   desc: String,
+  type: String,
   slug: String
 });
 module.exports = mongoose.model('Sight', SightSchema);

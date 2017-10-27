@@ -12,6 +12,7 @@ var UserSchema = new mongoose.Schema({
       return passwordHash.generate(password);
     }
   }, 
+  role: String,
   completedQuizzes:[{ quiz: { type: mongoose.Schema.Types.ObjectId, ref: 'Quiz' }, score: Number}]
 });
 
