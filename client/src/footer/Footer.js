@@ -34,7 +34,6 @@ export default class Footer extends Component {
                     <Link className="item" to="/sights">Check out some sights!</Link> 
                     <a className="item" target="_blank" href="//www.nps.gov/yell/index.htm">YNP official website</a> 
                     <Link className="item" to="/contactinfo">Contact Us</Link>
-                    <Link className="item" to="/logout">Logout</Link>             
                   </List>
                 </Grid.Column>
                 <Grid.Column width={5}>
