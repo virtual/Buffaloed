@@ -1,0 +1,40 @@
+[{
+  "questions": [
+    {
+      "question": "How often does Old Faithful erupt?",
+      "info": "Old Faithful erupts every 35 to 120 minutes for 1 1/2 to 5 minutes. Its maximum height ranges from 90 to 184 feet.",
+      "options": [
+        "** Every 35-120 minutes", "Twice a day", "Every 3-5 hours", "Once a week"
+      ],
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "When was the Old Faithful Inn built?",
+      "info": "The Old Faithful Inn is one of the last log hotels present in the United States and is seven stories high.",
+      "options":
+        [
+          "** 1904","1909","1888","1921"
+        ],
+      "scores":
+        [1, 0, 0, 0]
+    },
+    {
+      "question": "On average, how long does it take for Old Faithful to reach maxium height once it starts erupting? ",
+      "info": "",
+      "options":
+        [
+          "** 15 seconds","5 seconds","30 seconds","1 minute"
+        ],
+      "scores":
+        [1, 0, 0, 0]
+    },
+    {
+      "question": "In 2013, Our Amazing Planet reported that Old Faithful's plumbing is most similar to which instrument?",
+      "info": "This research helped discredit the thinking that geysers are fed from long, narrow tubes.",
+      "options": [
+        "** Bagpipe", "Flute", "Tuba", "Oboe"
+      ],
+      "scores": [1, 0, 0, 0]
+    }
+  ]
+}]

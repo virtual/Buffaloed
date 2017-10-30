@@ -26,6 +26,7 @@ export default class Weather extends React.Component {
     // logic fetching all the weather api data into a method.
     //var weatherApiKey = config.weatherKey;
     
+    // move to server and return data object
     var weatherApiKey = process.env.REACT_APP_WEATHER_API;
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=Gardiner&units=imperial&appid=' + weatherApiKey;
     // console.log(url + "this is the url");

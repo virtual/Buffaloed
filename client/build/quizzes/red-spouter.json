@@ -1,0 +1,44 @@
+[{
+      "questions": [
+        {
+    "question": "A famous enzyme, called Taq polymerase, was isolated from a microbe found in a pool within the Lower Geyser Basin, where the Red Spouter also resides.  Taq polymerase revolutionized biotechnology, allowing for groundbreaking studies involving: ",
+    "info": "",
+    "options":
+      [
+        "**dna replication","protein expression","lipid metabolism","epigenetics"
+      ],
+    "scores":
+      [1, 0, 0, 0]
+    },
+    {
+    "question": "Which of one of these is not a thermal feature?",
+    "info": "A geyser basin is a geographic area that has a cluster of hydrothermal features that include geysers, mudpots, hot springs and fumaroles.",
+    "options":
+    [
+      "cascade","fumarole","geyser","mudpot"
+    ],
+    "scores":
+    [1, 0, 0, 0]
+  },
+  {
+  "question": "Yellowstone is home to more than half of the world's active geysers, which number approximately: ",
+  "info": "",
+  "options":
+    [
+      "500","100","1000","2000"
+    ],
+    "scores":
+    [1, 0, 0, 0]
+  },
+  {
+  "question": "What creates the different reds, browns and yellows of the mud in the Fountain Paint Pots? ",
+  "info": "",
+  "options":
+    [
+      "**the oxidation state of the iron in the mud","various populations of microbes","decaying plant matter in the mud","the gases venting from below"
+    ],
+  "scores":
+    [1, 0, 0, 0]
+  }
+      ]}
+]

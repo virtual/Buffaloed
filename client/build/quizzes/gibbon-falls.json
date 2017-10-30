@@ -1,0 +1,33 @@
+[{
+  "questions": [{
+      "question": "Approximately how far do the Gibbon Falls drop?",
+      "info": "",
+      "options": [
+        "** 85 feet", "150 feet", "25 feet", "40 feet"
+      ],
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "The Gibbon Falls block upstream migrations of spawning trout from which river?",
+      "options": [
+        "**  Madison River", "Yellowstone River", "Firehole River", "Lamar River"
+      ],
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "Which alternate name did several early park maps use for Gibbon Falls?",
+      "options": [
+        "** First Cañon Falls", "Primero Falls", "First Azul Falls", "Otoño Falls"
+      ],
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "Gibbon River starts from which lake?",
+      "info": "Grebe Lake comprises the headwaters of the Gibbon River and is noted for its population of Arctic Grayling.",
+      "options": [
+        "** Grebe Lake", "Yellowstone Lake", "Shoshone Lake", "Trout Lake"
+      ],
+      "scores": [1, 0, 0, 0]
+    }
+  ]
+}]

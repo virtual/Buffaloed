@@ -18,11 +18,6 @@ export default class YNP extends Component {
     // wrap your
     // logic fetching all the weather api data into a method.
 
-    var apikey = process.env.REACT_APP_NPS_API;
-    var parkName = "yell";
-    var url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + parkName + 
-    '&fields=images,contacts,entranceFees,entrancePasses,operatingHours'+
-    '&api_key=' + apikey;
     var manualJSON = '/json/ynp.json';
     // console.log(url);
 

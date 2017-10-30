@@ -1,0 +1,35 @@
+[{
+  "questions": [{
+      "question": "Lower Yellowstone Falls are how high? Hint: Twice as high as Niagra Falls.",
+      "info": "",
+      "options": [
+        "308ft", "780ft", "149ft", "547ft"
+      ],
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "Upper Yellowstone falls is larger than Lower Yellowstone falls",
+      "info": "",
+      "options": [
+        "False", "True"
+      ],
+      "scores": [1, 0]
+    },
+    {
+      "question": "What geological process created the Grand Canyon of Yellowstone?",
+      "info": "",
+      "options": [
+        "Erosion", "Glaciation", "Earthquakes", "Sedimentation"
+      ],
+      "scores": [1, 0, 0, 0]
+    },
+    {
+      "question": "In what year did mountain man Jim Bridger first see the Lower Yellowstone Falls?",
+      "info": "The road along the Lamar Valley is the only road open year-long.",
+      "options": [
+        "1846", "1815", "1912", "1884"
+      ],
+      "scores": [1, 0, 0, 0]
+    }
+  ]
+}]
