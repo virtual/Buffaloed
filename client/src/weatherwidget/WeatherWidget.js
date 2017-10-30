@@ -6,7 +6,7 @@ export default class WeatherWidget extends Component {
   }
 render () {
 var flark = this.props.weatherData;
-  let iconURL = "http://openweathermap.org/img/w/" +  flark.weather[0].icon + ".png";
+  let iconURL = "https://openweathermap.org/img/w/" +  flark.weather[0].icon + ".png";
   //  console.log(this.props.weatherData)
   return (
     <div>

@@ -354,6 +354,8 @@ app.get('/logout', function(req, res){
   }
 });
 
-app.listen(5000, function(){
-  console.log('Buffaloed app is listening on 5000');
+var port = process.env.PORT || 5000;
+
+app.listen(port, function(){
+  console.log('Buffaloed app is listening on ' + port);
 });
