@@ -51,19 +51,19 @@ export default class Weather extends React.Component {
       let tempF = Math.round(this.state.weatherData.main.temp);
       // console.log(this.state.weatherData)
       return (
-        <div>
-          <p>{this.state.weatherData.weather[0].description}</p>
+        <div>        
           {/* <p>{this.state.weatherData.weather[0].icon}</p> */}
           <WeatherWidget weatherData={this.state.weatherData}/>
-          <p>{tempF}°F</p>    
-          
+          <p>{tempF}°F
+          <br/>
+          {this.state.weatherData.weather[0].description}</p>
         </div>
       );
     } else {
       return (
-        <h2>
+        <p>
           Loading...
-        </h2>
+        </p>
       );
     }
   }

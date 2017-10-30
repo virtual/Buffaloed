@@ -16,7 +16,7 @@ export default class FacebookShare  extends Component {
     // let url = "http://www.facebook.com"
     return (
       <FacebookProvider appId="1916295301955813">
-        <Share href="https://www.montanacodeschool.com" title="Yellowstone Odyssey" >
+        <Share href="https://yellowstone-odyssey.herokuapp.com/" title="Yellowstone Odyssey" >
           <a className="ui facebook button" target="_blank" color='twitter' 
           ><Icon name='facebook' /> Share on Facebook</a> 
         </Share>

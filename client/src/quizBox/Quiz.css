@@ -82,8 +82,8 @@ cursor: pointer;}
 .quiz-answer-block .answerQ { font-size: 1.2rem; line-height: 1.5rem;}
 .quiz-answer-block blockquote { border-left: 5px solid #ccc; padding-left:10px; margin-left:5px; text-indent: 0; font-size: 1.1em; line-height: 1.4em; font-style: italic;}
 .quiz-answer-block { padding:15px;} 
-#quizForm div .answered .boo { background:#f00;}
-#quizForm div .answered .woo { background: green;} 
+#quizForm div .answered .boo { color: white; background:#f00;}
+#quizForm div .answered .woo { color: white; background: green;} 
 
 
 #quizForm > div > div {

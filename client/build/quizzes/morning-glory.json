@@ -3,7 +3,7 @@
       "question": " In 1950, when the water in Morning Glory Pool was lowered by siphoning, it erupted and emitted how many different types of objects: ",
       "info": "The appearance of Morning Glory Pool has changed over the years due to the influence of visitors and vandals who have thrown trash into the water. Some now refer to the pool as 'Fading Glory'.  The 1950 eruption sent socks, bath towels, handkerchiefs and $86.27 in pennies among all the other items.",
       "options": [
-        "**112", "25", "300", "63"
+        "112", "25", "300", "63"
       ],
       "scores": [1, 0, 0, 0]
     },
@@ -11,7 +11,7 @@
       "question": "The blue hue in the center of the Morning Glory pool is the result of: ",
       "info": "The junk that gets thrown into Yellowstone's hot springs can get cemented in place by mineral deposits, blocking the flow of hot water.  This can lead to changes to the microbial communities and resulting changes to the colors within the pool environment",
       "options": [
-        "**thermophilic bacteria", "heat-loving fungus", "archaea", "hydrophilic viruses "
+        "thermophilic bacteria", "heat-loving fungus", "archaea", "hydrophilic viruses "
       ],
       "scores": [1, 0, 0, 0]
     },
@@ -19,7 +19,7 @@
       "question": "There is a white mineral deposited by most of Yellowstone's hot springs that can form deceptively solid-looking shelves extending over the pools.  This mineral is called: ",
       "info": "These formations can make the ground surface appear to be solid, and safe.  However they are very delicate and stepping on them can lead to great danger if they break over pools of hot water or mud",
       "options": [
-        "**sinter","rhyolite","cryptobiotic soil","gabbro"
+        "sinter","rhyolite","cryptobiotic soil","gabbro"
       ],
       "scores": [1, 0, 0, 0]
     },
@@ -28,7 +28,7 @@
       "info": "",
       "options":
         [
-          "**459°F, 237°C","280°F, 137°C","616°F, 324°C","346°F, 174°C"
+          "459°F (237°C)","280°F  (137°C)","616°F  (324°C)","346°F  (174°C) "
         ],
       "scores":
         [1, 0, 0, 0]

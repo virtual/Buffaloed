@@ -37,16 +37,13 @@ export default class Footer extends Component {
                   </List>
                 </Grid.Column>
                 <Grid.Column width={5}>
-                  <Header inverted as='h4' content='Current Weather' />
+                  <Header inverted as='h4'>
+                  <a className="item" target="_blank" href='https://forecast.weather.gov/MapClick.php?zoneid=WYZ001'>Current Weather</a> 
+                  </Header>
                   <Weather />
-                  <List link inverted>
-                    {/* <List.Item as='a'>Banana Pre-Order</List.Item>
-                    <List.Item as='a'>DNA FAQ</List.Item> */}
-                  </List>
                 </Grid.Column>
                 <Grid.Column width={5}>
-                  <Header as='h3' inverted>Experience Yellowstone</Header>
-                  <Image size='small' src="https://ak4.picdn.net/shutterstock/videos/22429174/thumb/1.jpg?i10c=img.resize(height:160" alt='YNP front gate sign' />
+                <Image alt='Yellowstone Odyssey' src='/img/logo.png' size='medium'/>        
                 </Grid.Column>
               </Grid.Row>
             </Grid>

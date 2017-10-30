@@ -95,7 +95,7 @@ export default class QuizAnswer extends Component {
           if (element.info) {
             extraInfo = <blockquote>{element.info}</blockquote>;
           }
-          htmlQuizQ.push(<li><span className='answerQ'>{thisAnswer}: <strong>{result}</strong></span>{extraInfo}</li>); 
+          htmlQuizQ.push(<li><span className='answerQ'>{thisAnswer} <strong>{result}</strong></span>{extraInfo}</li>); 
         }
       });
     });
@@ -110,13 +110,10 @@ export default class QuizAnswer extends Component {
         <ModalBox  completedQuiz={this.state.completedQuiz} handleClick={this.handleClick} />
         <div id="quiz-answer-block" className="quiz-answer-block">
           <h3>Answers</h3>
-          <p>{session.name} You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
+          <p>You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
           <p className='tryAgain-container'>
           <a className="ui tryAgain button" onClick={() => {window.location.reload()}} >Try Again</a>
           </p>
-          {/* <a onClick={() => {
-                        browserHistory.replace('/sight/lamar-valley')
-                    }}>Mew!!</a> */}
           <ul>
             {htmlQuizQ}
           </ul>
