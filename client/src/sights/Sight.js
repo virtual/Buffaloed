@@ -45,16 +45,12 @@ export default class Sight extends Component {
 
   fetchSight() {
     var url = '/sight/'+this.slug;
-    fetch(url, {
-     
-    }).then(function (response) {
-      
-      return response.json();
+    axios.get(url, { 
     }).then((sightObj) => { 
-      if (sightObj !== undefined) { 
+      if (sightObj.data !== undefined) { 
         this.setState({ 
           initialized: true,
-          sight: sightObj
+          sight: sightObj.data
         });
       }  else {
         console.log('undefined');
@@ -65,23 +61,16 @@ export default class Sight extends Component {
   saveScores(myScoreObj) {
     axios.post('/score', myScoreObj) 
   }
-
+ 
   fetchScores() {
     var url = '/scoreInfo';
-    fetch(url, {
-      method: "post",
-      headers:{"Content-Type":"application/json"}, 
-      body: JSON.stringify({ 
-        slug: this.slug
-      })
-    }).then(function (response) {
-      
-      return response.json();
+    axios.post(url, {
+      slug: this.slug
     }).then((scoresObj) => { 
-      if (scoresObj !== undefined) { 
+      if (scoresObj.data !== undefined) { 
         this.setState({ 
           initializedScores: true,
-          scores: scoresObj
+          scores: scoresObj.data
         });
         console.log(this.state)
       }  else {
