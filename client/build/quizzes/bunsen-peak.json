@@ -3,7 +3,7 @@
       "question": "What is the name of the omninous outcropping protruding north from Bunsen Peak?",
       "info": "",
       "options": [
-        "Cathedral Rock", "", "1,067 miles", "8,108 miles"
+        "Cathedral Rock", "Granite Crag", "Saddle Plateau", "Washakie Needles"
       ],
       "scores": [1, 0, 0, 0]
     },
@@ -19,18 +19,18 @@
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "Which of one of these is not a thermal feature?",
-      "info": "A geyser basin is a geographic area that has a cluster of hydrothermal features that include geysers, mudpots, hot springs and fumaroles.",
+      "question": "The flame of a Bunsen burner resembles this Yellowstone feature that Dr. Robert Bunsen researched: ",
+      "info": "",
       "options": [
-        "cascade", "fumarole", "geyser", "mudpot"
+        "geysers", "fumaroles", "calderas", "siliceous spires"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "What percentage of the park is in Montana?",
-      "info": "96% is in Wyoming, 3% in Montana and 1% in Idaho.",
+      "question": "Sheepeater Cliffs are just down the road from Bunsen Peak.  They were named for a band of Shoshone Indians called the Sheepeaters.  They used this material to craft powerful hunting bows: ",
+      "info": "",
       "options": [
-        "3%", "22%", "12%", "63%"
+        "bighorn sheep horn", "mountain goat horn", "bison hoove", "moose antler"
       ],
       "scores": [1, 0, 0, 0]
     }
