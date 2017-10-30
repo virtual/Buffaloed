@@ -39,9 +39,9 @@ export default class FeatureCards extends Component {
   }
 
   fetchSights() {
-    var url = '/sightsInfo';
+    var url = '/sights';
 
-    axios.post(url, {
+    axios.get(url, {
   }).then((sightObj) => {
       if (sightObj.data !== undefined) { 
         console.log(sightObj.data);

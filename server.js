@@ -89,9 +89,6 @@ passport.deserializeUser(function(id, done){
   })
 })
 
-
-
-
 app.get("/", function(req, res, next) {
   res.send("connected!");
 });
@@ -113,65 +110,31 @@ app.get('/users', function(req, res, next) {
     res.json(users);
   });
 });
- 
 
 app.get('/sights', function(req, res, next) {
-  
-  //console.log("COOOKIES22!!!");
-  //console.log(req.user);
-
-  Sight.find(function(err, sight) {
-    if (err) {
+  Sight.find(function(err, sights) {
+    if(err){
       next(err)
     } else {
-      res.json(sight); 
-    }
-  })
+      res.json(sights);
+    }   
+  });
 });
 
-// app.post('/sights/:id', function(req, res, next) {
-//   let sight = new Sight();
-//   sight.name = req.body.name;
-//   sight.lat = req.body.lat;
-//   sight.lng = req.body.lng;
-//   sight.img = req.body.img;
-//   sight.desc = req.body.desc;
-//   sight.slug = req.body.slug;
-//   sight.save(function(err, newSight){
-//     if(err) {
-//       next(err);
-//     } else {
-//       res.json(newSight);
-//     }
-//   })
-// });
- 
-app.post('/sightsInfo', function(req, res, next) { 
-  //console.log(req.body.slug);
-    if (req.body.slug === undefined) {
-    // if (req.body.slug.keys(obj).length === 0){
-    Sight.find(function(err, sights) {
-      if(err){
-        next(err)
-      } else {
-        res.json(sights);
-      }   
-    });
-  } else { 
-    Sight.find({
-      slug: req.body.slug
-    },(err, foundSight)=>{
-      if(err){
-        console.log(err);
-        next(err)
-      } else { 
-        res.json({
-          sightData: foundSight
-        })
-      }
-    });
-  }
-});
+app.get("/sight/:slug", function(req, res, next){
+  Sight.find({
+    slug: req.params.slug
+  },(err, foundSight)=>{
+    if(err){
+      console.log(err);
+      next(err)
+    } else { 
+      res.json({
+        sightData: foundSight
+      })
+    }
+  });
+})
 
 // saves sight on update
 app.post('/saveSight', function(req, res, next) {
@@ -181,7 +144,6 @@ app.post('/saveSight', function(req, res, next) {
         console.log("Something wrong when updating data!");
     } else {
       console.log(doc); 
-      
     }
   });
 });

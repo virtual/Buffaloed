@@ -44,13 +44,9 @@ export default class Sight extends Component {
   }
 
   fetchSight() {
-    var url = '/sightsInfo';
+    var url = '/sight/'+this.slug;
     fetch(url, {
-      method: "post",
-      headers:{"Content-Type":"application/json"}, 
-      body: JSON.stringify({ 
-        slug: this.slug
-      })
+     
     }).then(function (response) {
       
       return response.json();
