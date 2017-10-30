@@ -6,16 +6,17 @@ let uriUtil = require('mongodb-uri');
 let User = require('./models/User');
 let Sight = require('./models/Sight');
 let Quiz = require('./models/Quiz');
-let config = require('./config');
 let passport = require('passport');
 let passportLocal = require('passport-local');
 let expressSession = require('express-session');
 let LocalStrategy = require("passport-local").Strategy; // constructor
 let passwordHash = require('password-hash');
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 //let mongodbUri = 'mongodb://localhost/buffaloed';
-let mongodbUri = "mongodb://"+config.mlab.user+":"+config.mlab.password+"@ds119345.mlab.com:19345/mcs";
+// console.log(process.env);
+let mongodbUri = "mongodb://"+process.env.SERVER_MLAB_USER+":"+process.env.SERVER_MLAB_PASSWORD+"@ds119345.mlab.com:19345/mcs";
 
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 var options = {
@@ -31,7 +32,11 @@ db.once('open', function () {
 });
 
 /* passport has strategies which are functions that prove that a user trying to hit your server has permission */
-app.use(express.static("public"));
+if (process.env.NODE_ENV === 'production') { 
+  app.use(express.static("./client/build"));
+} else {
+  app.use(express.static("public"));  
+}
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -174,8 +179,10 @@ app.post('/saveSight', function(req, res, next) {
   Sight.findOneAndUpdate({slug: req.body.slug}, {$set:req.body}, {new: true}, function(err, doc){
     if(err){
         console.log("Something wrong when updating data!");
+    } else {
+      console.log(doc); 
+      
     }
-    console.log(doc);
   });
 });
 

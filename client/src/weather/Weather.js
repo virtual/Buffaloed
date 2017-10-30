@@ -6,9 +6,6 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-let config = require('../config');
-
-//let config = require('../config');
 
 
 export default class Weather extends React.Component {
@@ -28,7 +25,8 @@ export default class Weather extends React.Component {
     // wrap your
     // logic fetching all the weather api data into a method.
     //var weatherApiKey = config.weatherKey;
-    var weatherApiKey = config.weatherkey;
+    
+    var weatherApiKey = process.env.REACT_APP_WEATHER_API;
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=Gardiner&units=imperial&appid=' + weatherApiKey;
     // console.log(url + "this is the url");
     fetch(url).then(function (response) {

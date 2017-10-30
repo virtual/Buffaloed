@@ -27,7 +27,7 @@ export default class Leaderboard  extends Component {
           }
       
           return x.email > y.email;
-      });;
+      });
 
 
       let ldrhtml = [];
