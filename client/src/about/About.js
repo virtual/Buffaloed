@@ -14,7 +14,7 @@ export default class About extends Component {
             <Grid.Column width={8}>
                 <p>	A wide number of Native American tribes and bands have called this beautiful area home for more than 11,000 years. In the early-mid 1800’s European Americans began to explore the Greater Yellowstone region. The first organized expedition took place in 1870, leading to Yellowstone National Park being established in 1872. Yellowstone National Park was signed into law on March 1, 1872 by President Ulysses S. Grant.
 </p>
-                <p>Today, Yellowstone National Park protects over 2.2 million acres in Montana, Idaho, and Wyoming. Yellowstone is well known for its diverse populations of flora and fauna and its hundreds of unique ‘other-worldy’ geothermal features. The park contains over 300 active geysers, 150 of which are concentrated in one square mile, making this area the most densely populated geyser region in the world.</p>
+                <p>Today, Yellowstone National Park protects over 2.2 million acres in Montana, Idaho, and Wyoming. Yellowstone is well known for its diverse populations of flora and fauna and its hundreds of unique ‘other-worldy’ geothermal features. The park contains about 500 active geysers, 150 of which are concentrated in one square mile, making this area the most densely populated geyser region in the world.</p>
                 <p> We hope you enjoy your experience while navigating the Yellowstone Odyssey and learning more about the first national park of the United States!</p>
                 <YNP />
             </Grid.Column>
