@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-
 import { Table, Header, Image } from 'semantic-ui-react'
 import TableRow from './TableRow';
 let axios = require('axios');
-
 
 export default class Admin extends Component {
   constructor(){
     super();
     this.fetchSights = this.fetchSights.bind(this);
     this.state = {
+      initalized: false,
       sights: [],
       order: 'normal',
       limit: 100
@@ -18,27 +17,23 @@ export default class Admin extends Component {
 
   componentDidMount(){
     this.fetchSights();
-    
   }
 
   fetchSights() {
-    var url = '/sightsInfo';
-
-    axios.post(url, {
-  }).then((sightObj) => {
-      if (sightObj.data !== undefined) { 
-        console.log(sightObj.data);
+    var url = '/sights';
+    axios.get(url, { 
+    }).then((sightsObj) => { 
+      if (sightsObj.data !== undefined) { 
         this.setState({ 
-          sights: (sightObj.data)
+          initialized: true,
+          sights: sightsObj.data
         });
       }  else {
         console.log('undefined');
       }
-    }).catch(function(err) {
-      console.log(err);
     });
   }
-
+ 
   render(){
      console.log(this.state.sights);
      let sightList = []; 
@@ -47,7 +42,7 @@ export default class Admin extends Component {
         <TableRow {...sight} />
        );
      });
-     
+   
      return(
      <Table sortable compact basic='very' celled>
        <Table.Header>
@@ -64,6 +59,6 @@ export default class Admin extends Component {
          {sightList}
        </Table.Body>
      </Table>
-     )
+     )  
  }
 }

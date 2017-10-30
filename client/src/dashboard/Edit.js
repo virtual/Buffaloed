@@ -36,28 +36,19 @@ export default class Edit extends Component {
   }
 
   fetchSight() {
-    var url = '/sightsInfo';
-    fetch(url, {
-      method: "post",
-      headers:{"Content-Type":"application/json"}, 
-      body: JSON.stringify({ 
-        slug: this.slug
-      })
-    }).then(function (response) {
-      
-      return response.json();
+    var url = '/sight/'+this.slug;
+    axios.get(url, { 
     }).then((sightObj) => { 
-      if (sightObj !== undefined) { 
+      if (sightObj.data !== undefined) { 
         this.setState({ 
           initialized: true,
-          sight: sightObj
+          sight: sightObj.data
         });
       }  else {
         console.log('undefined');
       }
     });
   }
-
   saveSights(mySightObj) {
     console.log("saving sight!");
     axios.post('/saveSight', mySightObj) 
