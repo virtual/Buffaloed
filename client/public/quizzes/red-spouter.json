@@ -5,13 +5,13 @@
     "info": "",
     "options":
       [
-        "**dna replication","protein expression","lipid metabolism","epigenetics"
+        "dna replication","protein expression","lipid metabolism","epigenetics"
       ],
     "scores":
       [1, 0, 0, 0]
     },
     {
-    "question": "Which of one of these is not a thermal feature?",
+    "question": "Which one of these is not a thermal feature?",
     "info": "A geyser basin is a geographic area that has a cluster of hydrothermal features that include geysers, mudpots, hot springs and fumaroles.",
     "options":
     [
@@ -35,7 +35,7 @@
   "info": "",
   "options":
     [
-      "**the oxidation state of the iron in the mud","various populations of microbes","decaying plant matter in the mud","the gases venting from below"
+      "the oxidation state of the iron in the mud","various populations of microbes","decaying plant matter in the mud","the gases venting from below"
     ],
   "scores":
     [1, 0, 0, 0]
