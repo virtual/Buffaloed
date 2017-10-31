@@ -166,8 +166,7 @@ app.post('/score', function(req, res, next) {
       next(err)
     } else { 
       if (foundQuiz.length > 0) {
-        // Quiz with slug exists
-        console.log("found a quiz for " + req.body.slug);
+        // Quiz with slug exists 
         let foundUser = false;
 
         // Check if current user's email is in the sight's quiz list
@@ -178,9 +177,7 @@ app.post('/score', function(req, res, next) {
           if(e.email === req.body.leaderboard.email) {
             // √ user is in list
             // check if score is higher and update if so
-            foundUser = true;
-            console.log('found ' + req.body.leaderboard.email + " with score: " + e.score)
-            console.log(req.body.leaderboard.score);
+            foundUser = true;  
 
             if(parseInt(e.score) < parseInt(req.body.leaderboard.score)) {
               // √ update score
@@ -205,8 +202,7 @@ app.post('/score', function(req, res, next) {
 
         if (!(foundUser)) {  
           // √ User is not in list, 
-          // add email and score to existing leaderboard object
-          console.log('not found ' + req.body.leaderboard.email);
+          // add email and score to existing leaderboard object 
           foundQuiz[0].leaderBoard.push(obj);
           foundQuiz[0].save( 
           function(err, newQuiz){
@@ -219,8 +215,7 @@ app.post('/score', function(req, res, next) {
         }
  
       } else {
-        // Add new quiz to db for slug/sight
-        console.log("couldn't find a quiz for " + req.body.slug)
+        // Add new quiz to db for slug/sight 
         let quiz = new Quiz();
         quiz.leaderBoard = [];
         quiz.slug = req.body.slug;

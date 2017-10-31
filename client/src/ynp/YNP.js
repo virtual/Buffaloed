@@ -17,9 +17,7 @@ export default class YNP extends Component {
     
     // wrap your
     // logic fetching all the weather api data into a method.
-
     var manualJSON = '/json/ynp.json';
-    // console.log(url);
 
     axios.get(
       // url, {"Access-Control-Allow-Origin": "*"},
@@ -44,11 +42,7 @@ export default class YNP extends Component {
   }
   render () {
     let costHTML = [];
-      console.log('this.state.ynpData')
-      console.log(this.state.ynpData)
-    if (this.state.initialized) {
-      //console.log(this.state.ynpData.data["0"].entranceFees["0"].cost);
-      
+    if (this.state.initialized) {      
       this.state.ynpData.data["0"].entranceFees.forEach((e)=> {
        console.log(e);
        let costConverted = "$" + e.cost.toFixed(2);

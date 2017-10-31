@@ -16,8 +16,6 @@ class Login extends Component {
     this.loginUser = this.loginUser.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    console.log(sessionStorage.getItem('user'));     
-    
   }
 
   handleEmailChange(event) {
@@ -32,8 +30,7 @@ class Login extends Component {
       axios.post('/login', {
         username: this.state.email,
         password: this.state.password
-    }).then((answer) => {
-      console.log(answer.data);
+    }).then((answer) => { 
       if (answer.data.success) {
         let loggedUser={
           firstName: answer.data.firstName, 
@@ -44,16 +41,8 @@ class Login extends Component {
         }
         this.props.setUser(
           loggedUser
-        );
-        //var user = {'firstName': answer.data.firstName};
-        sessionStorage.setItem('user', JSON.stringify(loggedUser));
-        //var obj = JSON.parse(sessionStorage.user);
-
-        //sessionStorage.setItem('bar', 'hello')
-        //console.log(sessionStorage.getItem('bar')); 
-
-        //sessionStorage.setItem('user', {firstName: answer.data.firstName});
-        console.log(JSON.parse(sessionStorage.getItem('user')));     
+        ); 
+        sessionStorage.setItem('user', JSON.stringify(loggedUser));  
         this.props.history.push("/dashboard");
       } else {
         console.log(answer.data.message);
@@ -92,36 +81,36 @@ class Login extends Component {
         height: 100%;
       }
     `}</style>
-    <Grid
-      textAlign='center'
-      style={{ height: '100%' }}
-      verticalAlign='middle'
-    >
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='blue' textAlign='center'>
-        <Icon color='blue' name='rocket' />
-          {' '}Log-in to your account
-        </Header>
-        <Form size='large'>
-          <Segment stacked>
+        <Grid
+          textAlign='center'
+          style={{ height: '100%' }}
+          verticalAlign='middle'
+        >
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as='h2' color='blue' textAlign='center'>
+            <Icon color='blue' name='rocket' />
+              {' '}Log-in to your account
+            </Header>
+            <Form size='large'>
+              <Segment stacked>
 
-            <label htmlFor="email" className="sr-only">Email</label>
-          <Form.Input type="email" id="email" name="email" onChange={this.handleEmailChange} 
-          fluid icon='user' iconPosition='left' placeholder='E-mail address'/>
+                <label htmlFor="email" className="sr-only">Email</label>
+              <Form.Input type="email" id="email" name="email" onChange={this.handleEmailChange} 
+              fluid icon='user' iconPosition='left' placeholder='E-mail address'/>
 
-          <label htmlFor="password" className="sr-only">Password</label>
-          <Form.Input placeholder="Password" id="password" type="password" name="password" onChange={this.handlePasswordChange}
-          fluid icon='lock' iconPosition='left'/>
-            
-          <Button type='submit' onClick={this.loginUser} color='blue' fluid size='large'>Login</Button>
-          </Segment>
-        </Form>
+              <label htmlFor="password" className="sr-only">Password</label>
+              <Form.Input placeholder="Password" id="password" type="password" name="password" onChange={this.handlePasswordChange}
+              fluid icon='lock' iconPosition='left'/>
+                
+              <Button type='submit' onClick={this.loginUser} color='blue' fluid size='large'>Login</Button>
+              </Segment>
+            </Form>
 
-        <Message>
-          New to us? <Link to="/signup">Sign Up</Link>
-        </Message>
-      </Grid.Column>
-    </Grid>
+            <Message>
+              New to us? <Link to="/signup">Sign Up</Link>
+            </Message>
+          </Grid.Column>
+        </Grid>
          
         { userMessage }
         </div>
