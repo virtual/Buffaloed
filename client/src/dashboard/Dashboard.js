@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 let axios = require('axios');
 
 export default class Dashboard extends Component {
@@ -40,7 +41,7 @@ export default class Dashboard extends Component {
     let adminBtn = ""
     if (this.state.initialized) {
       if (this.state.user.role === 'admin'){
-        adminBtn = <a className="button primary ui " href="/admin">Edit Sights</a>
+        adminBtn = <Link className="button primary ui " to="/admin">Edit Sights</Link>
         console.log('admin')
       }
     }
