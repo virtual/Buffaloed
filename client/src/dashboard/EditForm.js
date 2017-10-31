@@ -1,32 +1,36 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Button, Form, Input, TextArea } from 'semantic-ui-react'
 const axios = require('axios');
 
-
-export default class EditForm extends Component {
+class EditForm extends Component { 
   constructor() {
   super();
     this.state = {
       name: "",
       type: '',
-      initialized: false
+      initialized: false,
+      loadingStyle: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    
   }
 
   handleChange(e) {
-    console.log(e)
+    // console.log(e)
     // If you are using babel, you can use ES 6 dictionary syntax { [e.target.name] = e.target.value }
     var change = {}
     change[e.target.name] = e.target.value
-    console.log(change);
+    // console.log(change);
     this.setState(change)
-    console.log(this.state)
+    // console.log(this.state)
   }
   handleClick() {
-    console.log(this.state);
+    // console.log(this.state);
+    this.setState({
+      loadingStyle: true
+    })
+
     let updatedSight = {
       slug: this.props.slug,
       name: this.state.name,
@@ -36,7 +40,13 @@ export default class EditForm extends Component {
       type: this.state.type,
       desc: this.state.desc
     }
-    axios.post('/saveSight', updatedSight)
+    axios.post('/saveSight', updatedSight).then((scoresObj) => {  
+      if (scoresObj.status === 200) {   
+        this.props.history.push("/admin");
+      }  else {
+        console.log('save unsuccessful');
+      }
+    }); 
   }
   componentDidMount(){
     if(!(this.state.initialized)){
@@ -53,7 +63,6 @@ export default class EditForm extends Component {
   }
 
   render() {
-
     return (
       <div>
         <h1>
@@ -76,9 +85,10 @@ export default class EditForm extends Component {
             <Form.Field control={Input} name='img' value={this.state.img} label='Image' placeholder='url'  onChange={this.handleChange}  /> 
           </Form.Group>
 
-          <Form.Field onClick={this.handleClick} control={Button} primary>Save</Form.Field>
+          <Form.Field loading={this.state.loadingStyle} onClick={this.handleClick} control={Button} primary>Save</Form.Field>
         </Form>
       </div>
     )
   }
 }
+export default withRouter(EditForm);

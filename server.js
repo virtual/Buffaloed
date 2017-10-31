@@ -129,12 +129,17 @@ app.get("/sight/:slug", function(req, res, next){
 
 // saves sight on update
 app.post('/saveSight', function(req, res, next) {
-  Sight.findOneAndUpdate({slug: req.body.slug}, {$set:req.body}, {new: true}, function(err, doc){
-    if(err){
-        console.log("Something wrong when updating data!");
-    } else {
-      console.log(doc); 
-    }
+  Sight.findOneAndUpdate(
+    {slug: req.body.slug}, 
+    {$set:req.body}, 
+    {new: true}, 
+
+    (err, doc)=>{
+      if(err){
+          console.log("Something wrong when updating data!");
+      } else {
+        res.json({data: doc});
+      }
   });
 });
 

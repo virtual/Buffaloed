@@ -46,9 +46,7 @@ export default class Edit extends Component {
       }
     });
   }
-  saveSights(mySightObj) {
-    axios.post('/saveSight', mySightObj) 
-  } 
+
   render () {
     if (this.state.initialized) { 
       let allInfo = this.state.sight.sightData[0];
