@@ -1,65 +1,33 @@
 [{
   "questions": [{
-      "question": "The bright bands of color in the Grand Prismatic Spring come from the different populations of bacteria living in the spring.  The  ",
+      "question": "The bright bands of color around the Grand Prismatic Spring come from the different populations of thermophilic (heat-loving) microorganisms.  Which of these does not belong:  ",
       "info": "",
       "options": [
-        "459°F, (237°C)", "280°F, (137°C)", "616°F, (324°C)", "346°F, (174°C)"
+        "pollen", "bacteria", "fungi", "archaea"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "Upon the creation of Yellowstone National Park, in 1872, which of these states were established?",
+      "question": "The Grand Prismatic Spring has a pH above 7, meaning it is 'basic' instead of 'acidic'.  Which one of these everyday items is least similar, in terms of pH, to Grand Prismatic: ",
       "info": "",
       "options": [
-        "none of the above", "Montana", "Idaho", "Montana & Wyoming"
+        "black coffee", "baking soda", "toothpaste", "bleach"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "Yellowstone is home to more than half of the world's active geysers, which number approximately: ",
+      "question": "In 1941, this iconic photographer was hired by the Department of the Interior, at a rate of $22.22 per day, to capture images of American landscapes- including the Grand Prismatic Spring: ",
       "info": "",
       "options": [
-        "500", "100", "1000", "2000"
+        "Ansel Adams", "Richard Avedon", "Annie Leibovitz", "Andy Warhol"
       ],
       "scores": [1, 0, 0, 0]
     },
     {
-      "question": "Upon the creation of Yellowstone National Park, in 1872, which of these states were established?",
+      "question": "The National Park Service states that Yellowstone in the only place in the U.S. where bison have continuously roamed since prehistoric times. But overhunting nearly led to the herd's extinction in the late 1800's when just this many animals remained: ",
       "info": "",
       "options": [
-        "none of the above", "Montana", "Idaho", "Montana & Wyoming"
-      ],
-      "scores": [1, 0, 0, 0]
-    },
-    {
-      "question": "What is North America's largest land animal?",
-      "info": "Bison are North America's largest land animals. Mature bulls weigh up to 2000 pounds. Bison can run at speeds approaching 35mph!",
-      "options": [
-        "Bison", "Grizzly bear", "Polar bear", "Elk"
-      ],
-      "scores": [1, 0, 0, 0]
-    },
-    {
-      "question": "Which of these is not a microorganism that contributes to the variety of colors seen in Yellowstone's hydrothermal features?",
-      "info": "",
-      "options": [
-        "Fungi", "Bacteria", "Archaea", "Viruses"
-      ],
-      "scores": [1, 0, 0, 0]
-    },
-    {
-      "question": "In 2016 which baby animal did tourists put in their car because, \"It looked cold\"?",
-      "info": "",
-      "options": [
-        "Bison", "Deer", "Wolf", "Mountain Lion"
-      ],
-      "scores": [1, 0, 0, 0]
-    },
-    {
-      "question": "About how many grizzly bears currently live in the Greater Yellowstone ecosystem?",
-      "info": "Grizzly bears may weigh up to 800lbs and consume up to 90lbs of food per day in the fall months.",
-      "options": [
-        "700", "1000", "75", "2500"
+        "23", "9", "176", "212"
       ],
       "scores": [1, 0, 0, 0]
     }
