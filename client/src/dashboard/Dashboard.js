@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Grid, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import UserPosition from './UserPosition';
 
 export default class Dashboard extends Component {
   constructor() {
@@ -47,13 +49,29 @@ export default class Dashboard extends Component {
     if (this.state.initialized) {
       return (
         <div>
-          <h1>Dashboard</h1>
-          <h2>Welcome, {this.state.user.firstName} {this.state.user.lastName} </h2>
-            <img alt={this.state.user.firstName} src={imgLink} />
-          <p><strong>Settings: </strong><br/>
-          Email: {this.state.user.email}  
-          </p>
-          {adminBtn}
+          <style>{`
+      .userposition .leaflet-container {
+        height: 200px !important; width: 100%; 
+    }
+    `}</style>
+
+          <Grid>
+            <Grid.Column computer={8} mobile={16} tablet={8}>
+              <h1>Dashboard</h1>
+              <h2>Welcome, {this.state.user.firstName} {this.state.user.lastName} </h2>
+                <img alt={this.state.user.firstName} src={imgLink} />
+              <p><strong>Settings: </strong><br/>
+              Email: {this.state.user.email}  
+              </p>
+              {adminBtn}
+            </Grid.Column>
+            <Grid.Column computer={8} mobile={16} tablet={8}>
+              <UserPosition />
+             
+            </Grid.Column>
+          </Grid> 
+          
+        
         </div>
       );
     } else {
