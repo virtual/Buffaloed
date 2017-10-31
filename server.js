@@ -14,8 +14,6 @@ let passwordHash = require('password-hash');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
-//let mongodbUri = 'mongodb://localhost/buffaloed';
-// console.log(process.env);
 let mongodbUri = "mongodb://"+process.env.SERVER_MLAB_USER+":"+process.env.SERVER_MLAB_PASSWORD+"@ds119345.mlab.com:19345/mcs";
 
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
@@ -55,9 +53,7 @@ function(email, password, done){
     if (err) {
       return done(err, null); // null for no user
     } else {
-      //console.log('checking hash...');
       if (user && passwordHash.verify(password, user.password)){
-        //console.log('verified!')
         return done(null, user);
       } else {
         // additional test and error handling here
@@ -71,19 +67,14 @@ function(email, password, done){
 // store that they have logged in in a session with a cookie
 // serialize auth user which puts user into cookie for requests
 passport.serializeUser(function(user, done){
-  //console.log(user._id);
-  //console.log("serialize")
   done(null, user._id); // mongodb user id
 });
 
 passport.deserializeUser(function(id, done){
-  // console.log(id);
-  //console.log('des');
   User.findById(id, function(err, user){
     if (err) {
       console.log(err);
     } else {
-      // console.log(user);
       done(null, user);
     }
   })
@@ -138,7 +129,6 @@ app.get("/sight/:slug", function(req, res, next){
 
 // saves sight on update
 app.post('/saveSight', function(req, res, next) {
-  // console.log(req.body);
   Sight.findOneAndUpdate({slug: req.body.slug}, {$set:req.body}, {new: true}, function(err, doc){
     if(err){
         console.log("Something wrong when updating data!");
@@ -154,7 +144,6 @@ app.post('/signup', function(req, res, next) {
   user.lastName = req.body.lastName;
   user.email = req.body.email;
   user.password = req.body.password;
-  //console.log(user);
   user.save(function(err, newUser){
     if(err) {
       next(err);

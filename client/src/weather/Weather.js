@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import Footer from '../footer/Footer'
 import WeatherWidget from '../weatherwidget/WeatherWidget'; 
 
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-
-
-export default class Weather extends React.Component {
+export default class Weather extends Component {
   constructor () {
     super();
     this.state = {
@@ -18,13 +11,11 @@ export default class Weather extends React.Component {
     this.fetchWeatherData = this.fetchWeatherData.bind(this);
   }
   fetchWeatherData (city) {
-    // console.log(city + "this is the city");
     this.setState({
       initialized: false
     });
     // wrap your
     // logic fetching all the weather api data into a method.
-    //var weatherApiKey = config.weatherKey;
     
     // move to server and return data object
     var weatherApiKey = process.env.REACT_APP_WEATHER_API;
@@ -49,10 +40,8 @@ export default class Weather extends React.Component {
   render () {
     if (this.state.initialized) {
       let tempF = Math.round(this.state.weatherData.main.temp);
-      // console.log(this.state.weatherData)
       return (
         <div>        
-          {/* <p>{this.state.weatherData.weather[0].icon}</p> */}
           <WeatherWidget weatherData={this.state.weatherData}/>
           <p>{tempF}°F
           <br/>

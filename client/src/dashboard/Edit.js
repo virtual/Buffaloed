@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Grid, Image } from 'semantic-ui-react';
 import EditForm from './EditForm';
 const axios = require('axios');
 
@@ -30,11 +29,9 @@ export default class Edit extends Component {
     if (!(sluggyPath.match(sluggyReg))) {  
       window.location.replace("/admin");
     }
-
     var found = sluggyPath.match(sluggyReg)[2];
     this.slug = found; // dont use state cuz it won't set
   }
-
   fetchSight() {
     var url = '/sight/'+this.slug;
     axios.get(url, { 
@@ -50,30 +47,20 @@ export default class Edit extends Component {
     });
   }
   saveSights(mySightObj) {
-    console.log("saving sight!");
     axios.post('/saveSight', mySightObj) 
-  }
-
-   
+  } 
   render () {
     if (this.state.initialized) { 
-      console.log(this.state.sight.sightData[0]);
-
- 
       let allInfo = this.state.sight.sightData[0];
-      let img = '/img/sights/orig/' + allInfo.img;
       return (
         <div> 
-        
- 
         <EditForm info={allInfo} slug={this.slug}/> 
-       </div>
+        </div>
       );
     } else {
       return(
       <div>Loading...</div>
-    )
+      )
     }
-    
   }
 }

@@ -66,7 +66,8 @@ export default class QuizContainer extends Component {
   displayQuiz(data) { 
     let htmlQuizQ = [];
     data[0].questions.forEach((element, index)=> {
-      htmlQuizQ.push(<QuizQuestion setLocalScores={this.setLocalScores} element={element} index={index} />); 
+      let key = "q"+index;
+      htmlQuizQ.push(<QuizQuestion setLocalScores={this.setLocalScores} element={element} index={index} key={key} />); 
     });
     return htmlQuizQ;
   }

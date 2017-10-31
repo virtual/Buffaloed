@@ -44,7 +44,6 @@ export default class FeatureCards extends Component {
     axios.get(url, {
   }).then((sightObj) => {
       if (sightObj.data !== undefined) { 
-        console.log(sightObj.data);
         this.setState({ 
           sights: this.randomizeSights(sightObj.data).splice(0, this.state.limit)
         });

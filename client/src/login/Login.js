@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Container, Button, Form, Grid, Header, Image, Message, Segment, Icon } from 'semantic-ui-react'
+import { Container, Button, Form, Grid, Header, Message, Segment, Icon } from 'semantic-ui-react'
 var axios = require('axios');
 
 class Login extends Component {

@@ -5,15 +5,11 @@ import {
   Container,
   Grid,
   Header,
-  Icon,
   Image,
   List,
   Segment
  } from 'semantic-ui-react';
-
-
-//<img className="ui medium circular image" src="/images/wireframe/square-image.png">
-
+ 
 export default class Footer extends Component {
   
   render () { 
@@ -32,13 +28,13 @@ export default class Footer extends Component {
                      
                     <Link className="item" to="/about">About Yellowstone</Link>
                     <Link className="item" to="/sights">Check out some sights!</Link> 
-                    <a className="item" target="_blank" href="//www.nps.gov/yell/index.htm">YNP official website</a> 
+                    <a className="item" target="_blank" rel="noopener noreferrer" href="//www.nps.gov/yell/index.htm">YNP official website</a> 
                     <Link className="item" to="/contactinfo">Contact Us</Link>
                   </List>
                 </Grid.Column>
                 <Grid.Column width={5}>
                   <Header inverted as='h4'>
-                  <a className="item" target="_blank" href='https://forecast.weather.gov/MapClick.php?zoneid=WYZ001'>Current Weather</a> 
+                  <a className="item" target="_blank" rel="noopener noreferrer" href='https://forecast.weather.gov/MapClick.php?zoneid=WYZ001'>Current Weather</a> 
                   </Header>
                   <Weather />
                 </Grid.Column>

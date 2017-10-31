@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-let axios = require('axios');
+import { Link } from 'react-router-dom'; 
 
 export default class FeatureCard extends Component {
-  constructor(){
-    super();
-  }
 
   render () {
     var link = "/sight/" + this.props.sight.slug;
@@ -16,7 +12,7 @@ export default class FeatureCard extends Component {
       meta = this.props.sight.type
     }
     const extra = (
-      <Link to={link}>Learn more</Link>
+      <p>Learn more</p>
     ) 
     return (
       <Card

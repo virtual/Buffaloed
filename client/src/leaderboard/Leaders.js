@@ -16,9 +16,7 @@ export default class Leaders extends Component {
   
   fetchUser() {
     axios.post('/scoreInfoByEmail', {email: this.props.email}).then((res)=> {
-      console.log(res);
-      if (res !== undefined) {  
-        console.log(res.data);
+      if (res !== undefined) {   
         this.setState({ 
           user: res.data
         });
@@ -32,7 +30,7 @@ export default class Leaders extends Component {
 
   render () {
     let img = "/img/avatars/default.png";
-    if(this.state.user) {
+    if(this.state.user.img) {
       img = "/img/avatars/" + this.state.user.img
     }
     return (

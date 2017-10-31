@@ -27,8 +27,6 @@ export default class Sight extends Component {
     this.fetchScores();
     this.setState({user: this.props.getUser});
     this.props.getUser();
-    console.log(this.props.user);
-
   }
 
   getSlug() {
@@ -72,7 +70,6 @@ export default class Sight extends Component {
           initializedScores: true,
           scores: scoresObj.data
         });
-        console.log(this.state)
       }  else {
         console.log('undefined');
       }
@@ -80,44 +77,32 @@ export default class Sight extends Component {
   }
   render () {
     if (this.state.initialized) { 
-      console.log(this.state.sight.sightData[0]);
-
-      if (this.state.initializedScores) { 
-        console.log(this.state.scoresObj);
-      }
       let allInfo = this.state.sight.sightData[0];
       let img = '/img/sights/orig/' + allInfo.img;
       return (
         <div> 
-          <h1>
-          {allInfo.name}
-          </h1>
- 
-        
-
-  <Grid>
-    <Grid.Column computer={4} mobile={16} tablet={6}>
-      <Image src={img} alt={allInfo.name} />
-    </Grid.Column>
-    <Grid.Column computer={6} mobile={16} tablet={10}>
-    <p>{allInfo.desc}</p>
-    <Leaderboard scores={this.state.scores}/>
-     </Grid.Column>
-      <Grid.Column computer={6} mobile={16} tablet={16}>
-   <FeatureMap sightName={allInfo.name} lat={allInfo.lat} lng={allInfo.lng} />
-    </Grid.Column>
-    <Grid.Column computer={16} mobile={16} tablet={16}>
-   <QuizContainer sight={allInfo.slug} saveScores={this.saveScores}/>
-    </Grid.Column>
-  </Grid>
-
-       </div>
+          <h1> {allInfo.name} </h1> 
+          <Grid>
+            <Grid.Column computer={4} mobile={16} tablet={6}>
+              <Image src={img} alt={allInfo.name} />
+            </Grid.Column>
+            <Grid.Column computer={6} mobile={16} tablet={10}>
+            <p>{allInfo.desc}</p>
+            <Leaderboard scores={this.state.scores}/>
+              </Grid.Column>
+              <Grid.Column computer={6} mobile={16} tablet={16}>
+            <FeatureMap sightName={allInfo.name} lat={allInfo.lat} lng={allInfo.lng} />
+            </Grid.Column>
+            <Grid.Column computer={16} mobile={16} tablet={16}>
+            <QuizContainer sight={allInfo.slug} saveScores={this.saveScores}/>
+            </Grid.Column>
+          </Grid> 
+        </div>
       );
     } else {
       return(
       <div>Loading...</div>
-    )
+      )
     }
-    
   }
 }

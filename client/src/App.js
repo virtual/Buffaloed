@@ -13,7 +13,6 @@ import Admin from './dashboard/Admin';
 import Edit from './dashboard/Edit';
 import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
-// import QuizBox from './quiz/Quiz';
 import About from './about/About';
 import Dashboard from './dashboard/Dashboard';
 const axios = require('axios');
@@ -36,22 +35,16 @@ class App extends Component {
   getUser(){
     return new Promise((resolve, reject)=> {
       axios.get('/user').then((res)=> {
-        console.log(res);
         if (res !== undefined) { 
-          console.log('update state');
-          console.log(res.data);
           resolve(res.data);
-
           this.setState({ 
             user: res.data
           });
         }  else {
           reject("undefined");
-          // console.log('undefined');
         }
       }, function(err){
         reject(err);
-        // console.log(err);
       });
     });
   };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { Icon, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 
 export default class Navbar extends Component {
   state = { 
@@ -20,13 +20,11 @@ export default class Navbar extends Component {
     let entryLinks = [];
     
     if (this.props.user.firstName) {
-      console.log("this user");
-      console.log(this.props.user)
-      entryLinks.push(<Link className="item" to="/dashboard"><Image avatar size="mini" src={img}/> {first}</Link>);
-      entryLinks.push(<Link className="item" to="/logout">Logout</Link>);
+      entryLinks.push(<Link className="item" key='linkDashboard' to="/dashboard"><Image avatar size="mini" src={img}/> {first}</Link>);
+      entryLinks.push(<Link className="item" key='linkLogout' to="/logout">Logout</Link>);
     } else {
-      entryLinks.push(<Link className="item" to="/login">Login</Link>);
-      entryLinks.push(<Link className="item" to="/signup">Signup</Link>);
+      entryLinks.push(<Link className="item" key='linkLogin' to="/login">Login</Link>);
+      entryLinks.push(<Link className="item" key='linkSignup' to="/signup">Signup</Link>);
     }
 
     return (

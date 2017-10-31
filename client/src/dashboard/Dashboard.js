@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-let axios = require('axios');
 
 export default class Dashboard extends Component {
   constructor() {
@@ -50,7 +49,7 @@ export default class Dashboard extends Component {
         <div>
           <h1>Dashboard</h1>
           <h2>Welcome, {this.state.user.firstName} {this.state.user.lastName} </h2>
-            <img src={imgLink} />
+            <img alt={this.state.user.firstName} src={imgLink} />
           <p><strong>Settings: </strong><br/>
           Email: {this.state.user.email}  
           </p>

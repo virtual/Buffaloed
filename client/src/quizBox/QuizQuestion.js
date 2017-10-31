@@ -41,7 +41,8 @@ export default class QuizQuestion extends Component {
       shuffle(monElemente.options, monElemente.scores);
 
       monElemente.options.forEach((e, i)=> {
-        this.state.htmlQuizQ.push(<QuizOption changeToAnswered={this.changeToAnswered} setLocalScores={this.props.setLocalScores} e={e} val={monElemente.scores[i]} index={this.props.index} />);
+        let key = "question" + i;
+        this.state.htmlQuizQ.push(<QuizOption changeToAnswered={this.changeToAnswered} setLocalScores={this.props.setLocalScores} e={e} val={monElemente.scores[i]} index={this.props.index} key={key} />);
       });
 
       this.setState( {

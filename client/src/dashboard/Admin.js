@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Header, Image } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import TableRow from './TableRow';
 let axios = require('axios');
 

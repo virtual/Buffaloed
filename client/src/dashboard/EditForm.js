@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
+import { Button, Form, Input, TextArea } from 'semantic-ui-react'
 const axios = require('axios');
 
 
@@ -54,10 +54,6 @@ export default class EditForm extends Component {
 
   render() {
 
-  
-
-
-    const { value } = this.state
     return (
       <div>
         <h1>

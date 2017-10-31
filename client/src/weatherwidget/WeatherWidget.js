@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
 export default class WeatherWidget extends Component {
-  constructor(){
-    super()
-  }
-render () {
-var flark = this.props.weatherData;
+  render () {
+  var flark = this.props.weatherData;
   let iconURL = "https://openweathermap.org/img/w/" +  flark.weather[0].icon + ".png";
-  //  console.log(this.props.weatherData)
   return (
     <div>
-        <img src={iconURL}/>
+        <img alt={flark.weather["0"].description} src={iconURL}/>
     </div>
     );
   }

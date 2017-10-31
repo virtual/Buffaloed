@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ModalBox from './QuizModal';
-import {Button, Icon} from 'semantic-ui-react';
-import FacebookShare from '../facebookshare/FacebookShare'
-import { Link } from 'react-router-dom';
+import { Icon} from 'semantic-ui-react';
+import FacebookShare from '../facebookshare/FacebookShare';
 
 export default class QuizAnswer extends Component {
   constructor() {
@@ -13,7 +12,6 @@ export default class QuizAnswer extends Component {
       currentScores: undefined,
       percentCorrect: undefined,
       completedQuiz: false
-  
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -30,14 +28,14 @@ export default class QuizAnswer extends Component {
         slug: this.props.sight,
         leaderboard: {
           email: JSON.parse(sessionStorage.getItem('user')).email,
-          score: parseInt(this.state.currentScores)
+          score: parseInt(this.state.currentScores, 10) // radix
         }
       };
       this.props.saveScores(myScore);    
     }
   }
   shareTweet(linktext){
-    var tweet = "https://twitter.com/intent/tweet?hashtags=yellowstoneodyssey&text=" + linktext+ "&url=https://montanacodeschool.com";
+    var tweet = "https://twitter.com/intent/tweet?hashtags=yellowstoneodyssey&text=" + linktext+ "&url=https://yellowstone-odyssey.herokuapp.com";
     return tweet
   }
 
@@ -60,8 +58,7 @@ export default class QuizAnswer extends Component {
   }
   //this returns the number correctly answered
   returnTotalScore(numAnswered){
-    let currentScores = 0;
-    let percentCorrect = 0;
+    let currentScores = 0; 
     if(numAnswered > 0) {
       currentScores = this.props.getLocalScores().reduce((a, b)=>{
       return a + b;
@@ -77,25 +74,25 @@ export default class QuizAnswer extends Component {
   }
 
   render () {
-
     let htmlQuizQ = [];
     let thisAnswer = '';
     if (JSON.parse(sessionStorage.getItem('user'))) {
       this.saveScoresToDB();
     }
-    let tweetText = encodeURI('I scored ' + this.state.percentCorrect + '%');
+    let tweetText = encodeURI('I scored ' + this.state.percentCorrect + '% on a Yellowstone Odyssey Quiz! ');
 
     // build answer for each question
     this.props.data.forEach(function(element, index) {   
       thisAnswer = element.question;
       element.options.forEach((e, i)=> { 
         if (element.scores[i] > 0) {
-          let result = e  + " (" + element.scores[i] + " point)";
+          let result = e;
           let extraInfo = '';
           if (element.info) {
             extraInfo = <blockquote>{element.info}</blockquote>;
           }
-          htmlQuizQ.push(<li><span className='answerQ'>{thisAnswer} <strong>{result}</strong></span>{extraInfo}</li>); 
+          let key = ("q"+index + "answer" + i);
+          htmlQuizQ.push(<li key={key}><span className='answerQ'>{thisAnswer} <strong>{result}</strong></span>{extraInfo}</li>); 
         }
       });
     });
