@@ -1,79 +1,64 @@
 import React, { Component } from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
+import ContactCard from './ContactCard';
 
 
 export default class ContactInfo extends Component {
+  constructor(){  
+    super()
+
+    this.displayContacts = this.displayContacts.bind(this);
+
+    this.contacts = [
+    { name: 'Jeanine Schoessler', 
+      desc: 'Montana Code School Person',
+      img: 'emily.jpg',
+      meta: 'Code Wizard',
+      email: 'Jeanine.MT@gmail.com',
+      twitter: "Graphical"
+    },
+    { name: 'Kate Ten',
+    desc: 'Montana Code School Full Time Student - Bozeman',
+    img: 'emily.jpg',
+    meta: 'Developer',
+    email: 'katharina.a.root@gmail.com'
+  },
+  { name: 'Rob Herrmann',
+    desc: 'Montana Code School Full Time Student - Bozeman',
+    img: 'emily.jpg',
+    meta: 'Time Traveller ',
+    email: 'robjherrmann@gmail.com',
+    twitter: 'RobJHerrmann'
+  },
+    { name: 'Emily Kimmel',
+    desc: 'huh',
+    img: 'emily.jpg',
+    meta: 'what now?',
+    email: 'kimmelem@hotmail.com',
+    twitter: 'EmKim5'
+  }
+  ] 
+  this.cardhtml = []; // define our empty card array that will get info pushed into it
+  }
+
+      // this function loops over the contacts array
+  displayContacts(contacts) {
+    contacts.forEach((element, index)=> {  //initiating our forEach loop on our contact array by each element within our four objects
+      //this.cardhtml.push(<ContactCard {...element}/>)
+      this.cardhtml.push(<ContactCard twitter={element.twitter} name={element.name} desc={element.desc} email={element.email} meta={element.meta} img={element.img} key={index}/>)
+      //the line above pushes the element of each object within the contact array into the cardhtml array with the ContactCard's formatting 
+    })
+  }
+
+  componentDidMount(){
+    this.displayContacts(this.contacts) // this calls our displayContacts function  
+  } 
+
   render () {
     return (
-  <Card.Group>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='small' src='https://heroichollywood.b-cdn.net/wp-content/uploads/2016/12/gandalf-1024x576.jpg?x42694' />
-        <Card.Header>
-          Jeanine Schoessler
-        </Card.Header>
-        <Card.Meta>
-          Code Wizard
-        </Card.Meta>
-        <Card.Meta>
-          <a href='mailto:jeanine.mt@gmail.com'>jeanine.mt@gmail.com</a>
-        </Card.Meta>
-        <Card.Description>
-        <strong>Montana Code School Full Time Student - Bozeman</strong>
-        </Card.Description>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='small' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAMvGy5l_A7Ps_tRsAOWsb_WSECBsJyTS-KEYBNT-CZOTpLEkR' />
-        <Card.Header>
-          Emily Kimmel
-        </Card.Header>
-        <Card.Meta>
-          Where am I?
-        </Card.Meta>
-        <Card.Meta>
-          <a href="mailto:kimmelem@hotmail.com">kimmelem@hotmail.com</a>
-        </Card.Meta>
-        <Card.Description>
-        <strong>Montana Code School Full Time Student - Bozeman</strong>
-        </Card.Description>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='small' src='http://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg' />
-        <Card.Header>
-          Kate Ten
-        </Card.Header>
-        <Card.Meta>
-          Developer
-        </Card.Meta>
-        <Card.Meta>
-          <a href="mailto:katharina.a.root@gmail.com">katharina.a.root@gmail.com</a>
-        </Card.Meta>
-        <Card.Description>
-        <strong>Montana Code School Full Time Student - Bozeman</strong>
-        </Card.Description>
-      </Card.Content>
-    </Card>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='small' src='http://3milliondogs.com/blog-assets-two/2015/02/spacedogs.png' />
-        <Card.Header>
-          Rob Herrmann
-        </Card.Header>
-        <Card.Meta>
-          Time Traveller 
-        </Card.Meta>
-        <Card.Meta>
-          <a href="mailto:robjherrmann@gmail.com">robjherrmann@gmail.com</a>
-        </Card.Meta>
-        <Card.Description>
-        <strong>Montana Code School Full Time Student - Bozeman</strong>
-        </Card.Description>
-      </Card.Content>
-    </Card>
+    <Card.Group stackable={true} itemsPerRow={4}>
+      
+      {this.cardhtml}
   </Card.Group>
  );
 }
