@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Header } from 'semantic-ui-react';
 const axios = require('axios');
 
 export default class YNP extends Component {
@@ -50,6 +51,8 @@ export default class YNP extends Component {
       });
       return (
         <div>
+           <Header as='h2' dividing>Park Entrance Fees</Header> 
+          
          {costHTML}
         </div>
       );

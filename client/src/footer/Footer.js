@@ -34,7 +34,7 @@ export default class Footer extends Component {
                 </Grid.Column>
                 <Grid.Column width={5}>
                   <Header inverted as='h4'>
-                  <a className="item" target="_blank" rel="noopener noreferrer" href='https://forecast.weather.gov/MapClick.php?zoneid=WYZ001'>Current Weather</a> 
+                  <a title="Weather at North Entrance" className="item" target="_blank" rel="noopener noreferrer" href='https://forecast.weather.gov/MapClick.php?zoneid=WYZ001'>Current Weather</a> 
                   </Header>
                   <Weather />
                 </Grid.Column>

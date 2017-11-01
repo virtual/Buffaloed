@@ -73,9 +73,12 @@ componentWillMount() {
   render () {
     
     return (
-      <Card.Group stackable={true} itemsPerRow={4}> 
-        {this.cardhtml}
-      </Card.Group>
+      <div>
+        <h1>About Our Team</h1>
+        <Card.Group stackable={true} itemsPerRow={4}> 
+          {this.cardhtml}
+        </Card.Group>
+      </div>
     );
   }
 }

@@ -43,9 +43,10 @@ export default class Weather extends Component {
       return (
         <div>        
           <WeatherWidget weatherData={this.state.weatherData}/>
-          <p>{tempF}°F
+          <p>
+          {tempF}°F
           <br/>
-          {this.state.weatherData.weather[0].description}</p>
+          {this.state.weatherData.weather[0].description} </p>
         </div>
       );
     } else {
