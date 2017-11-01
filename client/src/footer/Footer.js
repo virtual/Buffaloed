@@ -39,7 +39,7 @@ export default class Footer extends Component {
                   <Weather />
                 </Grid.Column>
                 <Grid.Column width={5}>
-                <Image alt='Yellowstone Odyssey' src='/img/logo-transparent-grey.png' size='medium'/>        
+                <Image alt='Yellowstone Odyssey' src='/img/logo-transparent-grey.png' />        
                 </Grid.Column>
               </Grid.Row>
             </Grid>

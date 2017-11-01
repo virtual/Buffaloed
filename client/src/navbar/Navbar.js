@@ -31,7 +31,7 @@ export default class Navbar extends Component {
       <div>
         <Menu icon stackable> 
           <Link className="item" to="/"> 
-        <Image alt='Yellowstone Odyssey' src='/img/logowhite.png' size='small'/>        
+        <Image alt='Yellowstone Odyssey' src='/img/logo-transparent.png' size='small'/>        
           </Link>
           <Link className="item" to="/about">About</Link>
           <Link className="item" to="/sights">Sights</Link>
