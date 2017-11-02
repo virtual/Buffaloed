@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react'
+import { Table, Button } from 'semantic-ui-react'
 import TableRow from './TableRow';
+import { Link } from 'react-router-dom'; 
 let axios = require('axios');
 
 export default class Admin extends Component {
@@ -43,21 +44,25 @@ export default class Admin extends Component {
     });
   
     return(
-    <Table sortable compact basic='very' celled>
-      <Table.Header>
-        <Table.Row>
-        <Table.HeaderCell>
-            Edit
-          </Table.HeaderCell>
+      <div>
+       <div><Button as={Link} to="/add" floated="right" primary >Add New Sight</Button>
+       <h1>Edit Sights</h1></div>
+      <Table sortable compact unstackable celled>
+        <Table.Header>
+          <Table.Row>
           <Table.HeaderCell>
-            Name
-          </Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
-      <Table.Body>
-        {sightList}
-      </Table.Body>
-    </Table>
+              Edit
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              Name
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {sightList}
+        </Table.Body>
+      </Table>
+    </div>
     )  
   }
 }

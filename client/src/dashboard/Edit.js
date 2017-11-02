@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EditForm from './EditForm';
+import { Link } from 'react-router-dom';
 const axios = require('axios');
 
 export default class Edit extends Component {
@@ -52,6 +53,7 @@ export default class Edit extends Component {
       let allInfo = this.state.sight.sightData[0];
       return (
         <div> 
+          <Link to='/admin'>Back to Admin Dashboard</Link>
         <EditForm info={allInfo} slug={this.slug}/> 
         </div>
       );

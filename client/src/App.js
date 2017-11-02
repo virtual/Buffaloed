@@ -11,6 +11,7 @@ import Sights from './sights/Sights';
 import Sight from './sights/Sight'; 
 import Admin from './dashboard/Admin'; 
 import Edit from './dashboard/Edit';
+import AddForm from './dashboard/AddForm'
 import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
 import About from './about/About';
@@ -68,6 +69,7 @@ class App extends Component {
             <Route path="/edit/:slug" render={()=> <Edit  getUser={this.getUser} /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>
             <Route path='/about' render={()=> <About /> }/>
+            <Route path='/add' render={()=> <AddForm getUser={this.getUser} /> }/>
             </Container>
             <Footer />
          </div>

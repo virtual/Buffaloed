@@ -62,7 +62,7 @@ export default class Dashboard extends Component {
               <p><strong>Settings: </strong><br/>
               Email: {this.state.user.email}  
               </p>
-              {adminBtn}
+              {adminBtn} 
             </Grid.Column>
             <Grid.Column computer={8} mobile={16} tablet={8}>
               <UserPosition />

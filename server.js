@@ -129,18 +129,50 @@ app.get("/sight/:slug", function(req, res, next){
 
 // saves sight on update
 app.post('/saveSight', function(req, res, next) {
+  if(req.body.savetype === 'add'){ 
+
+    // Add new sight to db for slug/sight 
+    let sight = new Sight();   
+    sight.slug = req.body.slug;  
+    sight.name = req.body.name;
+    sight.img = req.body.img;
+    sight.lat = req.body.lat;
+    sight.lng = req.body.lng;
+    sight.type = req.body.type;
+    sight.desc = req.body.desc;  
+
+    sight.save(
+      function(err, newSight){
+        if(err) {
+          next(err);
+        } else {
+          res.json(newSight);
+        }
+      }
+    )
+    } else { 
   Sight.findOneAndUpdate(
     {slug: req.body.slug}, 
     {$set:req.body}, 
     {new: true}, 
-
     (err, doc)=>{
       if(err){
-          console.log("Something wrong when updating data!");
+          console.log("Something wrong when updating data!")
       } else {
         res.json({data: doc});
       }
   });
+  }
+});
+
+app.post('/deleteSight', function(req, res, next) {
+  Sight.findOneAndRemove({slug:req.body.slug}, (err, toDelete) => {  
+    let response = {
+      message: "Sight successfully deleted",
+      id: toDelete._id
+  }; 
+  res.status(200).send(response);
+ });
 });
 
 app.post('/signup', function(req, res, next) {

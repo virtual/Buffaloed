@@ -19,7 +19,7 @@ export default class Weather extends Component {
     
     // move to server and return data object
     var weatherApiKey = process.env.REACT_APP_WEATHER_API;
-    var url = 'https://api.openweathermap.org/data/2.5/weather?q=Gardiner&units=imperial&appid=' + weatherApiKey;
+    var url = 'https://api.openweathermap.org/data/2.5/weather?q=GardinerMT&units=imperial&appid=' + weatherApiKey;
     // console.log(url + "this is the url");
     fetch(url).then(function (response) {
       return response.json();
