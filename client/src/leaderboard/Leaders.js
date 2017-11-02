@@ -45,7 +45,7 @@ export default class Leaders extends Component {
           </Header.Content>
         </Header>
       </Table.Cell>
-      <Table.Cell>{this.props.score}</Table.Cell>
+      <Table.Cell textAlign="center">{this.props.score}</Table.Cell>
     </Table.Row>
     );
   }

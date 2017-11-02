@@ -36,7 +36,7 @@ export default class ModalBox extends Component {
           <h3>Not all of the quiz questions have been answered yet.</h3>
         </Modal.Content>
         <Modal.Actions>
-          <Button color='green' onClick={this.handleClose} inverted>
+          <Button color='blue' onClick={this.handleClose} >
             <Icon name='checkmark' /> Got it
           </Button>
         </Modal.Actions>

@@ -23,7 +23,7 @@ export default class ContactCard extends Component {
       </p>
     ) 
     return (
-      <Card image={img} fluid={true} header={this.props.name}
+      <Card color="blue" image={img} fluid={true} header={this.props.name}
       meta={this.props.meta}  extra={extra}>
     </Card>
     );

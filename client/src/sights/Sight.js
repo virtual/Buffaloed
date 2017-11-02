@@ -87,7 +87,7 @@ export default class Sight extends Component {
               <Image src={img} alt={allInfo.name} />
             </Grid.Column>
             <Grid.Column computer={6} mobile={16} tablet={10}>
-            <p>{allInfo.desc}</p>
+            <p className="sight-desc">{allInfo.desc}</p>
             <Leaderboard scores={this.state.scores}/>
               </Grid.Column>
               <Grid.Column computer={6} mobile={16} tablet={16}>

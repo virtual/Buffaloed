@@ -35,10 +35,7 @@ export default class UserPosition extends Component {
     } else {
       /* geolocation IS NOT available */
     }
-  } else {
-    // this.loadPoints()
-    // this.getClosest();
-  }
+  } 
    
   }
 
@@ -129,7 +126,9 @@ export default class UserPosition extends Component {
       }
     }
     if ((this.state.initialized) && ((this.state.sightInit))){
+      if (this.state.sight.sightData[0]) { 
       let cSight = this.state.sight.sightData[0];
+      console.log(cSight);
       let cImg = "/img/sights/" + cSight.img;
       let cLink = "/sight/" + cSight.slug;
       return (
@@ -154,6 +153,11 @@ export default class UserPosition extends Component {
          </div>
         </div>
       );
+    } else {
+      return (
+        <div className="imageNotFound"></div>
+      )
+    }
   } else {
     return(
       <div></div>

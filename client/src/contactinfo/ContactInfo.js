@@ -75,7 +75,7 @@ componentWillMount() {
     return (
       <div>
         <h1>About Our Team</h1>
-        <Card.Group stackable={true} itemsPerRow={4}> 
+        <Card.Group doubling stackable={true} itemsPerRow={4}> 
           {this.cardhtml}
         </Card.Group>
       </div>

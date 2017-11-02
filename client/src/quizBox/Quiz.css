@@ -110,30 +110,31 @@ cursor: pointer;}
   content: " ";
 }
 
-#quizForm a.tryAgain {
-  background-color: #55acee;
+#quizForm a.tryAgain { 
   color: white;
   font-size: 14px;
-  text-align: center;
-  width: 120px;
-  display: block;
-  float: left; 
-  
+  text-align: center; 
+  display: inline-block;
+ 
 }
 
 a.ui.tryAgain.button {
   clear: both;
 }
 
-p.tryAgain-container {
-  clear: both;
-  display: block;
-  padding: 20px;
-  width: 100%;
-  margin: 0 auto;
-}
+ 
 
 .myQuiz ul {
   clear: both;
   display: block;
+}
+#quizForm p.tryAgain-container {
+  padding: 0; 
+  margin-bottom:10px;
+}
+
+#quizForm p.tryAgain-container:after {
+  content: " ";
+  display: block;
+  clear: both;
 }

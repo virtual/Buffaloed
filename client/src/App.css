@@ -40,3 +40,6 @@ body, html {
 body, html {
   height: auto!important;
 }
+p.sight-desc {
+  font-size: 1.2rem;
+}

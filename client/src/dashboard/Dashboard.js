@@ -15,18 +15,17 @@ export default class Dashboard extends Component {
 
   componentWillMount() {
     this.props.getUser().then((data)=>{
-      console.log(data);
+      // console.log(data);
       if (data.email) { // if data returns user object instead of error
         this.setState({
           user: data,
           initialized: true
         })
-      console.log("logged in!");
+      // console.log("logged in!");
       
       } else {
-        console.log("not logged")
-         
-          window.location.href = "/login"; 
+        // console.log("not logged")
+        window.location.href = "/login"; 
       }
     }, (err)=>{
       //do stuff with err

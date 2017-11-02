@@ -109,7 +109,7 @@ export default class QuizAnswer extends Component {
           <h3>Answers</h3>
           <p>You scored {this.state.percentCorrect}%, {this.state.currentScores} out of {this.state.numAnswered} correct</p>
           <p className='tryAgain-container'>
-          <a className="ui tryAgain button" onClick={() => {window.location.reload()}} >Try Again</a>
+          <a className="ui tryAgain button blue" onClick={() => {window.location.reload()}} ><Icon name="repeat"/> Try Again</a>
           </p>
           <ul>
             {htmlQuizQ}

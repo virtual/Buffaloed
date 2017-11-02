@@ -24,7 +24,7 @@ export default class YNP extends Component {
       // url, {"Access-Control-Allow-Origin": "*"},
       manualJSON
     ).then( (res)=> {
-      console.log(res.status);
+      // console.log(res.status);
       if (res) { 
         this.setState({
           initialized: true,
@@ -44,10 +44,10 @@ export default class YNP extends Component {
   render () {
     let costHTML = [];
     if (this.state.initialized) {      
-      this.state.ynpData.data["0"].entranceFees.forEach((e)=> {
-       console.log(e);
+      this.state.ynpData.data["0"].entranceFees.forEach((e, i)=> {
+       let key = "fee" + i;
        let costConverted = "$" + e.cost.toFixed(2);
-       costHTML.push(<p><strong>{e.title} - {costConverted}</strong> <br/>{e.description}</p>); 
+       costHTML.push(<p key={key}><strong>{e.title} - {costConverted}</strong> <br/>{e.description}</p>); 
       });
       return (
         <div>

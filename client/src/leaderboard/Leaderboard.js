@@ -26,7 +26,7 @@ export default class Leaderboard  extends Component {
         })
       }
       return(
-      <Table sortable compact basic='very' celled collapsing>
+      <Table padded unstackable compact celled collapsing>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>

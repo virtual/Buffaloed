@@ -15,7 +15,7 @@ export default class FeatureCard extends Component {
       <p>Learn more</p>
     ) 
     return (
-      <Card
+      <Card 
       fluid={true}
       color='blue'
       as={Link} to={link}
