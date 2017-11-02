@@ -60,8 +60,8 @@ class AddForm extends Component {
         </h1>
         <Form>
           <Form.Group widths='equal'>
-          <Form.Field control={Input} name='slug' value={this.state.slug} label='Slug' placeholder='Lowercase and dashes only'  onChange={this.handleChange}  /> 
-          <Form.Field control={Input} name='name' value={this.state.name} label='Sight name' placeholder='Sight name'  onChange={this.handleChange}  /> 
+          <Form.Field control={Input} required name='slug' value={this.state.slug} label='Slug' placeholder='Lowercase and dashes only'  onChange={this.handleChange}  /> 
+          <Form.Field control={Input} required name='name' value={this.state.name} label='Sight name' placeholder='Sight name'  onChange={this.handleChange}  /> 
           </Form.Group>
           <Form.Field control={TextArea} name='desc' value={this.state.desc} label='Description' placeholder='Information for the sight' onChange={this.handleChange} /> 
           <Form.Group widths='equal'>

@@ -53,7 +53,7 @@ export default class Edit extends Component {
       let allInfo = this.state.sight.sightData[0];
       return (
         <div> 
-          <Link to='/admin'>Back to Admin Dashboard</Link>
+          <Link to='/admin'>&lt; Back to Admin Dashboard</Link>
         <EditForm info={allInfo} slug={this.slug}/> 
         </div>
       );

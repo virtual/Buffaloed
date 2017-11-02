@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, Input, TextArea } from 'semantic-ui-react'
+import { Button, Form, Input, TextArea, Icon } from 'semantic-ui-react'
 const axios = require('axios');
 
 class EditForm extends Component { 
@@ -103,7 +103,7 @@ class EditForm extends Component {
           </Form.Group>
           <Form.Group widths="equal">
           <Form.Field floated="left" loading={this.state.loadingStyle} onClick={this.handleClick} control={Button} primary>Save</Form.Field>
-          <Form.Field floated="right" loading={this.state.loadingStyleDelete} onClick={this.deleteItem} control={Button} color="red">Delete</Form.Field>
+          <Form.Field floated="right" loading={this.state.loadingStyleDelete} onClick={this.deleteItem} control={Button} color="red"><Icon name='trash' /> Delete</Form.Field>
           </Form.Group>
         </Form>
       </div>

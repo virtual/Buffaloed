@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Button } from 'semantic-ui-react'
+import { Table, Button, Icon } from 'semantic-ui-react'
 import TableRow from './TableRow';
 import { Link } from 'react-router-dom'; 
 let axios = require('axios');
@@ -45,7 +45,7 @@ export default class Admin extends Component {
   
     return(
       <div>
-       <div><Button as={Link} to="/add" floated="right" primary >Add New Sight</Button>
+       <div><Button as={Link} to="/add" floated="right" primary ><Icon name='plus' /> Add New Sight</Button>
        <h1>Edit Sights</h1></div>
       <Table sortable compact unstackable celled>
         <Table.Header>
