@@ -44,8 +44,9 @@ app.use(passport.session());
 
 
 // needs to be called username 
-passport.use(new LocalStrategy({username: 'email', password: 'password'}, 
+passport.use(new LocalStrategy({email: 'username', password: 'password'},
 function(email, password, done){
+  console.log(email, password);
   // hit the db and do some matching
   User.findOne({
     email: email
@@ -300,10 +301,12 @@ app.post('/scoreInfoByEmail', function(req, res, next) {
 
 // adds passport middleware
 app.post('/login', function (req, res, next) {
+  console.log("login)")
   passport.authenticate("local", function(err, user){
     if (err) {
       res.json({ found: false, success: false, err: true, message: err}); // can also send res.status
     } else if (user) {
+      console.log(user);
       // write code to send user to dashboard - passport 
       req.logIn(user, (err)=>{
         //console.log(user);
