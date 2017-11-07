@@ -13,13 +13,13 @@ export default class UserStores {
   }
     
   loginUser(username, password) {
-    console.log(username, password);
+    // console.log(username, password);
     return new Promise((resolve, reject) => {
       axios.post('/login', {
         username: username,
         password: password
      }).then((answer) => { 
-        console.log(answer);
+        // console.log(answer);
         if (answer.data.success) {
           let loggedUser={
             firstName: answer.data.firstName, 
@@ -33,12 +33,47 @@ export default class UserStores {
           
         } else {
           reject(answer)
-          console.log(answer.data.message);
+          // console.log(answer.data.message);
           this.message = answer.data.message
         }
         resolve(answer)
       })
   });
+}
+
+
+createNewUser(newUserObj) {
+  return new Promise((resolve, reject)=>{
+  axios.post("/signup", 
+   {firstName: newUserObj.firstName,
+    lastName: newUserObj.lastName,
+    email: newUserObj.email,
+    password: newUserObj.password}
+    ).then((userObj)=>{
+      if (userObj.data) {
+        this.user = userObj.data
+      } else {
+        console.log("user add failed");
+        reject(userObj);
+      }
+      resolve(userObj);
+    })
+  })
+}
+
+logout() {
+  axios.get('/logout').then((res)=> {
+    console.log(res);
+    if (res !== undefined) { 
+      this.user = null;  
+      sessionStorage.removeItem('user');
+    }  else {
+      console.log('undefined');
+    }
+  }, function(err){
+    console.log(err);
+  });
+ 
 }
 
 

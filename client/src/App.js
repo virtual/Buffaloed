@@ -64,9 +64,9 @@ class App extends Component {
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights getUser={this.getUser} /> }/>
             <Route path='/sight/:slug' render={()=> <Sight getUser={this.getUser} /> }/>
-            <Route path="/login" render={()=> <Login setUser={this.setUser} getUser={this.getUser}  /> }/>
-            <Route path="/logout" render={()=> <Logout user={this.state.user} setUser={this.setUser} getUser={this.getUser}  /> }/>
-            <Route path="/signup" render={()=> <SignUp setUser={this.setUser}  /> }/>
+            <Route path="/login" render={()=> <Login /> }/>
+            <Route path="/logout" render={()=> <Logout   /> }/>
+            <Route path="/signup" render={()=> <SignUp /> }/>
             <Route path="/dashboard" render={()=> <Dashboard user={this.state.user} getUser={this.getUser} setUser={this.setUser}  /> }/>
             <Route path="/admin" render={()=> <Admin  getUser={this.getUser} /> }/>
             <Route path="/edit/:slug" render={()=> <Edit  getUser={this.getUser} /> }/>
