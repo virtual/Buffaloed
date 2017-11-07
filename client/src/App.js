@@ -17,6 +17,7 @@ import ContactInfo from './contactinfo/ContactInfo';
 import About from './about/About';
 import Dashboard from './dashboard/Dashboard';
 import UserStore from './stores/UserStore';
+import SightStore from './stores/SightStore';
 import {Provider} from 'mobx-react';
 const axios = require('axios');
 
@@ -55,14 +56,14 @@ class App extends Component {
 
   render() {
     return ( 
-    <Provider userStore={new UserStore()}>
+    <Provider userStore={new UserStore()} sightStore={new SightStore()}>
       <div className="App">
         <Router>
           <div>
             <Navbar />
             <Container>
             <Route exact path="/" render={()=> <Homepage /> }/>
-            <Route path='/sights' render={()=> <Sights getUser={this.getUser} /> }/>
+            <Route path='/sights' render={()=> <Sights /> }/>
             <Route path='/sight/:slug' render={()=> <Sight getUser={this.getUser} /> }/>
             <Route path="/login" render={()=> <Login /> }/>
             <Route path="/logout" render={()=> <Logout   /> }/>
