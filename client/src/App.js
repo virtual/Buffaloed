@@ -16,6 +16,8 @@ import Footer from './footer/Footer';
 import ContactInfo from './contactinfo/ContactInfo';
 import About from './about/About';
 import Dashboard from './dashboard/Dashboard';
+import UserStore from './stores/UserStore';
+import {Provider} from 'mobx-react';
 const axios = require('axios');
 
 class App extends Component {
@@ -52,7 +54,8 @@ class App extends Component {
 
 
   render() {
-    return (
+    return ( 
+    <Provider userStore={new UserStore()}>
       <div className="App">
         <Router>
           <div>
@@ -73,9 +76,9 @@ class App extends Component {
             </Container>
             <Footer />
          </div>
-         </Router>
-         
+        </Router>     
       </div>
+    </Provider>
     );
   }
 }

@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Container, Button, Form, Grid, Header, Message, Segment, Icon } from 'semantic-ui-react'
+import { inject, observer } from 'mobx-react';
 var axios = require('axios');
 
-class Login extends Component {
+var Login = observer(class Login extends Component{
+
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: "",
-      message: "",
-      firstName: "",
-      lastName: ""
+      password: ""
     };
-    this.loginUser = this.loginUser.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleEmailChange(event) {
@@ -26,41 +25,28 @@ class Login extends Component {
     this.setState({ password: event.target.value });
   }
 
-  loginUser() {
-      axios.post('/login', {
-        username: this.state.email,
-        password: this.state.password
-    }).then((answer) => { 
-      if (answer.data.success) {
-        let loggedUser={
-          firstName: answer.data.firstName, 
-          lastName: answer.data.lastName,
-          email: this.state.email,
-          id: answer.data.id,
-          img: answer.data.img
-        }
-        this.props.setUser(
-          loggedUser
-        ); 
-        sessionStorage.setItem('user', JSON.stringify(loggedUser));  
-        this.props.history.push("/dashboard");
-      } else {
-        console.log(answer.data.message);
-        this.setState({
-          message: answer.data.message
-        });
+  handleClick(){
+    this.props.userStore.loginUser(this.state.email, this.state.password
+      ).then((res)=>{
+        console.log(res);
+        if (res.data.success){
+         this.props.history.push("/dashboard"); 
+        } else {
+          console.log(res.data.message)
       }
-    });
+    }).catch((e)=> {
+      console.log(e)
+    })
   }
 
   render() {
-    var userMessage = this.state.message ? (
+    var userMessage = this.props.userStore.message ? (
       <Container>
       <Message
       warning
       header='Error: '
       list={[
-         this.state.message
+         this.props.userStore.message
       ]}
     />
       </Container>
@@ -102,7 +88,7 @@ class Login extends Component {
               <Form.Input placeholder="Password" id="password" type="password" name="password" onChange={this.handlePasswordChange}
               fluid icon='lock' iconPosition='left'/>
                 
-              <Button type='submit' onClick={this.loginUser} color='blue' fluid size='large'>Login</Button>
+              <Button type='submit' onClick={this.handleClick} color='blue' fluid size='large'>Login</Button>
               </Segment>
             </Form>
 
@@ -117,6 +103,6 @@ class Login extends Component {
       </Container>
     );
   }
-}
+})
 
-export default withRouter(Login);
+export default withRouter(inject('userStore')(Login));
