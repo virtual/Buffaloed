@@ -28,7 +28,7 @@ var Login = observer(class Login extends Component{
   handleClick(){
     this.props.userStore.loginUser(this.state.email, this.state.password
       ).then((res)=>{
-        console.log(res);
+        // console.log(res);
         if (res.data.success){
          this.props.history.push("/dashboard"); 
         } else {

@@ -1,25 +1,27 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react';
+import { inject, observer } from 'mobx-react';
 
-export default class Navbar extends Component {
-  state = { 
-    activeItem: 'home' 
+var Navbar = observer(class Navbar extends Component {
+  constructor() {
+    super();
+    this.state = { 
+      activeItem: 'home' 
+    } 
   } 
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  componentDidMount() {
-    this.props.getUser();
-  }
   render() {
-    const { activeItem } = this.state
-    let first = (this.props.user.firstName) ? this.props.user.firstName : '';
-    let img = (this.props.user.img) ? '/img/avatars/' + this.props.user.img : '/img/avatars/deer.png'; 
+    const { activeItem } = this.state;
+
     let entryLinks = [];
     
-    if (this.props.user.firstName) {
+    if (this.props.userStore.user) {
+      let first = (this.props.userStore.user) ? this.props.userStore.user.firstName : ''; // ternary operator
+      let img = (this.props.userStore.user) ? '/img/avatars/' + this.props.userStore.user.img : '/img/avatars/deer.png'; 
       entryLinks.push(<Link className="item" key='linkDashboard' to="/dashboard"><Image avatar size="mini" src={img}/> {first}</Link>);
       entryLinks.push(<Link className="item" key='linkLogout' to="/logout">Logout</Link>);
     } else {
@@ -47,4 +49,6 @@ export default class Navbar extends Component {
       </div>
     )
   }
-}
+});
+
+export default inject("userStore")(Navbar);

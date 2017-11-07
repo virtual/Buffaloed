@@ -59,7 +59,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Navbar getUser={this.getUser} user={this.state.user} />
+            <Navbar />
             <Container>
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights getUser={this.getUser} /> }/>
@@ -67,7 +67,7 @@ class App extends Component {
             <Route path="/login" render={()=> <Login /> }/>
             <Route path="/logout" render={()=> <Logout   /> }/>
             <Route path="/signup" render={()=> <SignUp /> }/>
-            <Route path="/dashboard" render={()=> <Dashboard user={this.state.user} getUser={this.getUser} setUser={this.setUser}  /> }/>
+            <Route path="/dashboard" render={()=> <Dashboard /> }/>
             <Route path="/admin" render={()=> <Admin  getUser={this.getUser} /> }/>
             <Route path="/edit/:slug" render={()=> <Edit  getUser={this.getUser} /> }/>
             <Route path='/contactinfo' render={()=> <ContactInfo /> }/>

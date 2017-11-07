@@ -29,14 +29,11 @@ export default class UserPosition extends Component {
       this.fetchSights();
     if ("geolocation" in navigator) {
       /* geolocation is available */
-        this.geoFindMe();
-      
-    
-    } else {
-      /* geolocation IS NOT available */
-    }
-  } 
-   
+        this.geoFindMe();  
+      } else {
+        /* geolocation IS NOT available */
+      }
+    }  
   }
 
   geoFindMe() {
@@ -55,10 +52,7 @@ export default class UserPosition extends Component {
           maximumAge: 1000
       });
      
-  } 
-
-   
-
+  }  
   fetchSights() {
     var url = '/sights';
     axios.get(url, { 
@@ -128,7 +122,7 @@ export default class UserPosition extends Component {
     if ((this.state.initialized) && ((this.state.sightInit))){
       if (this.state.sight.sightData[0]) { 
       let cSight = this.state.sight.sightData[0];
-      console.log(cSight);
+      // console.log(cSight);
       let cImg = "/img/sights/" + cSight.img;
       let cLink = "/sight/" + cSight.slug;
       return (
@@ -143,13 +137,12 @@ export default class UserPosition extends Component {
             <Item as={Link} to={cLink}>
               <Item.Image size='tiny' src={cImg} />
               <Item.Content verticalAlign='middle'><strong>{cSight.name}</strong>
-                  <Item.Extra>
-              <Icon name='map signs' /> {(this.loadPoints(cSight.lat, cSight.lng)).toFixed(2)} miles away
-            </Item.Extra>
-        </Item.Content>
-            </Item>
-    
-         </Item.Group>
+                <Item.Extra>
+                  <Icon name='map signs' /> {(this.loadPoints(cSight.lat, cSight.lng)).toFixed(2)} miles away
+                </Item.Extra>
+              </Item.Content>
+            </Item>    
+          </Item.Group>
          </div>
         </div>
       );
