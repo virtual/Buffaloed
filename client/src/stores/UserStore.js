@@ -1,7 +1,7 @@
 import {extendObservable} from 'mobx';
 var axios = require('axios');
 
-export default class UserStores {
+export default class UserStore {
   constructor() {
     extendObservable(this, {
       user: null,
@@ -77,4 +77,4 @@ logout() {
 }
 
 
-} // closes UserStores
+} // closes UserStore
