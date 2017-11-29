@@ -59,9 +59,9 @@ class App extends Component {
     <Provider userStore={new UserStore()} sightStore={new SightStore()}>
       <div className="App">
         <Router>
-          <div>
+          <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
             <Navbar />
-            <Container>
+            <Container style={{flex: 1}}>
             <Route exact path="/" render={()=> <Homepage /> }/>
             <Route path='/sights' render={()=> <Sights /> }/>
             <Route path='/sight/:slug' render={()=> <Sight getUser={this.getUser} /> }/>
