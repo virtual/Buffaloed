@@ -9,12 +9,12 @@ export default class SightStore {
     this.fetchSights();
   }
   fetchSights() {
-    console.log('fetching sights')
+    // console.log('fetching sights')
     return new Promise((resolve, reject) => {
       axios.get('/sights', {
       }).then((sightObj) => {
         if (sightObj.data !== undefined) {
-          console.log(sightObj.data);
+          // console.log(sightObj.data);
           this.sights = sightObj.data;
         } else {
           console.log('undefined')
